@@ -1,48 +1,25 @@
-# Unofficial Volunteer Course Map — Starter
+# Unofficial Volunteer Course Directions - Version 2
 
-This package contains a first working mobile map and an onsite data collector.
+## What changed
+- Uses cropped artwork from the official public 2026 spectator-map PDF.
+- Separates the geographic full-course map from the enlarged Clubhouse & Fan Zone detail.
+- Removes the need for the printed legend; the app's filter buttons and menu key are the interactive legend.
+- Adds more field-scout categories and photo references.
+- Keeps approximate markers marked with yellow question marks until validated onsite.
 
-## Works now
+## Replace the current GitHub Pages version
+1. Extract this ZIP.
+2. In the GitHub repository, upload all files from this folder.
+3. When GitHub asks about duplicates, replace/overwrite the existing files.
+4. Commit with a message such as `Update to official two-view course map`.
+5. Wait for GitHub Pages to redeploy.
+6. Refresh the website. On a phone, close and reopen the tab if the old cached version remains.
 
-- Mobile-friendly tournament map.
-- Tap-to-filter restrooms, first aid, concessions, gate, volunteer HQ and holes.
-- Direct category links such as `?category=restroom`.
-- Pan and zoom.
-- Share/copy link.
-- Offline caching after the first successful load.
-- Field Scout page that captures GPS points and records cart-path tracks.
-- JSON export.
+## Testing links
+- Main map: `/index.html`
+- Clubhouse view: `/?view=clubhouse`
+- Restroom filter: `/?view=course&category=restroom`
+- Field collector: `/scout.html`
 
-## Not final yet
-
-- Markers are approximate.
-- Automatic nearest-destination selection is not enabled.
-- Live location requires at least three calibration anchors.
-- Safe routing requires cart-path and restriction data.
-- Before broad public use, replace the supplied image with a clearly public spectator map or confirm permission to reuse it.
-
-## Free deployment with GitHub Pages
-
-1. Create a free GitHub account.
-2. Create a new **public** repository named `blue-championship-map`.
-3. Choose **Add file → Upload files**.
-4. Upload every file from this package. Do not upload only the ZIP.
-5. Commit the files.
-6. Open **Settings → Pages**.
-7. Choose **Deploy from a branch**.
-8. Select `main` and `/ (root)`, then Save.
-9. Wait a few minutes for GitHub to show the public URL.
-10. Open the site on your phone.
-
-The onsite collector will be at:
-
-`https://YOUR-GITHUB-NAME.github.io/blue-championship-map/scout.html`
-
-## After scouting
-
-Upload the exported JSON and photos back to ChatGPT. The next build can add:
-- Exact pins.
-- Live “You are here.”
-- Nearest restroom / first aid / concession.
-- Safe route lines and simple walking directions.
-- Full-map and category QR codes.
+## Important
+The base artwork is from the official public spectator-map PDF. The interactive tool remains unofficial. Confirm tournament permission before broad distribution or printing.

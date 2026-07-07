@@ -1,41 +1,73 @@
 
-const MAP_DATA = {
-  title:"Unofficial Volunteer Course Map",
-  image:{width:2048,height:955},
+const APP_DATA = {
+  categories: {
+    essentials:{label:"Essentials",icon:"★"},
+    all:{label:"All",icon:"•"},
+    restroom:{label:"Restrooms",icon:"🚻"},
+    firstaid:{label:"First aid",icon:"✚"},
+    concession:{label:"Concessions",icon:"🥤"},
+    gate:{label:"Gate",icon:"G"},
+    clubhouse:{label:"Clubhouse/Fan Zone",icon:"C"},
+    fanarea:{label:"Fan areas",icon:"★"},
+    volunteer:{label:"Volunteer HQ",icon:"V"},
+    proshop:{label:"Pro shop",icon:"●"},
+    hospitality:{label:"Hospitality",icon:"H"},
+    accessible:{label:"Accessible",icon:"♿"},
+    water:{label:"Water",icon:"W"},
+    hole:{label:"Holes",icon:"⛳"}
+  },
   calibration:{anchors:[]},
-  destinations:[
-    {id:"restroom-8910",name:"Restrooms near Holes 8/9/10",category:"restroom",x:77.3,y:5.2,icon:"🚻",verified:false,notes:"Approximate icon location from the supplied spectator map."},
-    {id:"restroom-1213",name:"Restrooms near Holes 12/13",category:"restroom",x:84.3,y:40.6,icon:"🚻",verified:false,notes:"Approximate icon location from the supplied spectator map."},
-    {id:"restroom-143",name:"Restrooms near Holes 14/3 junction",category:"restroom",x:64.3,y:62.0,icon:"🚻",verified:false,notes:"Approximate icon location from the supplied spectator map."},
-    {id:"restroom-clubhouse",name:"Restrooms near clubhouse / Expo Row",category:"restroom",x:16.2,y:31.4,icon:"🚻",verified:false,notes:"Shown in the clubhouse inset. Verify exact spectator entrance."},
-
-    {id:"concession-8910",name:"Concessions near Holes 8/9/10",category:"concession",x:78.2,y:5.2,icon:"🥤",verified:false,notes:"Approximate icon location from the supplied spectator map."},
-    {id:"concession-1213",name:"Concessions near Holes 12/13",category:"concession",x:85.0,y:40.2,icon:"🥤",verified:false,notes:"Approximate icon location from the supplied spectator map."},
-    {id:"concession-143",name:"Concessions near Holes 14/3 junction",category:"concession",x:65.0,y:60.8,icon:"🥤",verified:false,notes:"Approximate icon location from the supplied spectator map."},
-    {id:"concession-clubhouse",name:"Concessions near clubhouse / Expo Row",category:"concession",x:17.2,y:31.2,icon:"🥤",verified:false,notes:"Shown in the clubhouse inset. Verify exact spectator entrance."},
-
-    {id:"first-aid",name:"First Aid",category:"firstaid",x:49.2,y:77.4,icon:"✚",verified:false,notes:"Near the clubhouse / main grounds on the supplied map. Verify exact tent and access path."},
-    {id:"main-gate",name:"Main Admission Gate",category:"gate",x:43.2,y:82.8,icon:"G",verified:false,notes:"Approximate location near the clubhouse complex."},
-    {id:"volunteer-hq",name:"Volunteer Headquarters",category:"volunteer",x:20.7,y:37.5,icon:"V",verified:false,notes:"Shown in the clubhouse inset. Verify the exact entrance used during the event."},
-
-    {id:"hole-1",name:"Hole 1",category:"hole",x:58.4,y:70.1,icon:"1",verified:false},
-    {id:"hole-2",name:"Hole 2",category:"hole",x:66.4,y:72.6,icon:"2",verified:false},
-    {id:"hole-3",name:"Hole 3",category:"hole",x:69.6,y:61.5,icon:"3",verified:false},
-    {id:"hole-4",name:"Hole 4",category:"hole",x:75.0,y:48.0,icon:"4",verified:false},
-    {id:"hole-5",name:"Hole 5",category:"hole",x:86.8,y:49.5,icon:"5",verified:false},
-    {id:"hole-6",name:"Hole 6",category:"hole",x:93.4,y:31.2,icon:"6",verified:false},
-    {id:"hole-7",name:"Hole 7",category:"hole",x:87.2,y:17.8,icon:"7",verified:false},
-    {id:"hole-8",name:"Hole 8",category:"hole",x:82.1,y:4.3,icon:"8",verified:false},
-    {id:"hole-9",name:"Hole 9",category:"hole",x:77.5,y:12.6,icon:"9",verified:false},
-    {id:"hole-10",name:"Hole 10",category:"hole",x:68.3,y:7.6,icon:"10",verified:false},
-    {id:"hole-11",name:"Hole 11",category:"hole",x:71.1,y:27.0,icon:"11",verified:false},
-    {id:"hole-12",name:"Hole 12",category:"hole",x:82.4,y:36.3,icon:"12",verified:false},
-    {id:"hole-13",name:"Hole 13",category:"hole",x:71.8,y:34.7,icon:"13",verified:false},
-    {id:"hole-14",name:"Hole 14",category:"hole",x:63.0,y:57.2,icon:"14",verified:false},
-    {id:"hole-15",name:"Hole 15",category:"hole",x:51.0,y:67.6,icon:"15",verified:false},
-    {id:"hole-16",name:"Hole 16",category:"hole",x:45.0,y:72.6,icon:"16",verified:false},
-    {id:"hole-17",name:"Hole 17",category:"hole",x:34.3,y:66.0,icon:"17",verified:false},
-    {id:"hole-18",name:"Hole 18",category:"hole",x:40.8,y:75.0,icon:"18",verified:false}
-  ],
-  routes:[]
+  views:{
+    course:{
+      title:"Full Course",
+      image:"course-main.jpg",
+      width:2600,
+      height:1909,
+      defaultFilter:"essentials",
+      filters:["essentials","all","restroom","firstaid","concession","gate","clubhouse"],
+      masks:[
+        {x:0,y:0,w:10.2,h:57.5},
+        {x:0,y:54.5,w:10.2,h:10.5},
+        {x:0,y:77.5,w:8.5,h:22.5},
+        {x:63.0,y:57.0,w:37.0,h:39.0},
+        {x:48.0,y:95.5,w:52.0,h:4.5}
+      ],
+      markers:[
+        {id:"course-restroom-8910",name:"Restrooms near Holes 8/9/10",category:"restroom",x:69.4,y:14.7,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map. Confirm the exact public entrance and cart-path approach onsite."},
+        {id:"course-concession-8910",name:"Concessions near Holes 8/9/10",category:"concession",x:71.1,y:14.7,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-restroom-1213",name:"Restrooms near Holes 12/13",category:"restroom",x:81.4,y:45.1,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-concession-1213",name:"Concessions near Holes 12/13",category:"concession",x:82.9,y:43.9,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-restroom-314",name:"Restrooms near Holes 3/14",category:"restroom",x:53.1,y:63.0,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-concession-314",name:"Concessions near Holes 3/14",category:"concession",x:54.7,y:61.2,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-firstaid",name:"First Aid",category:"firstaid",x:31.3,y:77.0,icon:"✚",verified:false,essential:true,notes:"Approximate public first-aid location near the clubhouse complex. Confirm the public entrance onsite."},
+        {id:"course-gate",name:"Main Admission Gate",category:"gate",x:22.3,y:79.1,icon:"G",verified:false,essential:true,notes:"Approximate main admission gate location."},
+        {id:"course-clubhouse",name:"Clubhouse & Fan Zone",category:"clubhouse",x:27.0,y:80.1,icon:"C",verified:false,essential:true,notes:"Tap the Clubhouse & Fan Zone tab for the enlarged detail map."}
+      ]
+    },
+    clubhouse:{
+      title:"Clubhouse & Fan Zone",
+      image:"clubhouse-detail.jpg",
+      width:2200,
+      height:2000,
+      defaultFilter:"all",
+      filters:["all","restroom","concession","fanarea","proshop","volunteer","hospitality"],
+      masks:[],
+      markers:[
+        {id:"detail-exporow",name:"Expo Row",category:"fanarea",x:28.6,y:60.0,icon:"ER",verified:false,notes:"Approximate Expo Row location. Record the actual public entrance or entrances onsite."},
+        {id:"detail-restroom",name:"Clubhouse-area Restrooms",category:"restroom",x:33.2,y:60.0,icon:"🚻",verified:false,notes:"Approximate location from the official detail inset."},
+        {id:"detail-concession-west",name:"Clubhouse-area Concessions - West",category:"concession",x:37.7,y:59.8,icon:"🥤",verified:false,notes:"Approximate location from the official detail inset."},
+        {id:"detail-ti",name:"The TAG Insurance Outlook",category:"fanarea",x:46.6,y:58.8,icon:"TI",verified:false,notes:"Approximate fan destination location."},
+        {id:"detail-16deck",name:"16 Tee Public Viewing Deck",category:"fanarea",x:58.6,y:56.0,icon:"16D",verified:false,notes:"Approximate public viewing deck location."},
+        {id:"detail-concession-east",name:"Clubhouse-area Concessions - East",category:"concession",x:68.0,y:58.8,icon:"🥤",verified:false,notes:"Approximate location near the clubhouse/pro shop side."},
+        {id:"detail-proshop",name:"Pro Shop",category:"proshop",x:70.5,y:66.0,icon:"●",verified:false,notes:"Approximate pro shop location."},
+        {id:"detail-volunteer",name:"Volunteer Headquarters",category:"volunteer",x:48.9,y:76.3,icon:"V",verified:false,notes:"Volunteer-only destination. Confirm the correct entrance before sharing directions."},
+        {id:"detail-heroes",name:"Heroes Outpost",category:"fanarea",x:34.5,y:51.5,icon:"★",verified:false,notes:"Approximate fan destination location."},
+        {id:"detail-18s",name:"18 Green Suites",category:"hospitality",x:44.5,y:42.0,icon:"18S",verified:false,notes:"Hospitality destination; access restrictions may apply."},
+        {id:"detail-title",name:"Blue Federal Credit Union Title Sponsor Suite",category:"hospitality",x:37.7,y:30.5,icon:"B",verified:false,notes:"Hospitality destination; access restrictions may apply."},
+        {id:"detail-15c",name:"15 Green Cabanas",category:"hospitality",x:66.4,y:27.5,icon:"15C",verified:false,notes:"Hospitality destination; access restrictions may apply."},
+        {id:"detail-nest",name:"The Nest Benefiting NOCO Cares",category:"hospitality",x:65.5,y:34.0,icon:"N",verified:false,notes:"Hospitality destination; access restrictions may apply."},
+        {id:"detail-summit",name:"The Summit Club",category:"hospitality",x:66.4,y:40.5,icon:"SC",verified:false,notes:"Hospitality destination; access restrictions may apply."}
+      ]
+    }
+  }
 };

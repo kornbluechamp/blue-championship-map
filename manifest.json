@@ -1,9 +1,9 @@
 {
-  "name": "Unofficial Volunteer Course Map",
+  "name": "Unofficial Volunteer Course Directions",
   "short_name": "Course Map",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f6f8fb",
+  "background_color": "#f4f7fa",
   "theme_color": "#0b4f7d",
   "icons": []
 }
