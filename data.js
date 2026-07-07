@@ -21,27 +21,21 @@ const APP_DATA = {
     course:{
       title:"Full Course",
       image:"course-main.jpg",
-      width:2600,
+      width:2420,
       height:1909,
       defaultFilter:"essentials",
       filters:["essentials","all","restroom","firstaid","concession","gate","clubhouse"],
-      masks:[
-        {x:0,y:0,w:10.2,h:57.5},
-        {x:0,y:54.5,w:10.2,h:10.5},
-        {x:0,y:77.5,w:8.5,h:22.5},
-        {x:63.0,y:57.0,w:37.0,h:39.0},
-        {x:48.0,y:95.5,w:52.0,h:4.5}
-      ],
+      masks:[],
       markers:[
-        {id:"course-restroom-8910",name:"Restrooms near Holes 8/9/10",category:"restroom",x:69.4,y:14.7,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map. Confirm the exact public entrance and cart-path approach onsite."},
-        {id:"course-concession-8910",name:"Concessions near Holes 8/9/10",category:"concession",x:71.1,y:14.7,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
-        {id:"course-restroom-1213",name:"Restrooms near Holes 12/13",category:"restroom",x:81.4,y:45.1,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
-        {id:"course-concession-1213",name:"Concessions near Holes 12/13",category:"concession",x:82.9,y:43.9,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
-        {id:"course-restroom-314",name:"Restrooms near Holes 3/14",category:"restroom",x:53.1,y:63.0,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
-        {id:"course-concession-314",name:"Concessions near Holes 3/14",category:"concession",x:54.7,y:61.2,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
-        {id:"course-firstaid",name:"First Aid",category:"firstaid",x:31.3,y:77.0,icon:"✚",verified:false,essential:true,notes:"Approximate public first-aid location near the clubhouse complex. Confirm the public entrance onsite."},
-        {id:"course-gate",name:"Main Admission Gate",category:"gate",x:22.3,y:79.1,icon:"G",verified:false,essential:true,notes:"Approximate main admission gate location."},
-        {id:"course-clubhouse",name:"Clubhouse & Fan Zone",category:"clubhouse",x:27.0,y:80.1,icon:"C",verified:false,essential:true,notes:"Tap the Clubhouse & Fan Zone tab for the enlarged detail map."}
+        {id:"course-restroom-8910",name:"Restrooms near Holes 8/9/10",category:"restroom",x:67.12,y:14.7,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map. Confirm the exact public entrance and cart-path approach onsite."},
+        {id:"course-concession-8910",name:"Concessions near Holes 8/9/10",category:"concession",x:68.95,y:14.7,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-restroom-1213",name:"Restrooms near Holes 12/13",category:"restroom",x:80.02,y:45.1,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-concession-1213",name:"Concessions near Holes 12/13",category:"concession",x:81.63,y:43.9,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-restroom-314",name:"Restrooms near Holes 3/14",category:"restroom",x:49.61,y:63.0,icon:"🚻",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-concession-314",name:"Concessions near Holes 3/14",category:"concession",x:51.33,y:61.2,icon:"🥤",verified:false,essential:true,notes:"Approximate location from the official spectator map."},
+        {id:"course-firstaid",name:"First Aid",category:"firstaid",x:26.19,y:77.0,icon:"✚",verified:false,essential:true,notes:"Approximate public first-aid location near the clubhouse complex. Confirm the public entrance onsite."},
+        {id:"course-gate",name:"Main Admission Gate",category:"gate",x:16.52,y:79.1,icon:"G",verified:false,essential:true,notes:"Approximate main admission gate location."},
+        {id:"course-clubhouse",name:"Clubhouse & Fan Zone",category:"clubhouse",x:21.57,y:80.1,icon:"C",verified:false,essential:true,notes:"Tap the Clubhouse & Fan Zone tab for the enlarged detail map."}
       ]
     },
     clubhouse:{

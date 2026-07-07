@@ -76,5 +76,12 @@
   };
   function gpsToMap(lat,lng){const a=APP_DATA.calibration.anchors;if(!a||a.length<3)return null;const A=[[a[0].lng,a[0].lat,1],[a[1].lng,a[1].lat,1],[a[2].lng,a[2].lat,1]],bx=[a[0].x,a[1].x,a[2].x],by=[a[0].y,a[1].y,a[2].y],cx=solve(A,bx),cy=solve(A,by);return cx&&cy?{x:cx[0]*lng+cx[1]*lat+cx[2],y:cy[0]*lng+cy[1]*lat+cy[2]}:null}
   function solve(A,b){const m=A.map((r,i)=>[...r,b[i]]);for(let c=0;c<3;c++){let p=c;for(let r=c+1;r<3;r++)if(Math.abs(m[r][c])>Math.abs(m[p][c]))p=r;[m[c],m[p]]=[m[p],m[c]];if(Math.abs(m[c][c])<1e-12)return null;const d=m[c][c];for(let j=c;j<4;j++)m[c][j]/=d;for(let r=0;r<3;r++)if(r!==c){const f=m[r][c];for(let j=c;j<4;j++)m[r][j]-=f*m[c][j]}}return[m[0][3],m[1][3],m[2][3]]}
-  window.onresize=fit;renderLegend();const u=new URL(location.href),initialView=u.searchParams.get('view')||'course';loadView(initialView,true);const requested=u.searchParams.get('category');if(requested&&view().filters.includes(requested))setFilter(requested);if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  window.onresize=fit;renderLegend();const u=new URL(location.href),initialView=u.searchParams.get('view')||'course';loadView(initialView,true);const requested=u.searchParams.get('category');if(requested&&view().filters.includes(requested))setFilter(requested);if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(registration => registration.unregister());
+      }).catch(()=>{});
+    }
+    if ('caches' in window) {
+      caches.keys().then(keys => Promise.all(keys.map(key => caches.delete(key)))).catch(()=>{});
+    }
 })();

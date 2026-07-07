@@ -1,3 +1,18 @@
+# Version 2.1 cache-fix package
+
+This update fixes the most common mixed-version problem:
+- It removes the old offline service worker and cached files.
+- It adds version numbers to CSS and JavaScript requests.
+- It permanently crops/removes the enlarged inset remnant from the full-course image.
+- It permanently removes the printed legend area because the app has its own filters and map key.
+
+Upload all files to the ROOT of the existing GitHub repository and replace files when prompted.
+
+After GitHub Pages finishes deploying, open:
+`YOUR-SITE-URL/?version=21`
+
+If the old page still appears, use a private/incognito tab once.
+
 # Unofficial Volunteer Course Directions - Version 2
 
 ## What changed
