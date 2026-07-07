@@ -3,80 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b4f7d">
-  <title>Unofficial Volunteer Course Directions</title>
-  <link rel="manifest" href="manifest.json?v=21">
-  <link rel="stylesheet" href="styles.css?v=21">
+  <meta name="theme-color" content="#0b5684">
+  <title>Unofficial TPC Colorado Course Guide</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="styles.css?v=300">
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <h1>Course Directions</h1>
-      <p>Unofficial volunteer navigation aid</p>
-    </div>
-    <button id="menuBtn" class="icon-btn" aria-label="Open tools">☰</button>
-  </header>
+<header class="app-header">
+  <div>
+    <h1>Course Directions</h1>
+    <p>Unofficial volunteer navigation aid - geographic test build</p>
+  </div>
+  <button id="menuButton" class="header-button" aria-label="Open tools">☰</button>
+</header>
+<div class="warning">Testing version. Follow official signs, ropes, accessibility guidance, and tournament staff if anything differs.</div>
+<nav class="view-tabs" aria-label="Map views">
+  <button class="view-tab active" data-view="navigate">Navigate</button>
+  <button class="view-tab" data-view="overview">Course Overview</button>
+  <button class="view-tab" data-view="clubhouse">Clubhouse Detail</button>
+</nav>
 
-  <section class="notice">
-    Approximate locations only. Follow tournament signs, ropes, staff instructions, and accessibility guidance where they differ.
+<main>
+  <section id="navigateView" class="view active">
+    <div class="quick-actions">
+      <button data-category="restroom">Nearest restroom</button>
+      <button data-category="firstaid">First aid</button>
+      <button data-category="concession">Concessions</button>
+      <button data-category="hole">Find a hole</button>
+      <button id="locateMe">Show my location</button>
+    </div>
+    <div id="navigateMap" class="geo-map"></div>
+    <section id="navigateStatus" class="status-card">
+      <h2>Geographic map ready</h2>
+      <p>No verified tournament facilities have been loaded yet. Use <strong>Scout & Trace</strong> today to record exact points and approved walking paths.</p>
+    </section>
   </section>
 
-  <nav id="viewTabs" class="view-tabs" aria-label="Map view">
-    <button data-view="course" class="view-tab active">Full Course</button>
-    <button data-view="clubhouse" class="view-tab">Clubhouse &amp; Fan Zone</button>
-  </nav>
+  <section id="overviewView" class="view">
+    <div class="image-note"><strong>Official course overview.</strong> This illustration is not north-up. Use the Navigate tab for GPS position and geographic direction.</div>
+    <div class="image-zoom"><img src="official-course-overview.jpg" alt="Official Blue Championship spectator course map"></div>
+  </section>
 
-  <section id="toolbar" class="toolbar" aria-label="Map filters"></section>
+  <section id="clubhouseView" class="view">
+    <div class="image-note"><strong>Clubhouse and Fan Zone detail.</strong> This is a schematic detail view, not a GPS map.</div>
+    <div class="image-zoom"><img src="official-clubhouse-detail.jpg" alt="Official clubhouse and fan zone detail"></div>
+  </section>
+</main>
 
-  <main>
-    <div id="mapViewport" class="map-viewport" aria-label="Interactive tournament map">
-      <div id="mapStage" class="map-stage">
-        <img id="mapImage" alt="Tournament course map">
-        <div id="maskLayer" class="mask-layer"></div>
-        <svg id="routeLayer" class="route-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
-        <div id="markerLayer" class="marker-layer"></div>
-        <div id="youAreHere" class="you-are-here hidden" title="Approximate current location"><span></span></div>
-      </div>
-      <div class="zoom-controls">
-        <button id="zoomIn" aria-label="Zoom in">+</button>
-        <button id="zoomOut" aria-label="Zoom out">−</button>
-        <button id="resetView" aria-label="Reset view">⌂</button>
-      </div>
-    </div>
+<aside id="toolsPanel" class="side-panel hidden">
+  <button id="closeTools" class="panel-close">Close</button>
+  <h2>Tools</h2>
+  <a class="tool-link primary" href="scout.html">Scout & Trace on phone</a>
+  <a class="tool-link" href="review.html">Review / import data</a>
+  <button id="shareApp" class="tool-link">Share this app</button>
+  <button id="loadLocalData" class="tool-link">Show scouting data saved on this device</button>
+  <hr>
+  <p class="small">GPS routes are based on the actual geographic map. The official course artwork remains a separate reference view, so its page rotation does not affect navigation.</p>
+</aside>
 
-    <section id="resultCard" class="result-card">
-      <h2>Loading map…</h2>
-    </section>
-
-    <footer class="source-note">
-      Base artwork: official 2026 spectator course map. Interactive pins and directions are an unofficial volunteer aid. Version 2.1.
-    </footer>
-  </main>
-
-  <aside id="toolsPanel" class="tools-panel hidden" aria-label="Tools">
-    <button id="closeTools" class="close-btn">Close</button>
-    <h2>Map tools</h2>
-    <button id="locationBtn" class="tool-action">📍 Try my current location</button>
-    <p class="small">Current location will work on the full-course view after onsite calibration points are added.</p>
-    <button id="shareBtn" class="tool-action">↗ Share this map</button>
-    <button id="copyBtn" class="tool-action">⧉ Copy map link</button>
-    <a class="tool-action link-btn" href="scout.html">🧭 Open field-scout collector</a>
-    <a class="tool-action link-btn" href="VALIDATION_CHECKLIST.md">✅ Open validation checklist</a>
-    <a class="tool-action link-btn" href="https://www.thebluechampionship.com/s/TBC26_COURSE_MAP_60x36_FINAL.pdf" target="_blank" rel="noopener">↗ Open official spectator map</a>
-    <h3>Map key</h3>
-    <div id="menuLegend" class="menu-legend"></div>
-  </aside>
-
-  <dialog id="markerDialog">
-    <button id="closeDialog" class="dialog-close" aria-label="Close">×</button>
-    <h2 id="dialogTitle"></h2>
-    <p id="dialogType"></p>
-    <p id="dialogNotes"></p>
-    <p id="dialogStatus" class="status"></p>
-    <button id="centerMarkerBtn">Center on map</button>
-  </dialog>
-
-  <script src="data.js?v=21"></script>
-  <script src="app.js?v=21"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9coqIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="shared.js?v=300"></script>
+<script src="app.js?v=300"></script>
 </body>
 </html>

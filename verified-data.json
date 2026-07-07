@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "eventName": "The Blue Championship",
+  "courseName": "TPC Colorado",
+  "mapCenter": [
+    40.3328434,
+    -105.1031801
+  ],
+  "defaultZoom": 15,
+  "points": [],
+  "routes": []
+}

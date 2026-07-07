@@ -1,9 +1,9 @@
 {
-  "name": "Unofficial Volunteer Course Directions",
-  "short_name": "Course Map",
+  "name": "Unofficial TPC Colorado Course Guide",
+  "short_name": "TPC Guide",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f7fa",
-  "theme_color": "#0b4f7d",
+  "theme_color": "#0b5684",
   "icons": []
 }

@@ -1,40 +1,39 @@
-# Version 2.1 cache-fix package
+# Version 3 - Geographic Scout and Navigation Build
 
-This update fixes the most common mixed-version problem:
-- It removes the old offline service worker and cached files.
-- It adds version numbers to CSS and JavaScript requests.
-- It permanently crops/removes the enlarged inset remnant from the full-course image.
-- It permanently removes the printed legend area because the app has its own filters and map key.
+This version separates the two map jobs:
 
-Upload all files to the ROOT of the existing GitHub repository and replace files when prompted.
+- **Navigate** uses a true north-up geographic map with satellite/street basemaps and phone GPS.
+- **Course Overview** displays the complete official spectator map as a reference image.
+- **Clubhouse Detail** displays the official enlarged fan-zone inset separately.
 
-After GitHub Pages finishes deploying, open:
-`YOUR-SITE-URL/?version=21`
+## Important change: reliable phone saving
 
-If the old page still appears, use a private/incognito tab once.
+The Scout & Trace page now:
 
-# Unofficial Volunteer Course Directions - Version 2
+- Stores every accepted GPS route sample in `localStorage` immediately.
+- Stores an unfinished route separately and recovers it after a refresh or accidental tab close.
+- Shows the number of saved samples, points, and completed routes.
+- Provides Download, Share, and Copy backup options.
+- Includes a screen wake-lock button when supported.
 
-## What changed
-- Uses cropped artwork from the official public 2026 spectator-map PDF.
-- Separates the geographic full-course map from the enlarged Clubhouse & Fan Zone detail.
-- Removes the need for the printed legend; the app's filter buttons and menu key are the interactive legend.
-- Adds more field-scout categories and photo references.
-- Keeps approximate markers marked with yellow question marks until validated onsite.
+Phone storage is local to that phone/browser. It will **not automatically sync to a laptop**. Export the JSON on the phone, transfer it through Drive/email/AirDrop, and import it at `review.html`.
 
-## Replace the current GitHub Pages version
-1. Extract this ZIP.
-2. In the GitHub repository, upload all files from this folder.
-3. When GitHub asks about duplicates, replace/overwrite the existing files.
-4. Commit with a message such as `Update to official two-view course map`.
-5. Wait for GitHub Pages to redeploy.
-6. Refresh the website. On a phone, close and reopen the tab if the old cached version remains.
+## Upload to GitHub Pages
 
-## Testing links
-- Main map: `/index.html`
-- Clubhouse view: `/?view=clubhouse`
-- Restroom filter: `/?view=course&category=restroom`
-- Field collector: `/scout.html`
+Upload every file from this folder to the root of the existing repository, replacing prior files. The build actively unregisters and clears service workers/caches left by earlier versions, so the previous mixed-version problem should not recur. After deployment, open the site with `?v=3` once.
 
-## Important
-The base artwork is from the official public spectator-map PDF. The interactive tool remains unofficial. Confirm tournament permission before broad distribution or printing.
+## Field workflow today
+
+1. Open `scout.html` on the phone.
+2. Tap **Locate me** and verify the blue dot is at TPC Colorado.
+3. Tap **Keep screen awake** when available.
+4. Save facilities at their public entrance.
+5. Record walking paths in short segments between meaningful junctions.
+6. Finish each route before starting another.
+7. Tap **Backup now** several times during the visit.
+8. Transfer the final JSON to the laptop.
+9. Open `review.html`, import the JSON, inspect routes on satellite view, and export a reviewed copy.
+
+## No north-arrow correction is required
+
+The geographic map is already north-up. The official illustrated map can remain rotated because it is only an overview. Directions should prioritize holes, cart-path forks, signs, and landmarks instead of relying only on compass directions.
