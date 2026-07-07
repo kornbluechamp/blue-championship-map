@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   let data=loadDataset(),active=loadActiveRoute(),watchId=null,current=null,currentMarker=null,accuracyCircle=null,liveLine=null,tapMode=false,wakeLock=null;
   const map=L.map('scoutMap').setView([40.3328434,-105.1031801],15);
   const layers=baseLayers();
-  layers.imagery.addTo(map);
-  L.control.layers({'Satellite':layers.imagery,'Street map':layers.osm},null,{position:'topright'}).addTo(map);
+  layers.osm.addTo(map);
+  L.control.layers({'Street map':layers.osm,'Satellite':layers.imagery},null,{position:'topright'}).addTo(map);
   const savedGroup=L.featureGroup().addTo(map);
   const activeGroup=L.featureGroup().addTo(map);
 

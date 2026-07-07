@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
 
   const map=L.map('navigateMap',{zoomControl:true}).setView(verified.mapCenter||[40.3328434,-105.1031801],verified.defaultZoom||15);
   const layers=baseLayers();
-  layers.imagery.addTo(map);
-  L.control.layers({'Satellite':layers.imagery,'Street map':layers.osm},null,{position:'topright'}).addTo(map);
+  layers.osm.addTo(map);
+  L.control.layers({'Street map':layers.osm,'Satellite':layers.imagery},null,{position:'topright'}).addTo(map);
 
   const verifiedGroup=L.featureGroup().addTo(map),localGroup=L.featureGroup().addTo(map);
   addDatasetToMap(map,verified,verifiedGroup);
