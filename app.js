@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded',async()=>{
   let verified={points:[],routes:[],mapCenter:[40.3328434,-105.1031801],defaultZoom:15};
-  try{verified=await fetch('verified-data.json?v=310',{cache:'no-store'}).then(r=>r.json())}catch(_){}
+  try{verified=await fetch('verified-data.json?v=320',{cache:'no-store'}).then(r=>r.json())}catch(_){}
 
   const map=L.map('navigateMap',{zoomControl:true}).setView(verified.mapCenter||[40.3328434,-105.1031801],verified.defaultZoom||15);
   const layers=baseLayers();

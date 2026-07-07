@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const activeGroup=L.featureGroup().addTo(map);
 
   const locateButton=document.getElementById('locateButton');
+  document.getElementById('courseButton').onclick=()=>map.setView([40.3328434,-105.1031801],15);
 
   function status(msg){document.getElementById('saveStatus').textContent=msg}
   function persist(msg='Saved locally'){
@@ -310,6 +311,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(!window.isSecureContext){
     status('Location is disabled because this page is not using HTTPS. Open the published GitHub Pages link.');
   }else{
-    status('Ready. Tap Locate me to grant location access and begin tracking.');
+    status('Ready. The map starts at TPC Colorado even when you are at home. Tap Locate me to move the blue dot to your phone, or Show course to return to TPC Colorado.');
   }
 });
