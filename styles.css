@@ -1,0 +1,33 @@
+
+:root{--blue:#0b4f7d;--paper:#f6f8fb;--ink:#16202a;--shadow:0 4px 16px rgba(0,0,0,.16)}
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+button,a{font:inherit}button{cursor:pointer}
+.topbar{display:flex;align-items:center;justify-content:space-between;background:var(--blue);color:#fff;padding:12px 14px;position:sticky;top:0;z-index:20}
+.topbar h1{font-size:1.2rem;margin:0}.topbar p{font-size:.78rem;margin:2px 0 0;opacity:.9}
+.icon-btn{border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:9px;padding:8px 12px;font-size:1.25rem}
+.notice{padding:8px 12px;background:#fff5cc;border-bottom:1px solid #e4d488;font-size:.8rem;line-height:1.3}
+.toolbar{display:flex;gap:7px;overflow-x:auto;padding:9px;background:#fff;border-bottom:1px solid #d8dfe6;position:sticky;top:62px;z-index:15}
+.filter{white-space:nowrap;border:1px solid #b7c4cf;border-radius:999px;padding:8px 11px;background:white}
+.filter.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+main{padding:10px;max-width:1100px;margin:auto}
+.map-viewport{position:relative;height:min(63vh,680px);min-height:380px;border:1px solid #aab7c2;border-radius:12px;overflow:hidden;background:#e7eef3;box-shadow:var(--shadow);touch-action:none}
+.map-stage{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.map-stage img{display:block;width:min(1400px,150vw);max-width:none;user-select:none;-webkit-user-drag:none}
+.marker-layer,.route-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.marker{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 2px 9px rgba(0,0,0,.45);font-weight:800;pointer-events:auto;color:#fff}
+.marker.restroom{background:#1779ba}.marker.firstaid{background:#c83232}.marker.concession{background:#14785d}.marker.gate{background:#7b4da8}.marker.volunteer{background:#e17a00}
+.marker.hole{background:#1b4e2e;width:29px;height:29px;font-size:.8rem}
+.marker.approx::after{content:"?";position:absolute;right:-5px;top:-7px;background:#ffd54f;color:#111;width:17px;height:17px;border-radius:50%;font-size:.7rem;display:flex;align-items:center;justify-content:center;border:1px solid #755}
+.you-are-here{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:rgba(30,125,255,.25);border:2px solid #fff;box-shadow:0 0 0 2px #1e7dff;pointer-events:none}
+.you-are-here span{position:absolute;width:12px;height:12px;border-radius:50%;background:#1e7dff;left:9px;top:9px}.hidden{display:none!important}
+.zoom-controls{position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:6px;z-index:6}
+.zoom-controls button{width:42px;height:42px;border:0;border-radius:9px;background:#fff;box-shadow:var(--shadow);font-size:1.25rem;font-weight:800}
+.result-card{background:#fff;margin-top:10px;padding:13px;border-radius:12px;border:1px solid #d5dde5}.result-card h2{font-size:1.05rem;margin:0 0 5px}.result-card p{margin:.35rem 0;line-height:1.35}
+.tools-panel{position:fixed;right:0;top:0;height:100%;width:min(390px,92vw);background:#fff;z-index:50;box-shadow:-8px 0 24px rgba(0,0,0,.25);padding:18px;overflow:auto}
+.tools-panel h2{margin-top:28px}.close-btn{float:right;border:0;background:#e8eef3;padding:8px 12px;border-radius:8px}
+.tool-action{display:block;width:100%;text-align:left;margin:10px 0;border:1px solid #b7c4cf;background:#f7fafc;padding:12px;border-radius:10px;color:var(--ink);text-decoration:none}
+.small{font-size:.82rem;color:#4f5d68;line-height:1.35}
+dialog{max-width:430px;width:calc(100% - 28px);border:0;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);padding:20px}
+dialog::backdrop{background:rgba(0,0,0,.45)}.dialog-close{float:right;border:0;background:#edf1f4;font-size:1.4rem;border-radius:50%;width:36px;height:36px}
+.status{font-size:.82rem;background:#fff4c7;border-radius:8px;padding:8px}#centerMarkerBtn{border:0;background:var(--blue);color:#fff;padding:10px 13px;border-radius:9px}
+@media (min-width:750px){.topbar h1{font-size:1.45rem}.toolbar{top:70px}main{padding:16px}}

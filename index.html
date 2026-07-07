@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b4f7d">
+  <title>Unofficial Volunteer Course Map</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Course Directions</h1>
+      <p>Unofficial volunteer navigation aid</p>
+    </div>
+    <button id="menuBtn" class="icon-btn" aria-label="Open tools">☰</button>
+  </header>
+
+  <section class="notice">
+    Approximate locations only. Follow tournament signs, ropes, staff instructions, and accessibility guidance where they differ.
+  </section>
+
+  <section class="toolbar" aria-label="Map filters">
+    <button data-category="all" class="filter active">All</button>
+    <button data-category="restroom" class="filter">🚻 Restrooms</button>
+    <button data-category="firstaid" class="filter">✚ First aid</button>
+    <button data-category="concession" class="filter">🥤 Concessions</button>
+    <button data-category="gate" class="filter">🚪 Gate</button>
+    <button data-category="volunteer" class="filter">Ⓥ Volunteer HQ</button>
+    <button data-category="hole" class="filter">⛳ Holes</button>
+  </section>
+
+  <main>
+    <div id="mapViewport" class="map-viewport" aria-label="Interactive tournament map">
+      <div id="mapStage" class="map-stage">
+        <img id="courseMap" src="course-map.jpg" alt="Tournament course map">
+        <svg id="routeLayer" class="route-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div id="markerLayer" class="marker-layer"></div>
+        <div id="youAreHere" class="you-are-here hidden" title="Approximate current location"><span></span></div>
+      </div>
+      <div class="zoom-controls">
+        <button id="zoomIn" aria-label="Zoom in">+</button>
+        <button id="zoomOut" aria-label="Zoom out">−</button>
+        <button id="resetView" aria-label="Reset view">⌂</button>
+      </div>
+    </div>
+
+    <section id="resultCard" class="result-card">
+      <h2>Choose a destination</h2>
+      <p>Tap a category above, then tap a marker for details. Locations in this starter version are approximate and must be checked onsite.</p>
+    </section>
+  </main>
+
+  <aside id="toolsPanel" class="tools-panel hidden" aria-label="Tools">
+    <button id="closeTools" class="close-btn">Close</button>
+    <h2>Volunteer tools</h2>
+    <button id="locationBtn" class="tool-action">📍 Try my current location</button>
+    <p class="small">Live location will become accurate after the course image is calibrated with onsite GPS anchor points.</p>
+    <button id="shareBtn" class="tool-action">↗ Share this map</button>
+    <button id="copyBtn" class="tool-action">⧉ Copy map link</button>
+    <a class="tool-action link-btn" href="scout.html">🧭 Open field-scout collector</a>
+    <a class="tool-action link-btn" href="FIELD_GUIDE.md">📋 Open field guide</a>
+  </aside>
+
+  <dialog id="markerDialog">
+    <button id="closeDialog" class="dialog-close" aria-label="Close">×</button>
+    <h2 id="dialogTitle"></h2>
+    <p id="dialogType"></p>
+    <p id="dialogNotes"></p>
+    <p id="dialogStatus" class="status"></p>
+    <button id="centerMarkerBtn">Center on map</button>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
