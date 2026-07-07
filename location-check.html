@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b5684">
+  <title>Location Permission Check</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#17212b;background:#f4f7fa}
+    *{box-sizing:border-box}
+    body{margin:0}
+    header{background:#0b5684;color:white;padding:16px}
+    h1{font-size:1.35rem;margin:0 0 4px}
+    header p{margin:0;opacity:.9}
+    main{max-width:720px;margin:auto;padding:14px}
+    .card{background:white;border:1px solid #cfd9e2;border-radius:12px;padding:14px;margin-bottom:12px}
+    .row{display:grid;grid-template-columns:150px 1fr;gap:8px;padding:6px 0;border-bottom:1px solid #edf1f4}
+    .row:last-child{border-bottom:0}
+    .label{font-weight:700}
+    button,a.button{display:block;width:100%;padding:14px;margin:10px 0;border:0;border-radius:10px;font:inherit;font-weight:800;text-align:center;text-decoration:none}
+    .primary{background:#0b5684;color:white}
+    .secondary{background:#e8eef3;color:#17212b}
+    .danger{background:#fff0f0;color:#8a1717;border:1px solid #dca0a0!important}
+    #result{white-space:pre-wrap;word-break:break-word;background:#eef4f8;border-radius:9px;padding:12px;min-height:84px}
+    .good{color:#0a6d3b;font-weight:800}
+    .bad{color:#a02020;font-weight:800}
+    .small{font-size:.86rem;line-height:1.4;color:#44515c}
+    code{background:#eef1f4;padding:2px 5px;border-radius:4px}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Location Permission Check</h1>
+  <p>Standalone test — no map library or external scripts</p>
+</header>
+<main>
+  <section class="card">
+    <div class="row"><div class="label">Version</div><div>Location Check 1.0</div></div>
+    <div class="row"><div class="label">Secure HTTPS</div><div id="secure">Checking…</div></div>
+    <div class="row"><div class="label">Geolocation API</div><div id="geo">Checking…</div></div>
+    <div class="row"><div class="label">Permission state</div><div id="permission">Checking…</div></div>
+    <div class="row"><div class="label">Top-level page</div><div id="topLevel">Checking…</div></div>
+    <div class="row"><div class="label">Current address</div><div id="address"></div></div>
+  </section>
+
+  <section class="card">
+    <button id="request" class="primary">Request location now</button>
+    <button id="watch" class="secondary">Start continuous location test</button>
+    <button id="stop" class="secondary">Stop continuous test</button>
+    <div id="result">Page loaded. Press “Request location now.”</div>
+  </section>
+
+  <section class="card">
+    <h2>How to interpret the result</h2>
+    <p class="small"><strong>Permission = denied:</strong> the browser will not display another prompt. Reset the site’s Location permission in browser settings, reload, and test again.</p>
+    <p class="small"><strong>Permission = prompt:</strong> pressing the blue button should display the browser permission request.</p>
+    <p class="small"><strong>Button says it was pressed but no browser prompt appears:</strong> open this address directly in Safari or Chrome, not inside ChatGPT, Gmail, Facebook, or another in-app browser.</p>
+    <p class="small"><strong>Secure HTTPS = no:</strong> location cannot work. Use the published GitHub Pages URL beginning with <code>https://</code>.</p>
+  </section>
+
+  <section class="card">
+    <button id="copy" class="secondary">Copy diagnostic results</button>
+    <a class="button secondary" href="scout.html?v=310">Return to Scout &amp; Trace</a>
+  </section>
+</main>
+<script>
+(() => {
+  const secure = document.getElementById('secure');
+  const geo = document.getElementById('geo');
+  const permission = document.getElementById('permission');
+  const topLevel = document.getElementById('topLevel');
+  const address = document.getElementById('address');
+  const result = document.getElementById('result');
+  let watchId = null;
+  let permissionStatus = null;
+
+  secure.innerHTML = window.isSecureContext
+    ? '<span class="good">Yes</span>'
+    : '<span class="bad">No</span>';
+  geo.innerHTML = navigator.geolocation
+    ? '<span class="good">Available</span>'
+    : '<span class="bad">Unavailable</span>';
+  topLevel.textContent = window.top === window.self ? 'Yes' : 'No — embedded';
+  address.textContent = location.href;
+
+  function renderPermission(state) {
+    permission.innerHTML = state === 'granted'
+      ? '<span class="good">granted</span>'
+      : state === 'denied'
+        ? '<span class="bad">denied</span>'
+        : state;
+  }
+
+  async function checkPermission() {
+    if (!navigator.permissions?.query) {
+      renderPermission('Browser does not expose permission state');
+      return;
+    }
+    try {
+      permissionStatus = await navigator.permissions.query({name:'geolocation'});
+      renderPermission(permissionStatus.state);
+      permissionStatus.onchange = () => renderPermission(permissionStatus.state);
+    } catch (e) {
+      renderPermission('Unavailable: ' + e.message);
+    }
+  }
+
+  function errorText(err) {
+    const meaning = err.code === 1 ? 'PERMISSION_DENIED'
+      : err.code === 2 ? 'POSITION_UNAVAILABLE'
+      : err.code === 3 ? 'TIMEOUT'
+      : 'UNKNOWN';
+    return `Location failed.
+Code: ${err.code} (${meaning})
+Message: ${err.message}
+
+If code is 1, reset the website Location permission in browser settings.`;
+  }
+
+  function successText(pos, label='Location received') {
+    return `${label}
+Latitude: ${pos.coords.latitude}
+Longitude: ${pos.coords.longitude}
+Accuracy: ${Math.round(pos.coords.accuracy)} meters
+Altitude: ${pos.coords.altitude ?? 'not provided'}
+Time: ${new Date(pos.timestamp).toLocaleString()}`;
+  }
+
+  document.getElementById('request').addEventListener('click', () => {
+    result.textContent = 'Button press detected. Requesting location now…';
+    if (!window.isSecureContext) {
+      result.textContent = 'Blocked: this is not a secure HTTPS page.';
+      return;
+    }
+    if (!navigator.geolocation) {
+      result.textContent = 'Blocked: this browser does not expose the Geolocation API.';
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        result.textContent = successText(pos);
+        checkPermission();
+      },
+      err => {
+        result.textContent = errorText(err);
+        checkPermission();
+      },
+      {enableHighAccuracy:true, maximumAge:0, timeout:30000}
+    );
+  });
+
+  document.getElementById('watch').addEventListener('click', () => {
+    result.textContent = 'Continuous test button detected. Starting watch…';
+    if (!navigator.geolocation) return result.textContent = 'Geolocation unavailable.';
+    if (watchId !== null) navigator.geolocation.clearWatch(watchId);
+    watchId = navigator.geolocation.watchPosition(
+      pos => result.textContent = successText(pos, 'Continuous location update received'),
+      err => result.textContent = errorText(err),
+      {enableHighAccuracy:true, maximumAge:0, timeout:30000}
+    );
+  });
+
+  document.getElementById('stop').addEventListener('click', () => {
+    if (watchId !== null) navigator.geolocation.clearWatch(watchId);
+    watchId = null;
+    result.textContent = 'Continuous location test stopped.';
+  });
+
+  document.getElementById('copy').addEventListener('click', async () => {
+    const text = [
+      'Location Check 1.0',
+      'URL: ' + location.href,
+      'Secure context: ' + window.isSecureContext,
+      'Geolocation available: ' + Boolean(navigator.geolocation),
+      'Permission: ' + permission.textContent,
+      'Top-level page: ' + (window.top === window.self),
+      'User agent: ' + navigator.userAgent,
+      '',
+      result.textContent
+    ].join('\n');
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('Diagnostic results copied.');
+    } catch {
+      prompt('Copy these results:', text);
+    }
+  });
+
+  checkPermission();
+})();
+</script>
+</body>
+</html>
