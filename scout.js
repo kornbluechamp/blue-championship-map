@@ -170,9 +170,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   function savePoint(lat,lng,source,accuracy=0){
     const name=document.getElementById('pointName').value.trim();
     if(!name)return alert('Enter a clear location name first.');
+    const type=document.getElementById('pointType').value;
     const p={
       id:uid('point'),
-      type:document.getElementById('pointType').value,
+      type,
+      iconType:(type==='restroom'||type==='accessible_restroom')?'restroom':type,
+      accessible:type==='accessible_restroom',
+      group:type==='hole'?'holes':(type==='junction'||type==='crossing')?'junctions':(type==='volunteer'||type==='restriction')?'staff':(type==='hospitality'||type==='proshop'||type==='clubhouse'||type==='gate'||type==='expo'||type==='viewing')?'places':'amenities',
+      defaultVisible:!['hole','junction','crossing','volunteer','restriction'].includes(type),
       name,
       nearest:document.getElementById('pointNearest').value.trim(),
       notes:document.getElementById('pointNotes').value.trim(),
@@ -180,6 +185,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       lat,lng,accuracy,source,
       createdAt:new Date().toISOString()
     };
+    const anchorMatch=name.match(/^Hole\s+(\d+)\s+(Tee|Green)$/i);
+    if(type==='hole'&&anchorMatch){p.anchorCandidate=true;p.holeNumber=Number(anchorMatch[1]);p.holePosition=anchorMatch[2].toLowerCase();}
     data.points.push(p);
     persist('Point saved');
     document.getElementById('pointName').value='';

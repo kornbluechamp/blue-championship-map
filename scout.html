@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b5684"><title>Scout & Trace - TPC Colorado</title>
-<link rel="stylesheet" href="simple-map.css?v=330"><link rel="stylesheet" href="styles.css?v=330"></head>
+<link rel="stylesheet" href="simple-map.css?v=400"><link rel="stylesheet" href="styles.css?v=400"></head>
 <body><header class="app-header"><div><h1>Scout & Trace</h1><p>Phone field collector - autosaves every GPS sample</p></div><a href="index.html" class="header-button" style="text-decoration:none">Map</a></header>
 <div class="warning"><strong>Version 3.2:</strong> Local map engine —  Tap <strong>Locate me</strong> to request permission. Keep this page open while tracing. Records are stored on this phone immediately, but use Backup / Export before leaving the course.</div>
 <div class="page-wrap">
-<div class="top-actions"><button id="locateButton">Locate me</button><button id="courseButton">Show course</button><button id="wakeButton">Keep screen awake</button><a href="review.html">Review data</a><button id="backupTop">Backup now</button></div>
+<div class="top-actions"><button id="locateButton">Locate me</button><button id="courseButton">Show course</button><button id="wakeButton">Keep screen awake</button><a href="review.html?v=400">Review data</a><button id="backupTop">Backup now</button></div>
 <div id="recoveryBanner" class="recovered hidden"></div>
 <div class="scout-layout"><div id="scoutMap" class="scout-map"></div><section class="control-panel">
 <div id="saveStatus" class="save-status">Loading saved data…</div>
 <div class="gps-grid"><div class="metric"><span>GPS accuracy</span><strong id="gpsAccuracy">—</strong></div><div class="metric"><span>Current route</span><strong id="routeSamples">0 points</strong></div><div class="metric"><span>Saved points</span><strong id="pointCount">0</strong></div><div class="metric"><span>Completed routes</span><strong id="routeCount">0</strong></div></div>
 
 <h2>Add a destination or junction</h2>
-<div class="field"><label>Type</label><select id="pointType"><option value="restroom">Restroom</option><option value="accessible_restroom">Accessible restroom</option><option value="firstaid">First aid</option><option value="concession">Concession</option><option value="water">Water / refill</option><option value="gate">Gate / exit</option><option value="expo">Expo Row entrance</option><option value="viewing">Public viewing</option><option value="hospitality">Hospitality entrance</option><option value="proshop">Pro shop / merchandise</option><option value="volunteer">Volunteer HQ</option><option value="junction">Cart-path junction</option><option value="crossing">Spectator crossing</option><option value="restriction">Restricted path / entrance</option><option value="hole">Hole reference</option><option value="other">Other</option></select></div>
+<div class="field"><label>Type</label><select id="pointType"><option value="restroom">Restroom</option><option value="accessible_restroom">Accessible restroom</option><option value="firstaid">First aid</option><option value="concession">Concession</option><option value="water">Water / refill</option><option value="gate">Gate / exit</option><option value="expo">Expo Row entrance</option><option value="viewing">Public viewing</option><option value="hospitality">Hospitality entrance</option><option value="proshop">Pro shop / merchandise</option><option value="clubhouse">Clubhouse entrance</option><option value="volunteer">Volunteer HQ</option><option value="junction">Cart-path junction</option><option value="crossing">Spectator crossing</option><option value="restriction">Restricted path / entrance</option><option value="hole">Hole reference</option><option value="other">Other</option></select></div>
 <div class="field"><label>Name</label><input id="pointName" placeholder="Example: Restrooms - 8/9/10 junction"></div>
 <div class="field"><label>Nearest hole / area</label><input id="pointNearest" placeholder="Example: Hole 9 green"></div>
 <div class="field"><label>Directions, access, or restrictions</label><textarea id="pointNotes"></textarea></div>
@@ -30,4 +30,4 @@
 <div class="button-row"><button id="downloadData" class="button primary">Download JSON</button><button id="shareData" class="button">Share JSON</button><button id="copyData" class="button">Copy JSON</button></div>
 <div class="data-list" id="recentList"></div>
 </section></div></div>
-<script src="simple-map.js?v=330"></script><script src="shared.js?v=330"></script><script src="scout.js?v=330"></script></body></html>
+<script src="simple-map.js?v=400"></script><script src="shared.js?v=400"></script><script src="scout.js?v=400"></script></body></html>

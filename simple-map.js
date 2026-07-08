@@ -1,111 +1,65 @@
-
-/* SimpleMap 1.0 — a small local Web-Mercator map engine with a Leaflet-like subset. */
+/* SimpleMap 2.0 — local Web-Mercator map engine with bearing/follow support. */
 (function(global){
   'use strict';
   const TILE=256, MAX_LAT=85.05112878;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   const toLatLng=v=>Array.isArray(v)?{lat:+v[0],lng:+v[1]}:{lat:+v.lat,lng:+v.lng};
-  function project(ll,z){
-    ll=toLatLng(ll); const n=TILE*Math.pow(2,z), lat=clamp(ll.lat,-MAX_LAT,MAX_LAT)*Math.PI/180;
-    return {x:(ll.lng+180)/360*n,y:(1-Math.log(Math.tan(lat)+1/Math.cos(lat))/Math.PI)/2*n};
-  }
-  function unproject(p,z){
-    const n=TILE*Math.pow(2,z), lng=p.x/n*360-180, a=Math.PI*(1-2*p.y/n);
-    return {lat:180/Math.PI*Math.atan(Math.sinh(a)),lng};
-  }
+  function project(ll,z){ll=toLatLng(ll);const n=TILE*Math.pow(2,z),lat=clamp(ll.lat,-MAX_LAT,MAX_LAT)*Math.PI/180;return{x:(ll.lng+180)/360*n,y:(1-Math.log(Math.tan(lat)+1/Math.cos(lat))/Math.PI)/2*n}}
+  function unproject(p,z){const n=TILE*Math.pow(2,z),lng=p.x/n*360-180,a=Math.PI*(1-2*p.y/n);return{lat:180/Math.PI*Math.atan(Math.sinh(a)),lng}}
   function metersPerPixel(lat,z){return 156543.03392804097*Math.cos(lat*Math.PI/180)/Math.pow(2,z)}
   function make(tag,cls,parent){const e=document.createElement(tag);if(cls)e.className=cls;if(parent)parent.appendChild(e);return e}
   function eventEmitter(obj){obj._events={};obj.on=function(name,fn){(this._events[name]||(this._events[name]=[])).push(fn);return this};obj._emit=function(name,arg){(this._events[name]||[]).forEach(fn=>fn(arg));return this};return obj}
+  function rotate(dx,dy,degrees){const a=degrees*Math.PI/180,c=Math.cos(a),s=Math.sin(a);return{x:dx*c-dy*s,y:dx*s+dy*c}}
 
   class Bounds{
     constructor(points=[]){this.minLat=Infinity;this.maxLat=-Infinity;this.minLng=Infinity;this.maxLng=-Infinity;points.forEach(p=>this.extend(p))}
     extend(p){p=toLatLng(p);this.minLat=Math.min(this.minLat,p.lat);this.maxLat=Math.max(this.maxLat,p.lat);this.minLng=Math.min(this.minLng,p.lng);this.maxLng=Math.max(this.maxLng,p.lng);return this}
     isValid(){return Number.isFinite(this.minLat)&&Number.isFinite(this.minLng)}
-    pad(r){if(!this.isValid())return this;const dy=(this.maxLat-this.minLat||.001)*r,dx=(this.maxLng-this.minLng||.001)*r;const b=new Bounds();b.minLat=this.minLat-dy;b.maxLat=this.maxLat+dy;b.minLng=this.minLng-dx;b.maxLng=this.maxLng+dx;return b}
-    center(){return {lat:(this.minLat+this.maxLat)/2,lng:(this.minLng+this.maxLng)/2}}
+    pad(r){if(!this.isValid())return this;const dy=(this.maxLat-this.minLat||.001)*r,dx=(this.maxLng-this.minLng||.001)*r,b=new Bounds();b.minLat=this.minLat-dy;b.maxLat=this.maxLat+dy;b.minLng=this.minLng-dx;b.maxLng=this.maxLng+dx;return b}
+    center(){return{lat:(this.minLat+this.maxLat)/2,lng:(this.minLng+this.maxLng)/2}}
   }
 
   class Map{
     constructor(id,opts={}){
       this.el=typeof id==='string'?document.getElementById(id):id;if(!this.el)throw new Error('Map container not found');
-      this.el.classList.add('sm-map');this.el.innerHTML='';this.center={lat:0,lng:0};this.zoom=2;this.minZoom=opts.minZoom??2;this.maxZoom=opts.maxZoom??20;this.layers=[];this.baseLayer=null;this.dragged=false;this._events={};
+      this.el.classList.add('sm-map');this.el.innerHTML='';this.center={lat:0,lng:0};this.zoom=2;this.bearing=0;this.minZoom=opts.minZoom??2;this.maxZoom=opts.maxZoom??20;this.layers=[];this.baseLayer=null;this.dragged=false;this._events={};
       this.tilePane=make('div','sm-tile-pane',this.el);this.overlayPane=make('div','sm-overlay-pane',this.el);this.svg=document.createElementNS('http://www.w3.org/2000/svg','svg');this.svg.setAttribute('width','100%');this.svg.setAttribute('height','100%');this.svg.style.position='absolute';this.svg.style.inset='0';this.overlayPane.appendChild(this.svg);this.markerPane=make('div','sm-marker-pane',this.el);this.popupPane=make('div','',this.el);this.popupPane.style.position='absolute';this.popupPane.style.inset='0';this.popupPane.style.zIndex='8';this.popupPane.style.pointerEvents='none';
       this.message=make('div','sm-map-message',this.el);this.attribution=make('div','sm-attribution',this.el);
-      const ctrls=make('div','sm-controls',this.el);const zi=make('button','',ctrls);zi.textContent='+';zi.setAttribute('aria-label','Zoom in');const zo=make('button','',ctrls);zo.textContent='−';zo.setAttribute('aria-label','Zoom out');const home=make('button','',ctrls);home.textContent='⌂';home.setAttribute('aria-label','Reset view');zi.onclick=()=>this.setZoom(this.zoom+1);zo.onclick=()=>this.setZoom(this.zoom-1);home.onclick=()=>this.setView(this._homeCenter||this.center,this._homeZoom||this.zoom);
+      const ctrls=make('div','sm-controls',this.el),zi=make('button','',ctrls),zo=make('button','',ctrls),home=make('button','',ctrls);zi.textContent='+';zo.textContent='−';home.textContent='⌂';zi.setAttribute('aria-label','Zoom in');zo.setAttribute('aria-label','Zoom out');home.setAttribute('aria-label','Reset view');zi.onclick=()=>this.setZoom(this.zoom+1);zo.onclick=()=>this.setZoom(this.zoom-1);home.onclick=()=>{this.setBearing(0);this.setView(this._homeCenter||this.center,this._homeZoom||this.zoom)};
       this._bindPointers();new ResizeObserver(()=>this.render()).observe(this.el);
     }
     on(n,fn){(this._events[n]||(this._events[n]=[])).push(fn);return this}
     _emit(n,a){(this._events[n]||[]).forEach(fn=>fn(a));return this}
     setView(ll,z=this.zoom){this.center=toLatLng(ll);this.zoom=clamp(Math.round(z),this.minZoom,this.maxZoom);if(!this._homeCenter){this._homeCenter={...this.center};this._homeZoom=this.zoom}this.render();return this}
     setZoom(z){return this.setView(this.center,z)}
+    setBearing(v){this.bearing=((Number(v)||0)%360+360)%360;this.render();this._emit('bearingchange',{bearing:this.bearing});return this}
+    getBearing(){return this.bearing}
     invalidateSize(){this.render();return this}
-    getSize(){return {x:this.el.clientWidth||600,y:this.el.clientHeight||400}}
-    latLngToContainerPoint(ll){const s=this.getSize(),c=project(this.center,this.zoom),p=project(ll,this.zoom);return {x:s.x/2+(p.x-c.x),y:s.y/2+(p.y-c.y)}}
-    containerPointToLatLng(p){const s=this.getSize(),c=project(this.center,this.zoom);return unproject({x:c.x+(p.x-s.x/2),y:c.y+(p.y-s.y/2)},this.zoom)}
+    getSize(){return{x:this.el.clientWidth||600,y:this.el.clientHeight||400}}
+    latLngToContainerPoint(ll){const s=this.getSize(),c=project(this.center,this.zoom),p=project(ll,this.zoom),r=rotate(p.x-c.x,p.y-c.y,-this.bearing);return{x:s.x/2+r.x,y:s.y/2+r.y}}
+    containerPointToLatLng(p){const s=this.getSize(),c=project(this.center,this.zoom),r=rotate(p.x-s.x/2,p.y-s.y/2,this.bearing);return unproject({x:c.x+r.x,y:c.y+r.y},this.zoom)}
     addLayer(layer){if(layer._isTile){this.baseLayer=layer;layer._map=this}else if(!this.layers.includes(layer)){this.layers.push(layer);layer._map=this;layer._onAdd?.(this)}this.render();return this}
     removeLayer(layer){if(this.baseLayer===layer)this.baseLayer=null;this.layers=this.layers.filter(x=>x!==layer);layer._onRemove?.();this.render();return this}
-    fitBounds(b){if(!b?.isValid?.())return this;const s=this.getSize(),pad=40;let best=this.minZoom;for(let z=this.maxZoom;z>=this.minZoom;z--){const p1=project({lat:b.minLat,lng:b.minLng},z),p2=project({lat:b.maxLat,lng:b.maxLng},z);if(Math.abs(p2.x-p1.x)<=s.x-pad*2&&Math.abs(p2.y-p1.y)<=s.y-pad*2){best=z;break}}return this.setView(b.center(),best)}
+    fitBounds(b){if(!b?.isValid?.())return this;const s=this.getSize(),pad=50;let best=this.minZoom;for(let z=this.maxZoom;z>=this.minZoom;z--){const p1=project({lat:b.minLat,lng:b.minLng},z),p2=project({lat:b.maxLat,lng:b.maxLng},z);if(Math.abs(p2.x-p1.x)<=s.x-pad*2&&Math.abs(p2.y-p1.y)<=s.y-pad*2){best=z;break}}return this.setView(b.center(),best)}
     showMessage(text){this.message.textContent=text;this.message.style.display=text?'block':'none'}
     render(){this._renderTiles();this.layers.forEach(l=>l._render?.());this._renderPopup()}
     _renderTiles(){
-      this.tilePane.innerHTML='';if(!this.baseLayer)return;const s=this.getSize(),z=this.zoom,c=project(this.center,z),left=c.x-s.x/2,top=c.y-s.y/2,n=Math.pow(2,z),minX=Math.floor(left/TILE)-1,maxX=Math.floor((left+s.x)/TILE)+1,minY=Math.floor(top/TILE)-1,maxY=Math.floor((top+s.y)/TILE)+1;
-      let loaded=0,failed=0,total=0;
-      for(let ty=minY;ty<=maxY;ty++){if(ty<0||ty>=n)continue;for(let tx=minX;tx<=maxX;tx++){total++;const wrapped=((tx%n)+n)%n,img=make('img','sm-tile',this.tilePane);img.alt='';img.draggable=false;img.style.left=(tx*TILE-left)+'px';img.style.top=(ty*TILE-top)+'px';img.src=this.baseLayer.url.replace('{z}',z).replace('{x}',wrapped).replace('{y}',ty);img.onload=()=>{loaded++;if(loaded>0)this.showMessage('')};img.onerror=()=>{failed++;if(failed===total)this.showMessage('Map imagery could not load. GPS collection still works; check your connection.')};}}
+      this.tilePane.innerHTML='';if(!this.baseLayer)return;const s=this.getSize(),diag=Math.ceil(Math.sqrt(s.x*s.x+s.y*s.y))+TILE*2,z=this.zoom,c=project(this.center,z),left=c.x-diag/2,top=c.y-diag/2,n=Math.pow(2,z),minX=Math.floor(left/TILE)-1,maxX=Math.floor((left+diag)/TILE)+1,minY=Math.floor(top/TILE)-1,maxY=Math.floor((top+diag)/TILE)+1;
+      this.tilePane.style.width=diag+'px';this.tilePane.style.height=diag+'px';this.tilePane.style.left=((s.x-diag)/2)+'px';this.tilePane.style.top=((s.y-diag)/2)+'px';this.tilePane.style.transform=`rotate(${-this.bearing}deg)`;this.tilePane.style.transformOrigin='50% 50%';
+      let loaded=0,failed=0,total=0;for(let ty=minY;ty<=maxY;ty++){if(ty<0||ty>=n)continue;for(let tx=minX;tx<=maxX;tx++){total++;const wrapped=((tx%n)+n)%n,img=make('img','sm-tile',this.tilePane);img.alt='';img.draggable=false;img.style.left=(tx*TILE-left)+'px';img.style.top=(ty*TILE-top)+'px';img.src=this.baseLayer.url.replace('{z}',z).replace('{x}',wrapped).replace('{y}',ty);img.onload=()=>{loaded++;if(loaded>0)this.showMessage('')};img.onerror=()=>{failed++;if(failed===total)this.showMessage('Map imagery could not load. GPS and published data can still work; check your connection.')}}}
       this.attribution.innerHTML=this.baseLayer.options.attribution||'';
     }
-    _bindPointers(){
-      let active=false,start=null,startCenter=null,pointerId=null;
-      this.el.addEventListener('pointerdown',e=>{if(e.target.closest('.sm-marker,.sm-controls,.sm-layer-control,.sm-popup'))return;active=true;pointerId=e.pointerId;this.el.setPointerCapture?.(pointerId);start={x:e.clientX,y:e.clientY};startCenter=project(this.center,this.zoom);this.dragged=false});
-      this.el.addEventListener('pointermove',e=>{if(!active||e.pointerId!==pointerId)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(Math.abs(dx)+Math.abs(dy)>5)this.dragged=true;this.center=unproject({x:startCenter.x-dx,y:startCenter.y-dy},this.zoom);this.render()});
-      this.el.addEventListener('pointerup',e=>{if(!active||e.pointerId!==pointerId)return;active=false;if(!this.dragged){const r=this.el.getBoundingClientRect(),ll=this.containerPointToLatLng({x:e.clientX-r.left,y:e.clientY-r.top});this._emit('click',{latlng:ll})}});
-      this.el.addEventListener('pointercancel',()=>active=false);
-      this.el.addEventListener('wheel',e=>{e.preventDefault();this.setZoom(this.zoom+(e.deltaY<0?1:-1))},{passive:false});
-    }
+    _bindPointers(){let active=false,start=null,startCenter=null,pointerId=null,dragStarted=false;this.el.addEventListener('pointerdown',e=>{if(e.target.closest('.sm-marker,.sm-controls,.sm-layer-control,.sm-popup'))return;active=true;pointerId=e.pointerId;this.el.setPointerCapture?.(pointerId);start={x:e.clientX,y:e.clientY};startCenter=project(this.center,this.zoom);this.dragged=false;dragStarted=false});this.el.addEventListener('pointermove',e=>{if(!active||e.pointerId!==pointerId)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(Math.abs(dx)+Math.abs(dy)>5){this.dragged=true;if(!dragStarted){dragStarted=true;this._emit('dragstart',{})}}const w=rotate(dx,dy,this.bearing);this.center=unproject({x:startCenter.x-w.x,y:startCenter.y-w.y},this.zoom);this.render()});this.el.addEventListener('pointerup',e=>{if(!active||e.pointerId!==pointerId)return;active=false;if(!this.dragged){const r=this.el.getBoundingClientRect(),ll=this.containerPointToLatLng({x:e.clientX-r.left,y:e.clientY-r.top});this._emit('click',{latlng:ll})}else this._emit('dragend',{})});this.el.addEventListener('pointercancel',()=>active=false);this.el.addEventListener('wheel',e=>{e.preventDefault();this.setZoom(this.zoom+(e.deltaY<0?1:-1))},{passive:false})}
     _openPopup(layer,html){this._popup={layer,html};this._renderPopup()}
     _renderPopup(){this.popupPane.innerHTML='';if(!this._popup)return;const p=this.latLngToContainerPoint(this._popup.layer.getLatLng?this._popup.layer.getLatLng():this._popup.layer.latlng),d=make('div','sm-popup',this.popupPane);d.style.left=p.x+'px';d.style.top=p.y+'px';const x=make('button','sm-popup-close',d);x.textContent='×';x.onclick=()=>{this._popup=null;this._renderPopup()};const c=make('div','',d);c.innerHTML=this._popup.html}
   }
-
   class TileLayer{constructor(url,options={}){this.url=url;this.options=options;this._isTile=true}addTo(map){map.addLayer(this);return this}}
   class FeatureGroup{constructor(){this.layers=[];this._map=null}addTo(map){this._map=map;return this}addLayer(l){if(!this.layers.includes(l)){this.layers.push(l);if(this._map)this._map.addLayer(l)}return this}clearLayers(){if(this._map)this.layers.forEach(l=>this._map.removeLayer(l));this.layers=[];return this}getBounds(){const b=new Bounds();this.layers.forEach(l=>{if(l.getBounds){const x=l.getBounds();if(x.isValid()){b.extend({lat:x.minLat,lng:x.minLng});b.extend({lat:x.maxLat,lng:x.maxLng})}}else if(l.getLatLng)b.extend(l.getLatLng())});return b}}
-  class BaseLayer{
-    constructor(){eventEmitter(this);this._popup=''}
-    addTo(target){target.addLayer(this);return this}
-    bindPopup(html){this._popup=html;return this}
-    _click(){if(this._popup&&this._map)this._map._openPopup(this,this._popup);this._emit('click',{target:this})}
-  }
-  class Marker extends BaseLayer{
-    constructor(ll,options={}){super();this.latlng=toLatLng(ll);this.options=options;this.el=null}
-    getLatLng(){return {...this.latlng}}
-    _onAdd(map){this.el=make('div','sm-marker',map.markerPane);this.el.innerHTML=this.options.icon?.html||'<div class="sm-marker-default"></div>';this.el.onclick=e=>{e.stopPropagation();this._click()};if(this.options.draggable)this._makeDraggable()}
-    _onRemove(){this.el?.remove();this.el=null}
-    _render(){if(!this.el||!this._map)return;const p=this._map.latLngToContainerPoint(this.latlng);this.el.style.left=p.x+'px';this.el.style.top=p.y+'px'}
-    _makeDraggable(){let active=false;this.el.addEventListener('pointerdown',e=>{e.stopPropagation();active=true;this.el.setPointerCapture?.(e.pointerId)});this.el.addEventListener('pointermove',e=>{if(!active)return;const r=this._map.el.getBoundingClientRect();this.latlng=this._map.containerPointToLatLng({x:e.clientX-r.left,y:e.clientY-r.top});this._render()});this.el.addEventListener('pointerup',e=>{if(!active)return;active=false;this._emit('dragend',{target:this})})}
-  }
-  class CircleMarker extends BaseLayer{
-    constructor(ll,options={}){super();this.latlng=toLatLng(ll);this.options=options;this.el=null}
-    getLatLng(){return {...this.latlng}}
-    _onAdd(map){this.el=make('div','sm-marker',map.markerPane);const d=make('div','',this.el);const r=this.options.radius||8;d.style.width=d.style.height=(r*2)+'px';d.style.borderRadius='50%';d.style.background=this.options.fillColor||this.options.color||'#1769e0';d.style.opacity=this.options.fillOpacity??1;d.style.border=`${this.options.weight||2}px solid ${this.options.color||'#fff'}`;d.style.boxShadow='0 2px 8px rgba(0,0,0,.35)';this.el.onclick=e=>{e.stopPropagation();this._click()}}
-    _onRemove(){this.el?.remove()}
-    _render(){if(!this.el)return;const p=this._map.latLngToContainerPoint(this.latlng);this.el.style.left=p.x+'px';this.el.style.top=p.y+'px'}
-  }
-  class Circle extends BaseLayer{
-    constructor(ll,options={}){super();this.latlng=toLatLng(ll);this.options=options;this.el=null}
-    getLatLng(){return {...this.latlng}}
-    _onAdd(map){this.el=make('div','sm-marker',map.markerPane);const d=make('div','',this.el);this.shape=d;d.style.borderRadius='50%';d.style.pointerEvents='none'}
-    _onRemove(){this.el?.remove()}
-    _render(){if(!this.el)return;const p=this._map.latLngToContainerPoint(this.latlng),px=(this.options.radius||0)/metersPerPixel(this.latlng.lat,this._map.zoom);this.el.style.left=p.x+'px';this.el.style.top=p.y+'px';this.shape.style.width=this.shape.style.height=(px*2)+'px';this.shape.style.transform='translate(-50%,-50%)';this.shape.style.border=`${this.options.weight||1}px solid ${this.options.color||'#1769e0'}`;this.shape.style.background=this.options.fillColor||this.options.color||'#1769e0';this.shape.style.opacity=this.options.fillOpacity??.08}
-  }
-  class Polyline extends BaseLayer{
-    constructor(points,options={}){super();this.points=points.map(toLatLng);this.options=options;this.el=null}
-    getLatLng(){return this.points[Math.floor(this.points.length/2)]||{lat:0,lng:0}}
-    getBounds(){return new Bounds(this.points)}
-    _onAdd(map){this.el=document.createElementNS('http://www.w3.org/2000/svg','path');this.el.setAttribute('fill','none');this.el.style.pointerEvents='stroke';this.el.style.cursor='pointer';this.el.addEventListener('click',e=>{e.stopPropagation();this._click()});map.svg.appendChild(this.el)}
-    _onRemove(){this.el?.remove()}
-    _render(){if(!this.el)return;const d=this.points.map((ll,i)=>{const p=this._map.latLngToContainerPoint(ll);return `${i?'L':'M'}${p.x.toFixed(1)},${p.y.toFixed(1)}`}).join(' ');this.el.setAttribute('d',d);this.el.setAttribute('stroke',this.options.color||'#1769aa');this.el.setAttribute('stroke-width',this.options.weight||5);this.el.setAttribute('stroke-linecap','round');this.el.setAttribute('stroke-linejoin','round');if(this.options.dashArray)this.el.setAttribute('stroke-dasharray',this.options.dashArray);else this.el.removeAttribute('stroke-dasharray')}
-  }
-
-  function layerControl(base){return{addTo(map){const box=make('div','sm-layer-control',map.el),sel=make('select','',box);Object.keys(base).forEach((name,i)=>{const o=make('option','',sel);o.value=name;o.textContent=name;if(i===0)o.selected=true});sel.onchange=()=>{map.addLayer(base[sel.value])};return this}}}
-  global.L={
-    map:(id,o)=>new Map(id,o),tileLayer:(u,o)=>new TileLayer(u,o),featureGroup:()=>new FeatureGroup(),marker:(ll,o)=>new Marker(ll,o),circleMarker:(ll,o)=>new CircleMarker(ll,o),circle:(ll,o)=>new Circle(ll,o),polyline:(pts,o)=>new Polyline(pts,o),divIcon:o=>o||{},control:{layers:base=>layerControl(base)},latLngBounds:pts=>new Bounds(pts)
-  };
+  class BaseLayer{constructor(){eventEmitter(this);this._popup=''}addTo(target){target.addLayer(this);return this}bindPopup(html){this._popup=html;return this}_click(){if(this._popup&&this._map)this._map._openPopup(this,this._popup);this._emit('click',{target:this})}}
+  class Marker extends BaseLayer{constructor(ll,options={}){super();this.latlng=toLatLng(ll);this.options=options;this.el=null}getLatLng(){return{...this.latlng}}_onAdd(map){this.el=make('div','sm-marker',map.markerPane);this.el.innerHTML=this.options.icon?.html||'<div class="sm-marker-default"></div>';this.el.onclick=e=>{e.stopPropagation();this._click()};if(this.options.draggable)this._makeDraggable()}_onRemove(){this.el?.remove();this.el=null}_render(){if(!this.el||!this._map)return;const p=this._map.latLngToContainerPoint(this.latlng);this.el.style.left=p.x+'px';this.el.style.top=p.y+'px'}_makeDraggable(){let active=false;this.el.addEventListener('pointerdown',e=>{e.stopPropagation();active=true;this.el.setPointerCapture?.(e.pointerId)});this.el.addEventListener('pointermove',e=>{if(!active)return;const r=this._map.el.getBoundingClientRect();this.latlng=this._map.containerPointToLatLng({x:e.clientX-r.left,y:e.clientY-r.top});this._render()});this.el.addEventListener('pointerup',()=>{if(!active)return;active=false;this._emit('dragend',{target:this})})}}
+  class Circle extends BaseLayer{constructor(ll,options={}){super();this.latlng=toLatLng(ll);this.options=options;this.el=null}getLatLng(){return{...this.latlng}}_onAdd(map){this.el=make('div','sm-marker',map.markerPane);this.shape=make('div','',this.el);this.shape.style.borderRadius='50%';this.shape.style.pointerEvents='none'}_onRemove(){this.el?.remove()}_render(){if(!this.el)return;const p=this._map.latLngToContainerPoint(this.latlng),px=(this.options.radius||0)/metersPerPixel(this.latlng.lat,this._map.zoom);this.el.style.left=p.x+'px';this.el.style.top=p.y+'px';this.shape.style.width=this.shape.style.height=(px*2)+'px';this.shape.style.transform='translate(-50%,-50%)';this.shape.style.border=`${this.options.weight||1}px solid ${this.options.color||'#1769e0'}`;this.shape.style.background=this.options.fillColor||this.options.color||'#1769e0';this.shape.style.opacity=this.options.fillOpacity??.08}}
+  class Polyline extends BaseLayer{constructor(points,options={}){super();this.points=points.map(toLatLng);this.options=options;this.el=null}getLatLng(){return this.points[Math.floor(this.points.length/2)]||{lat:0,lng:0}}getBounds(){return new Bounds(this.points)}_onAdd(map){this.el=document.createElementNS('http://www.w3.org/2000/svg','path');this.el.setAttribute('fill','none');this.el.style.pointerEvents='stroke';this.el.style.cursor='pointer';this.el.addEventListener('click',e=>{e.stopPropagation();this._click()});map.svg.appendChild(this.el)}_onRemove(){this.el?.remove()}_render(){if(!this.el)return;const d=this.points.map((ll,i)=>{const p=this._map.latLngToContainerPoint(ll);return `${i?'L':'M'}${p.x.toFixed(1)},${p.y.toFixed(1)}`}).join(' ');this.el.setAttribute('d',d);this.el.setAttribute('stroke',this.options.color||'#1769aa');this.el.setAttribute('stroke-width',this.options.weight||5);this.el.setAttribute('stroke-linecap','round');this.el.setAttribute('stroke-linejoin','round');if(this.options.dashArray)this.el.setAttribute('stroke-dasharray',this.options.dashArray);else this.el.removeAttribute('stroke-dasharray')}}
+  class ImageOverlay extends BaseLayer{constructor(url,bounds,options={}){super();this.url=url;this.bounds=bounds instanceof Bounds?bounds:new Bounds(bounds);this.options=options;this.el=null}_onAdd(map){this.el=make('img','sm-image-overlay',map.overlayPane);this.el.src=this.url;this.el.alt=this.options.alt||'';this.el.style.opacity=this.options.opacity??.65;this.el.style.pointerEvents='none'}_onRemove(){this.el?.remove()}_render(){if(!this.el||!this.bounds.isValid())return;const nw=this._map.latLngToContainerPoint({lat:this.bounds.maxLat,lng:this.bounds.minLng}),se=this._map.latLngToContainerPoint({lat:this.bounds.minLat,lng:this.bounds.maxLng});this.el.style.left=Math.min(nw.x,se.x)+'px';this.el.style.top=Math.min(nw.y,se.y)+'px';this.el.style.width=Math.abs(se.x-nw.x)+'px';this.el.style.height=Math.abs(se.y-nw.y)+'px'}}
+  function layerControl(base,overlays={}){return{addTo(map){const box=make('div','sm-layer-control',map.el),sel=make('select','',box);Object.keys(base).forEach((name,i)=>{const o=make('option','',sel);o.value=name;o.textContent=name;if(i===0)o.selected=true});sel.onchange=()=>map.addLayer(base[sel.value]);Object.keys(overlays||{}).forEach(name=>{const row=make('label','sm-overlay-toggle',box),cb=make('input','',row);cb.type='checkbox';row.appendChild(document.createTextNode(' '+name));cb.onchange=()=>cb.checked?map.addLayer(overlays[name]):map.removeLayer(overlays[name])});return this}}}
+  global.L={map:(id,o)=>new Map(id,o),tileLayer:(u,o)=>new TileLayer(u,o),featureGroup:()=>new FeatureGroup(),marker:(ll,o)=>new Marker(ll,o),circle:(ll,o)=>new Circle(ll,o),polyline:(pts,o)=>new Polyline(pts,o),imageOverlay:(u,b,o)=>new ImageOverlay(u,b,o),divIcon:o=>o||{},control:{layers:(b,o)=>layerControl(b,o)},latLngBounds:pts=>new Bounds(pts)};
 })(window);

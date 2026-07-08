@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b5684">
-  <title>Unofficial TPC Colorado Course Guide</title>
-  <link rel="stylesheet" href="simple-map.css?v=330">
-  <link rel="stylesheet" href="styles.css?v=330">
+  <title>TPC Colorado Course Guide</title>
+  <link rel="manifest" href="manifest.json?v=400">
+  <link rel="stylesheet" href="simple-map.css?v=400">
+  <link rel="stylesheet" href="styles.css?v=400">
 </head>
 <body>
 <header class="app-header">
   <div>
     <h1>Course Directions</h1>
-    <p>Unofficial volunteer navigation aid - geographic test build</p>
+    <p>Unofficial volunteer navigation aid</p>
   </div>
   <button id="menuButton" class="header-button" aria-label="Open tools">☰</button>
 </header>
-<div class="warning">Testing version. Follow official signs, ropes, accessibility guidance, and tournament staff if anything differs.</div>
+<div class="warning">Follow tournament signs, ropes, accessibility guidance, security, and staff instructions whenever they differ from this map.</div>
 <nav class="view-tabs" aria-label="Map views">
   <button class="view-tab active" data-view="navigate">Navigate</button>
   <button class="view-tab" data-view="overview">Course Overview</button>
@@ -29,40 +30,56 @@
       <button data-category="restroom">Nearest restroom</button>
       <button data-category="firstaid">First aid</button>
       <button data-category="concession">Concessions</button>
-      <button data-category="hole">Find a hole</button>
+      <select id="holeSelect" aria-label="Choose a hole"><option value="">Choose hole…</option></select>
+      <button id="routeHole">Route to hole</button>
       <button id="locateMe">Show my location</button>
+      <button id="followMode">Follow: North up</button>
+      <button id="filterButton">Filters</button>
+      <button id="clearRoute">Clear route</button>
     </div>
+
+    <section id="filterPanel" class="filter-panel hidden" aria-label="Map filters">
+      <strong>Show on map</strong>
+      <label><input type="checkbox" data-filter="amenities" checked> Amenities</label>
+      <label><input type="checkbox" data-filter="places" checked> Gates and public places</label>
+      <label><input type="checkbox" data-filter="paths" checked> Spectator paths</label>
+      <label><input type="checkbox" data-filter="holes"> Hole reference points</label>
+      <label><input type="checkbox" data-filter="junctions"> Junctions and crossings</label>
+      <label><input type="checkbox" data-filter="staff"> Volunteer/staff and restrictions</label>
+    </section>
+
     <div id="navigateMap" class="geo-map"></div>
     <section id="navigateStatus" class="status-card">
-      <h2>Geographic map ready</h2>
-      <p>No verified tournament facilities have been loaded yet. Use <strong>Scout & Trace</strong> today to record exact points and approved walking paths.</p>
+      <h2>Loading published course data</h2>
+      <p>The shared map will load automatically.</p>
     </section>
   </section>
 
   <section id="overviewView" class="view">
-    <div class="image-note"><strong>Official course overview.</strong> This illustration is not north-up. Use the Navigate tab for GPS position and geographic direction.</div>
+    <div class="image-note"><strong>Official course overview.</strong> This illustration is not north-up and is currently a reference image. The tee and green GPS points have been preserved as alignment anchors for the future geographic overlay.</div>
     <div class="image-zoom"><img src="official-course-overview.jpg" alt="Official Blue Championship spectator course map"></div>
   </section>
 
   <section id="clubhouseView" class="view">
-    <div class="image-note"><strong>Clubhouse and Fan Zone detail.</strong> This is a schematic detail view, not a GPS map.</div>
+    <div class="image-note"><strong>Clubhouse and Fan Zone detail.</strong> This is a schematic reference view, not a GPS map.</div>
     <div class="image-zoom"><img src="official-clubhouse-detail.jpg" alt="Official clubhouse and fan zone detail"></div>
   </section>
 </main>
 
 <aside id="toolsPanel" class="side-panel hidden">
   <button id="closeTools" class="panel-close">Close</button>
-  <h2>Tools</h2>
-  <a class="tool-link primary" href="scout.html">Scout & Trace on phone</a>
-  <a class="tool-link" href="review.html">Review / import data</a>
-  <button id="shareApp" class="tool-link">Share this app</button>
-  <button id="loadLocalData" class="tool-link">Show scouting data saved on this device</button>
+  <h2>Map tools</h2>
+  <button id="showAllMapped" class="tool-link">Show all published data</button>
+  <button id="shareApp" class="tool-link">Share this public map</button>
   <hr>
-  <p class="small">GPS routes are based on the actual geographic map. The official course artwork remains a separate reference view, so its page rotation does not affect navigation.</p>
+  <h3>Data tools</h3>
+  <a class="tool-link" href="scout.html?v=400">Scout &amp; Trace</a>
+  <a class="tool-link" href="review.html?v=400">Review / edit data</a>
+  <p class="small">The public map automatically loads <code>verified-data.json</code>. Spectators do not need to import a scouting file.</p>
 </aside>
 
-<script src="simple-map.js?v=330"></script>
-<script src="shared.js?v=330"></script>
-<script src="app.js?v=330"></script>
+<script src="simple-map.js?v=400"></script>
+<script src="shared.js?v=400"></script>
+<script src="app.js?v=400"></script>
 </body>
 </html>
