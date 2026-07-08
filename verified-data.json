@@ -1,24 +1,9 @@
 {
   "version": 7,
-  "eventName": "The Blue Championship",
-  "courseName": "TPC Colorado",
-  "sourceExportedAt": "2026-07-07T22:11:42.891Z",
-  "publishedAt": "2026-07-08T02:10:00.000Z",
-  "mapCenter": [
-    40.3384223,
-    -105.1104679
-  ],
-  "defaultZoom": 15,
-  "displayDefaults": {
-    "restrooms": true,
-    "firstaid": true,
-    "concessions": true,
-    "scoreboards": true,
-    "places": true,
-    "paths": true,
-    "holes": false,
-    "junctions": false
-  },
+  "event": "The Blue Championship",
+  "course": "TPC Colorado",
+  "createdAt": "2026-07-08T15:19:10.495Z",
+  "updatedAt": "2026-07-08T16:22:20.466Z",
   "points": [
     {
       "id": "point-mrazh9o8-i5s4w3",
@@ -32,13 +17,13 @@
       "group": "places",
       "defaultVisible": true,
       "networkNode": 0,
-      "networkAccessMeters": 0.0
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrazkg87-a9w0ly",
       "type": "restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Main Entrance",
+      "name": "Restrooms – Main Entrance",
       "nearest": "Main entrance / clubhouse",
       "notes": "",
       "lat": 40.3319572,
@@ -56,12 +41,12 @@
       "name": "Hole 18 Green",
       "nearest": "Clubhouse",
       "notes": "",
-      "lat": 40.33219,
-      "lng": -105.1049534,
+      "lat": 40.3320747815281,
+      "lng": -105.10539888885667,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 4,
-      "networkAccessMeters": 8.93,
+      "networkNode": 493,
+      "networkAccessMeters": 40.87,
       "anchorCandidate": true,
       "holeNumber": 18,
       "holePosition": "green"
@@ -87,12 +72,12 @@
       "name": "Hole 16 Tee",
       "nearest": "Hole 16",
       "notes": "",
-      "lat": 40.3325844,
-      "lng": -105.1047005,
+      "lat": 40.33293419572448,
+      "lng": -105.10431246818519,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 5,
-      "networkAccessMeters": 17.16,
+      "networkNode": 66,
+      "networkAccessMeters": 51.22,
       "anchorCandidate": true,
       "holeNumber": 16,
       "holePosition": "tee"
@@ -101,7 +86,7 @@
       "id": "point-mrazwh5w-2e4c04",
       "type": "concession",
       "iconType": "concession",
-      "name": "Concessions \u2013 Hole 16 Tee / Hole 18 Green",
+      "name": "Concessions – Hole 16 Tee / Hole 18 Green",
       "nearest": "Hole 16 tee / Hole 18 green",
       "notes": "",
       "lat": 40.332432,
@@ -118,12 +103,12 @@
       "name": "Hole 16 Green",
       "nearest": "Hole 16",
       "notes": "",
-      "lat": 40.3323344,
-      "lng": -105.1060058,
+      "lat": 40.33269690685789,
+      "lng": -105.10625454267263,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 12,
-      "networkAccessMeters": 1.68,
+      "networkNode": 13,
+      "networkAccessMeters": 45.85,
       "anchorCandidate": true,
       "holeNumber": 16,
       "holePosition": "green"
@@ -135,12 +120,12 @@
       "name": "Hole 17 Tee",
       "nearest": "Hole 17",
       "notes": "",
-      "lat": 40.3322602,
-      "lng": -105.1062186,
+      "lat": 40.33234617972786,
+      "lng": -105.10641529627954,
       "group": "holes",
       "defaultVisible": false,
       "networkNode": 14,
-      "networkAccessMeters": 0.0,
+      "networkAccessMeters": 19.22,
       "anchorCandidate": true,
       "holeNumber": 17,
       "holePosition": "tee"
@@ -152,12 +137,12 @@
       "name": "Hole 17 Fairway",
       "nearest": "Hole 17",
       "notes": "",
-      "lat": 40.3290762,
-      "lng": -105.1069107,
+      "lat": 40.3293363851425,
+      "lng": -105.10676691044102,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 33,
-      "networkAccessMeters": 0.61
+      "networkNode": 31,
+      "networkAccessMeters": 25.95
     },
     {
       "id": "point-mrb0dduk-pi3jfn",
@@ -166,12 +151,12 @@
       "name": "Hole 17 Green",
       "nearest": "Holes 17 and 18",
       "notes": "",
-      "lat": 40.3279161,
-      "lng": -105.1063813,
+      "lat": 40.32825967053964,
+      "lng": -105.10633421069777,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 41,
-      "networkAccessMeters": 3.32,
+      "networkNode": 40,
+      "networkAccessMeters": 39.46,
       "anchorCandidate": true,
       "holeNumber": 17,
       "holePosition": "green"
@@ -183,12 +168,12 @@
       "name": "Hole 18 Tee",
       "nearest": "Hole 18",
       "notes": "",
-      "lat": 40.3278505,
-      "lng": -105.105801,
+      "lat": 40.32769904405971,
+      "lng": -105.10599618229442,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 43,
-      "networkAccessMeters": 2.27,
+      "networkNode": 42,
+      "networkAccessMeters": 22.96,
       "anchorCandidate": true,
       "holeNumber": 18,
       "holePosition": "tee"
@@ -200,12 +185,12 @@
       "name": "Hole 18 Fairway",
       "nearest": "Hole 18",
       "notes": "",
-      "lat": 40.3300162,
-      "lng": -105.1052409,
+      "lat": 40.330133315971416,
+      "lng": -105.10560462467004,
       "group": "holes",
       "defaultVisible": false,
       "networkNode": 53,
-      "networkAccessMeters": 5.58
+      "networkAccessMeters": 30.78
     },
     {
       "id": "point-mrb0pgqm-it3kh6",
@@ -218,8 +203,8 @@
       "lng": -105.1049391,
       "group": "places",
       "defaultVisible": true,
-      "networkNode": 504,
-      "networkAccessMeters": 0.0
+      "networkNode": 493,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb0s2so-34qpva",
@@ -233,7 +218,7 @@
       "group": "junctions",
       "defaultVisible": false,
       "networkNode": 5,
-      "networkAccessMeters": 0.0
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb0ui0s-pnev4r",
@@ -242,15 +227,16 @@
       "name": "Hole 1 Tee",
       "nearest": "Holes 1 and 16",
       "notes": "",
-      "lat": 40.3331251,
-      "lng": -105.1049416,
+      "lat": 40.33310875637184,
+      "lng": -105.10434922937895,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 63,
-      "networkAccessMeters": 1.09,
+      "networkNode": 66,
+      "networkAccessMeters": 34,
       "anchorCandidate": true,
       "holeNumber": 1,
-      "holePosition": "tee"
+      "holePosition": "tee",
+      "accessible": false
     },
     {
       "id": "point-mrb0w1at-xlw4qf",
@@ -264,7 +250,7 @@
       "group": "junctions",
       "defaultVisible": false,
       "networkNode": 64,
-      "networkAccessMeters": 0.0
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb0ybt1-47akgg",
@@ -273,12 +259,12 @@
       "name": "Pro Shop",
       "nearest": "Clubhouse",
       "notes": "",
-      "lat": 40.3333415,
-      "lng": -105.1046604,
+      "lat": 40.33334911705068,
+      "lng": -105.10453109536009,
       "group": "places",
       "defaultVisible": true,
       "networkNode": 67,
-      "networkAccessMeters": 0.06
+      "networkAccessMeters": 7.81
     },
     {
       "id": "point-mrb0yz3y-mk4uj9",
@@ -305,8 +291,8 @@
       "lng": -105.1046583,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 73,
-      "networkAccessMeters": 0.0
+      "networkNode": 69,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb12309-v1xlm8",
@@ -315,26 +301,26 @@
       "name": "Practice Green",
       "nearest": "Clubhouse / Hole 1",
       "notes": "",
-      "lat": 40.3336166,
-      "lng": -105.1044146,
+      "lat": 40.33361320304722,
+      "lng": -105.10440511539093,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 75,
-      "networkAccessMeters": 0.05
+      "networkNode": 71,
+      "networkAccessMeters": 0.87
     },
     {
       "id": "point-mrb13i1i-4e1wnv",
       "type": "accessible_restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Practice Green",
+      "name": "Restrooms – Practice Green",
       "nearest": "Practice green",
       "notes": "",
-      "lat": 40.3338682,
-      "lng": -105.1042406,
+      "lat": 40.33391809767793,
+      "lng": -105.10428842526125,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 78,
-      "networkAccessMeters": 1.56,
+      "networkNode": 74,
+      "networkAccessMeters": 8.38,
       "accessible": true
     },
     {
@@ -348,7 +334,7 @@
       "lng": -105.1048059,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 79,
+      "networkNode": 75,
       "networkAccessMeters": 0.31
     },
     {
@@ -358,12 +344,12 @@
       "name": "Hole 1 Fairway",
       "nearest": "Hole 1",
       "notes": "",
-      "lat": 40.3359161,
-      "lng": -105.1053513,
+      "lat": 40.33581463312721,
+      "lng": -105.10571870826573,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 93,
-      "networkAccessMeters": 0.27
+      "networkNode": 88,
+      "networkAccessMeters": 37.89
     },
     {
       "id": "point-mrb1i2b7-7b549m",
@@ -372,12 +358,12 @@
       "name": "Hole 1 Green",
       "nearest": "Hole 1",
       "notes": "",
-      "lat": 40.3384711,
-      "lng": -105.1065262,
+      "lat": 40.33830624057069,
+      "lng": -105.10693969744587,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 108,
-      "networkAccessMeters": 0.69,
+      "networkNode": 100,
+      "networkAccessMeters": 39.67,
       "anchorCandidate": true,
       "holeNumber": 1,
       "holePosition": "green"
@@ -389,25 +375,25 @@
       "name": "Hole 1 / Hole 2 / Hole 15 Street Crossing",
       "nearest": "Holes 1, 2 and 15",
       "notes": "",
-      "lat": 40.3385142,
-      "lng": -105.1063168,
+      "lat": 40.33850964007951,
+      "lng": -105.10630996429221,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 112,
-      "networkAccessMeters": 0.0
+      "networkNode": 104,
+      "networkAccessMeters": 0.77
     },
     {
       "id": "point-mrb1np5p-e4ro0g",
       "type": "restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Holes 1 and 15",
+      "name": "Restrooms – Holes 1 and 15",
       "nearest": "Holes 1 and 15",
       "notes": "",
       "lat": 40.3390729,
       "lng": -105.1069854,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 117,
+      "networkNode": 110,
       "networkAccessMeters": 3.8,
       "accessible": false
     },
@@ -422,7 +408,7 @@
       "lng": -105.1070893,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 118,
+      "networkNode": 111,
       "networkAccessMeters": 6.46
     },
     {
@@ -436,7 +422,7 @@
       "lng": -105.1058945,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 120,
+      "networkNode": 112,
       "networkAccessMeters": 0.53
     },
     {
@@ -446,12 +432,12 @@
       "name": "Hole 2 Tee",
       "nearest": "Hole 2",
       "notes": "",
-      "lat": 40.3386381,
-      "lng": -105.1057894,
+      "lat": 40.338608806053095,
+      "lng": -105.10544400805209,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 122,
-      "networkAccessMeters": 0.0,
+      "networkNode": 116,
+      "networkAccessMeters": 15.4,
       "anchorCandidate": true,
       "holeNumber": 2,
       "holePosition": "tee"
@@ -463,12 +449,12 @@
       "name": "Hole 2 Green",
       "nearest": "Hole 2",
       "notes": "",
-      "lat": 40.340496,
-      "lng": -105.1055458,
+      "lat": 40.340586849576134,
+      "lng": -105.10604859472785,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 134,
-      "networkAccessMeters": 0.21,
+      "networkNode": 126,
+      "networkAccessMeters": 43.61,
       "anchorCandidate": true,
       "holeNumber": 2,
       "holePosition": "green"
@@ -480,12 +466,12 @@
       "name": "Hole 3 Tee",
       "nearest": "Hole 3",
       "notes": "",
-      "lat": 40.3413912,
-      "lng": -105.1051749,
+      "lat": 40.34150715212883,
+      "lng": -105.10529835971518,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 139,
-      "networkAccessMeters": 0.84,
+      "networkNode": 134,
+      "networkAccessMeters": 11.4,
       "anchorCandidate": true,
       "holeNumber": 3,
       "holePosition": "tee"
@@ -497,12 +483,12 @@
       "name": "Hole 3 Fairway",
       "nearest": "Hole 3",
       "notes": "",
-      "lat": 40.3414952,
-      "lng": -105.1079815,
+      "lat": 40.34109786142974,
+      "lng": -105.10815646365847,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 154,
-      "networkAccessMeters": 8.74
+      "networkNode": 152,
+      "networkAccessMeters": 34.9
     },
     {
       "id": "point-mrb2f5tq-741k0n",
@@ -511,12 +497,12 @@
       "name": "Hole 3 Green",
       "nearest": "Hole 3",
       "notes": "",
-      "lat": 40.3400548,
-      "lng": -105.1088496,
+      "lat": 40.3400797431567,
+      "lng": -105.10851643853364,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 167,
-      "networkAccessMeters": 2.48,
+      "networkNode": 160,
+      "networkAccessMeters": 28.58,
       "anchorCandidate": true,
       "holeNumber": 3,
       "holePosition": "green"
@@ -532,7 +518,7 @@
       "lng": -105.1094766,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 174,
+      "networkNode": 166,
       "networkAccessMeters": 1.75
     },
     {
@@ -546,7 +532,7 @@
       "lng": -105.1100907,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 182,
+      "networkNode": 174,
       "networkAccessMeters": 1.22
     },
     {
@@ -556,12 +542,12 @@
       "name": "Hole 4 Tee",
       "nearest": "Hole 4",
       "notes": "",
-      "lat": 40.3394422,
-      "lng": -105.1100992,
+      "lat": 40.33934218824937,
+      "lng": -105.1103105811422,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 182,
-      "networkAccessMeters": 0.52,
+      "networkNode": 174,
+      "networkAccessMeters": 20.58,
       "anchorCandidate": true,
       "holeNumber": 4,
       "holePosition": "tee"
@@ -573,12 +559,12 @@
       "name": "Hole 4 Fairway",
       "nearest": "Hole 4",
       "notes": "",
-      "lat": 40.3413657,
-      "lng": -105.1104352,
+      "lat": 40.34134982678011,
+      "lng": -105.11083444996223,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 197,
-      "networkAccessMeters": 2.71
+      "networkNode": 188,
+      "networkAccessMeters": 32.81
     },
     {
       "id": "point-mrb2wkyh-83j417",
@@ -587,12 +573,12 @@
       "name": "Hole 5 Tee",
       "nearest": "Holes 4 and 5",
       "notes": "",
-      "lat": 40.3428693,
-      "lng": -105.1102767,
+      "lat": 40.34279703649251,
+      "lng": -105.10979386325934,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 203,
-      "networkAccessMeters": 8.06,
+      "networkNode": 195,
+      "networkAccessMeters": 41.71,
       "anchorCandidate": true,
       "holeNumber": 5,
       "holePosition": "tee"
@@ -604,12 +590,12 @@
       "name": "Hole 4 Green",
       "nearest": "Holes 4 and 5",
       "notes": "",
-      "lat": 40.3434329,
-      "lng": -105.1102703,
+      "lat": 40.34351679749019,
+      "lng": -105.11076842386692,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 205,
-      "networkAccessMeters": 8.97,
+      "networkNode": 198,
+      "networkAccessMeters": 45.17,
       "anchorCandidate": true,
       "holeNumber": 4,
       "holePosition": "green"
@@ -625,35 +611,35 @@
       "lng": -105.1104495,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 211,
-      "networkAccessMeters": 0.0
+      "networkNode": 203,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb36qjj-d7u8n9",
       "type": "concession",
       "iconType": "concession",
-      "name": "Concessions \u2013 Holes 5 and 13",
+      "name": "Concessions – Holes 5 and 13",
       "nearest": "Holes 5 and 13",
       "notes": "",
       "lat": 40.3455034,
       "lng": -105.1105704,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 211,
+      "networkNode": 203,
       "networkAccessMeters": 12.18
     },
     {
       "id": "point-mrb39hqm-cmjfdr",
       "type": "accessible_restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Holes 5 and 13",
+      "name": "Restrooms – Holes 5 and 13",
       "nearest": "Holes 5 and 13",
       "notes": "",
       "lat": 40.3455213,
       "lng": -105.1107302,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 398,
+      "networkNode": 387,
       "networkAccessMeters": 7.05,
       "accessible": true
     },
@@ -664,12 +650,12 @@
       "name": "Hole 5 Fairway",
       "nearest": "Hole 5",
       "notes": "",
-      "lat": 40.3459279,
-      "lng": -105.1103399,
+      "lat": 40.345907159417955,
+      "lng": -105.10976663118674,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 214,
-      "networkAccessMeters": 0.57
+      "networkNode": 207,
+      "networkAccessMeters": 45.66
     },
     {
       "id": "point-mrb3k1j9-5s1iby",
@@ -678,12 +664,12 @@
       "name": "Hole 5 Green",
       "nearest": "Hole 5",
       "notes": "",
-      "lat": 40.3479615,
-      "lng": -105.1097372,
+      "lat": 40.34774004326783,
+      "lng": -105.10921012591288,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 218,
-      "networkAccessMeters": 2.64,
+      "networkNode": 211,
+      "networkAccessMeters": 47.81,
       "anchorCandidate": true,
       "holeNumber": 5,
       "holePosition": "green"
@@ -699,8 +685,8 @@
       "lng": -105.1099468,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 227,
-      "networkAccessMeters": 0.0
+      "networkNode": 216,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb3qwft-ngq281",
@@ -709,12 +695,12 @@
       "name": "Hole 6 Tee",
       "nearest": "Holes 5 and 6",
       "notes": "",
-      "lat": 40.3489941,
-      "lng": -105.1096545,
+      "lat": 40.34913997301754,
+      "lng": -105.10957743728076,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 234,
-      "networkAccessMeters": 0.05,
+      "networkNode": 223,
+      "networkAccessMeters": 17.49,
       "anchorCandidate": true,
       "holeNumber": 6,
       "holePosition": "tee"
@@ -726,12 +712,12 @@
       "name": "Hole 6 Fairway",
       "nearest": "Hole 6",
       "notes": "",
-      "lat": 40.3481806,
-      "lng": -105.1120489,
+      "lat": 40.348431645218625,
+      "lng": -105.11235133705816,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 247,
-      "networkAccessMeters": 1.14
+      "networkNode": 237,
+      "networkAccessMeters": 33.25
     },
     {
       "id": "point-mrb46zz0-b572ju",
@@ -740,12 +726,12 @@
       "name": "Hole 6 Green",
       "nearest": "Holes 6 and 7",
       "notes": "",
-      "lat": 40.3485458,
-      "lng": -105.1136962,
+      "lat": 40.34877602175096,
+      "lng": -105.11344559260769,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 256,
-      "networkAccessMeters": 12.0,
+      "networkNode": 244,
+      "networkAccessMeters": 36.25,
       "anchorCandidate": true,
       "holeNumber": 6,
       "holePosition": "green"
@@ -757,12 +743,12 @@
       "name": "Hole 7 Tee",
       "nearest": "Holes 6 and 7",
       "notes": "",
-      "lat": 40.3485876,
-      "lng": -105.1138267,
+      "lat": 40.349046384670366,
+      "lng": -105.11389034059141,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 256,
-      "networkAccessMeters": 0.0,
+      "networkNode": 245,
+      "networkAccessMeters": 51.3,
       "anchorCandidate": true,
       "holeNumber": 7,
       "holePosition": "tee"
@@ -771,14 +757,14 @@
       "id": "point-mrb4clqs-lq892y",
       "type": "restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Hole 7",
+      "name": "Restrooms – Hole 7",
       "nearest": "Hole 7",
       "notes": "",
       "lat": 40.3471965,
       "lng": -105.1143057,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 269,
+      "networkNode": 258,
       "networkAccessMeters": 1.31,
       "accessible": false
     },
@@ -789,12 +775,12 @@
       "name": "Hole 7 Fairway",
       "nearest": "Hole 7",
       "notes": "",
-      "lat": 40.3468678,
-      "lng": -105.114766,
+      "lat": 40.3470079727412,
+      "lng": -105.11511677542478,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 274,
-      "networkAccessMeters": 1.18
+      "networkNode": 263,
+      "networkAccessMeters": 33.75
     },
     {
       "id": "point-mrb4hie0-79jhvh",
@@ -803,12 +789,12 @@
       "name": "Hole 7 Green",
       "nearest": "Hole 7",
       "notes": "",
-      "lat": 40.3458816,
-      "lng": -105.116416,
+      "lat": 40.34615069640905,
+      "lng": -105.11660457993605,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 281,
-      "networkAccessMeters": 5.43,
+      "networkNode": 270,
+      "networkAccessMeters": 32.89,
       "anchorCandidate": true,
       "holeNumber": 7,
       "holePosition": "green"
@@ -820,12 +806,12 @@
       "name": "Hole 8 Tee",
       "nearest": "Holes 7 and 8",
       "notes": "",
-      "lat": 40.3458128,
-      "lng": -105.1165803,
+      "lat": 40.34569894328858,
+      "lng": -105.11654328039333,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 282,
-      "networkAccessMeters": 7.97,
+      "networkNode": 272,
+      "networkAccessMeters": 12.24,
       "anchorCandidate": true,
       "holeNumber": 8,
       "holePosition": "tee"
@@ -841,8 +827,8 @@
       "lng": -105.1164877,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 282,
-      "networkAccessMeters": 0.0
+      "networkNode": 271,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb4lzbu-aopmse",
@@ -855,8 +841,8 @@
       "lng": -105.1155642,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 288,
-      "networkAccessMeters": 0.0
+      "networkNode": 277,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb4msjv-3hgpml",
@@ -865,12 +851,12 @@
       "name": "Hole 9 Tee",
       "nearest": "Hole 9",
       "notes": "",
-      "lat": 40.3460463,
-      "lng": -105.1155318,
+      "lat": 40.34613880473064,
+      "lng": -105.11575761415918,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 290,
-      "networkAccessMeters": 7.47,
+      "networkNode": 267,
+      "networkAccessMeters": 16.23,
       "anchorCandidate": true,
       "holeNumber": 9,
       "holePosition": "tee"
@@ -886,7 +872,7 @@
       "lng": -105.1153837,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 291,
+      "networkNode": 280,
       "networkAccessMeters": 2.25
     },
     {
@@ -896,12 +882,12 @@
       "name": "Hole 9 Fairway",
       "nearest": "Hole 9",
       "notes": "",
-      "lat": 40.3434021,
-      "lng": -105.115155,
+      "lat": 40.3435219337504,
+      "lng": -105.11574993489523,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 309,
-      "networkAccessMeters": 2.31
+      "networkNode": 302,
+      "networkAccessMeters": 45.04
     },
     {
       "id": "point-mrb4zqmz-mw32w3",
@@ -910,12 +896,12 @@
       "name": "Hole 9 Green",
       "nearest": "Hole 9",
       "notes": "",
-      "lat": 40.3429835,
-      "lng": -105.1168734,
+      "lat": 40.34320644400083,
+      "lng": -105.11715258778315,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 505,
-      "networkAccessMeters": 0.0,
+      "networkNode": 494,
+      "networkAccessMeters": 34.27,
       "anchorCandidate": true,
       "holeNumber": 9,
       "holePosition": "green"
@@ -924,30 +910,30 @@
       "id": "point-mrb50lfi-lj6230",
       "type": "accessible_restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Turn at Holes 9 and 10",
+      "name": "Restrooms – Turn at Holes 9 and 10",
       "nearest": "Holes 9 and 10",
       "notes": "",
       "lat": 40.3428326,
       "lng": -105.1169928,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 506,
-      "networkAccessMeters": 0.0,
+      "networkNode": 495,
+      "networkAccessMeters": 0,
       "accessible": true
     },
     {
       "id": "point-mrb51gk5-9fnsgb",
       "type": "concession",
       "iconType": "concession",
-      "name": "Concessions \u2013 Turn at Holes 9 and 10",
+      "name": "Concessions – Turn at Holes 9 and 10",
       "nearest": "Holes 9 and 10",
       "notes": "",
       "lat": 40.3427108,
       "lng": -105.1168854,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 507,
-      "networkAccessMeters": 0.0
+      "networkNode": 496,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb52wxu-yuin7h",
@@ -960,7 +946,7 @@
       "lng": -105.1168484,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 318,
+      "networkNode": 307,
       "networkAccessMeters": 0.68
     },
     {
@@ -970,12 +956,12 @@
       "name": "Hole 10 Tee",
       "nearest": "Hole 10",
       "notes": "",
-      "lat": 40.3423009,
-      "lng": -105.11678,
+      "lat": 40.3429299071472,
+      "lng": -105.11727602342182,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 320,
-      "networkAccessMeters": 8.93,
+      "networkNode": 495,
+      "networkAccessMeters": 26.33,
       "anchorCandidate": true,
       "holeNumber": 10,
       "holePosition": "tee"
@@ -987,12 +973,12 @@
       "name": "Hole 10 Fairway",
       "nearest": "Hole 10",
       "notes": "",
-      "lat": 40.3407577,
-      "lng": -105.1159983,
+      "lat": 40.34069891552124,
+      "lng": -105.11661824178339,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 330,
-      "networkAccessMeters": 0.0
+      "networkNode": 321,
+      "networkAccessMeters": 49.99
     },
     {
       "id": "point-mrb59m7z-k9l4f4",
@@ -1001,12 +987,12 @@
       "name": "Hole 10 Green",
       "nearest": "Hole 10",
       "notes": "",
-      "lat": 40.3397328,
-      "lng": -105.1163404,
+      "lat": 40.339774920681826,
+      "lng": -105.11691765940816,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 336,
-      "networkAccessMeters": 3.81,
+      "networkNode": 326,
+      "networkAccessMeters": 40.75,
       "anchorCandidate": true,
       "holeNumber": 10,
       "holePosition": "green"
@@ -1015,14 +1001,14 @@
       "id": "point-mrb5afgx-x41dm1",
       "type": "restroom",
       "iconType": "restroom",
-      "name": "Restrooms \u2013 Hole 10",
+      "name": "Restrooms – Hole 10",
       "nearest": "Hole 10",
       "notes": "",
       "lat": 40.3394345,
       "lng": -105.1165144,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 338,
+      "networkNode": 327,
       "networkAccessMeters": 6.49,
       "accessible": false
     },
@@ -1037,8 +1023,8 @@
       "lng": -105.1160225,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 508,
-      "networkAccessMeters": 0.0
+      "networkNode": 497,
+      "networkAccessMeters": 0
     },
     {
       "id": "point-mrb5cwg8-qjnr4c",
@@ -1047,12 +1033,12 @@
       "name": "Hole 11 Tee",
       "nearest": "Hole 11",
       "notes": "",
-      "lat": 40.3390628,
-      "lng": -105.1152686,
+      "lat": 40.338247432757285,
+      "lng": -105.11561145112103,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 348,
-      "networkAccessMeters": 2.64,
+      "networkNode": 335,
+      "networkAccessMeters": 92.23,
       "anchorCandidate": true,
       "holeNumber": 11,
       "holePosition": "tee"
@@ -1064,12 +1050,12 @@
       "name": "Hole 11 Fairway",
       "nearest": "Hole 11",
       "notes": "",
-      "lat": 40.3406433,
-      "lng": -105.1142775,
+      "lat": 40.34049310231676,
+      "lng": -105.11387826017346,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 360,
-      "networkAccessMeters": 1.5
+      "networkNode": 347,
+      "networkAccessMeters": 34.65
     },
     {
       "id": "point-mrb5jw1g-4ho2by",
@@ -1078,12 +1064,12 @@
       "name": "Hole 11 Green",
       "nearest": "Hole 11",
       "notes": "",
-      "lat": 40.3420357,
-      "lng": -105.1136894,
+      "lat": 40.3419770952977,
+      "lng": -105.11310893242955,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 366,
-      "networkAccessMeters": 1.72,
+      "networkNode": 356,
+      "networkAccessMeters": 46.03,
       "anchorCandidate": true,
       "holeNumber": 11,
       "holePosition": "green"
@@ -1095,12 +1081,12 @@
       "name": "Hole 12 Tee",
       "nearest": "Hole 12",
       "notes": "",
-      "lat": 40.3423247,
-      "lng": -105.1136231,
+      "lat": 40.34224830087946,
+      "lng": -105.11346156695402,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 369,
-      "networkAccessMeters": 1.55,
+      "networkNode": 357,
+      "networkAccessMeters": 14.52,
       "anchorCandidate": true,
       "holeNumber": 12,
       "holePosition": "tee"
@@ -1112,12 +1098,12 @@
       "name": "Hole 12 Fairway",
       "nearest": "Hole 12",
       "notes": "",
-      "lat": 40.3444654,
-      "lng": -105.113101,
+      "lat": 40.34462954184504,
+      "lng": -105.11247348430663,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 378,
-      "networkAccessMeters": 24.58
+      "networkNode": 367,
+      "networkAccessMeters": 43.78
     },
     {
       "id": "point-mrb5thqy-o9cxoe",
@@ -1126,12 +1112,12 @@
       "name": "Hole 12 Green",
       "nearest": "Hole 12",
       "notes": "",
-      "lat": 40.3457633,
-      "lng": -105.1115863,
+      "lat": 40.34546145919891,
+      "lng": -105.11132529852338,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 391,
-      "networkAccessMeters": 4.47,
+      "networkNode": 383,
+      "networkAccessMeters": 28.46,
       "anchorCandidate": true,
       "holeNumber": 12,
       "holePosition": "green"
@@ -1147,7 +1133,7 @@
       "lng": -105.1109332,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 395,
+      "networkNode": 384,
       "networkAccessMeters": 1.48
     },
     {
@@ -1157,12 +1143,12 @@
       "name": "Hole 13 Tee",
       "nearest": "Holes 12 and 13",
       "notes": "",
-      "lat": 40.3454574,
-      "lng": -105.1108915,
+      "lat": 40.34539440887685,
+      "lng": -105.11074017488872,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 509,
-      "networkAccessMeters": 0.0,
+      "networkNode": 388,
+      "networkAccessMeters": 12.79,
       "anchorCandidate": true,
       "holeNumber": 13,
       "holePosition": "tee"
@@ -1171,29 +1157,29 @@
       "id": "point-mrb68ei0-4ws4hc",
       "type": "hole",
       "iconType": "hole",
-      "name": "Hole 13 Fairway \u2013 North",
+      "name": "Hole 13 Fairway – North",
       "nearest": "Hole 13",
       "notes": "",
-      "lat": 40.3431513,
-      "lng": -105.1124498,
+      "lat": 40.34302163235106,
+      "lng": -105.11215613792194,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 419,
-      "networkAccessMeters": 1.55
+      "networkNode": 408,
+      "networkAccessMeters": 27.6
     },
     {
       "id": "point-mrb6e4gl-69012s",
       "type": "hole",
       "iconType": "hole",
-      "name": "Hole 13 Fairway \u2013 South",
+      "name": "Hole 13 Fairway – South",
       "nearest": "Hole 13",
       "notes": "",
-      "lat": 40.3404902,
-      "lng": -105.1128158,
+      "lat": 40.3405085863695,
+      "lng": -105.11231197125346,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 435,
-      "networkAccessMeters": 3.13
+      "networkNode": 425,
+      "networkAccessMeters": 41.07
     },
     {
       "id": "point-mrb6hciv-hoxlk9",
@@ -1202,12 +1188,12 @@
       "name": "Hole 13 Green",
       "nearest": "Hole 13",
       "notes": "",
-      "lat": 40.3392582,
-      "lng": -105.11174,
+      "lat": 40.339360592986125,
+      "lng": -105.11116454957353,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 443,
-      "networkAccessMeters": 9.05,
+      "networkNode": 432,
+      "networkAccessMeters": 44.96,
       "anchorCandidate": true,
       "holeNumber": 13,
       "holePosition": "green"
@@ -1223,7 +1209,7 @@
       "lng": -105.1111527,
       "group": "junctions",
       "defaultVisible": false,
-      "networkNode": 446,
+      "networkNode": 435,
       "networkAccessMeters": 0.58
     },
     {
@@ -1233,12 +1219,12 @@
       "name": "Hole 14 Tee",
       "nearest": "Hole 14",
       "notes": "",
-      "lat": 40.338434,
-      "lng": -105.1106635,
+      "lat": 40.33828303781556,
+      "lng": -105.11069473424193,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 510,
-      "networkAccessMeters": 0.0,
+      "networkNode": 439,
+      "networkAccessMeters": 11.69,
       "anchorCandidate": true,
       "holeNumber": 14,
       "holePosition": "tee"
@@ -1250,12 +1236,12 @@
       "name": "Hole 14 Green",
       "nearest": "Hole 14",
       "notes": "",
-      "lat": 40.3391269,
-      "lng": -105.1077948,
+      "lat": 40.338786174385206,
+      "lng": -105.10773737337566,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 466,
-      "networkAccessMeters": 9.47,
+      "networkNode": 457,
+      "networkAccessMeters": 33.32,
       "anchorCandidate": true,
       "holeNumber": 14,
       "holePosition": "green"
@@ -1264,15 +1250,15 @@
       "id": "point-mrb6qtkc-zjez24",
       "type": "concession",
       "iconType": "concession",
-      "name": "Concessions \u2013 Holes 1, 14 and 15",
+      "name": "Concessions – Holes 1, 14 and 15",
       "nearest": "Holes 1, 14 and 15",
       "notes": "",
-      "lat": 40.3389117,
-      "lng": -105.1074057,
+      "lat": 40.3389291707053,
+      "lng": -105.1071946451453,
       "group": "amenities",
       "defaultVisible": true,
-      "networkNode": 468,
-      "networkAccessMeters": 9.97
+      "networkNode": 457,
+      "networkAccessMeters": 16.9
     },
     {
       "id": "point-mrb6s7og-ujn7h3",
@@ -1281,12 +1267,12 @@
       "name": "Hole 15 Tee",
       "nearest": "Hole 15",
       "notes": "",
-      "lat": 40.3383512,
-      "lng": -105.1075126,
+      "lat": 40.33835829905773,
+      "lng": -105.10781674377775,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 471,
-      "networkAccessMeters": 6.84,
+      "networkNode": 460,
+      "networkAccessMeters": 22.98,
       "anchorCandidate": true,
       "holeNumber": 15,
       "holePosition": "tee"
@@ -1298,12 +1284,12 @@
       "name": "Hole 15 Fairway",
       "nearest": "Hole 15",
       "notes": "",
-      "lat": 40.3362552,
-      "lng": -105.1065451,
+      "lat": 40.336104787043446,
+      "lng": -105.10687888153518,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 479,
-      "networkAccessMeters": 7.94
+      "networkNode": 468,
+      "networkAccessMeters": 30.93
     },
     {
       "id": "point-mrb736qz-4mwnsn",
@@ -1312,12 +1298,12 @@
       "name": "Hole 15 Green",
       "nearest": "Hole 15",
       "notes": "",
-      "lat": 40.3338079,
-      "lng": -105.1054498,
+      "lat": 40.33378807346309,
+      "lng": -105.10575837190352,
       "group": "holes",
       "defaultVisible": false,
-      "networkNode": 500,
-      "networkAccessMeters": 8.87,
+      "networkNode": 489,
+      "networkAccessMeters": 25.85,
       "anchorCandidate": true,
       "holeNumber": 15,
       "holePosition": "green"
@@ -1335,6 +1321,74 @@
       "defaultVisible": true,
       "networkNode": 66,
       "networkAccessMeters": 67.24
+    },
+    {
+      "id": "point-mrc9fjq7-wysg4l",
+      "type": "hospitality",
+      "name": "Hole 16 Hospitality Suites",
+      "nearest": "Hole 16",
+      "notes": "",
+      "lat": 40.333060804110154,
+      "lng": -105.10581400490317,
+      "addedManually": true,
+      "accessType": "open_area",
+      "iconType": "hospitality",
+      "accessible": false,
+      "group": "places",
+      "defaultVisible": true,
+      "networkNode": 7,
+      "networkAccessMeters": 70.91
+    },
+    {
+      "id": "point-mrc9hes6-p220a7",
+      "type": "firstaid",
+      "name": "IV Station",
+      "nearest": "16/18/CL",
+      "notes": "",
+      "lat": 40.33231382238754,
+      "lng": -105.10469713595064,
+      "addedManually": true,
+      "accessType": "open_area",
+      "iconType": "firstaid",
+      "accessible": false,
+      "group": "amenities",
+      "defaultVisible": true,
+      "networkNode": 4,
+      "networkAccessMeters": 17.85
+    },
+    {
+      "id": "point-mrc9w4bj-atrvnr",
+      "type": "hole",
+      "name": "8 Green",
+      "nearest": "8",
+      "notes": "",
+      "lat": 40.34472137715831,
+      "lng": -105.1184340635624,
+      "addedManually": true,
+      "accessType": "open_area",
+      "iconType": "hole",
+      "accessible": false,
+      "group": "holes",
+      "defaultVisible": false,
+      "networkNode": 272,
+      "networkAccessMeters": 203.57
+    },
+    {
+      "id": "point-mrcabrv9-ylck53",
+      "type": "scoreboard",
+      "name": "Scoreboard 1",
+      "nearest": "1 Green",
+      "notes": "",
+      "lat": 40.33872109287632,
+      "lng": -105.10724790149396,
+      "addedManually": true,
+      "accessType": "open_area",
+      "iconType": "scoreboard",
+      "accessible": false,
+      "group": "scoreboards",
+      "defaultVisible": true,
+      "networkNode": 458,
+      "networkAccessMeters": 8.45
     }
   ],
   "routes": [
@@ -1572,6 +1626,34 @@
     },
     {
       "id": "route-mrb0ebz4-k52ucx",
+      "name": "Spectator crossing — Hole 18 Cart Path",
+      "status": "conditional",
+      "notes": "Spectator crossing through a playing area. May be temporarily held while players are hitting. Follow marshal instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.3278893,
+          "lng": -105.1061013,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:54:17.635Z"
+        },
+        {
+          "lat": 40.32788351558648,
+          "lng": -105.10569176248421,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:54:06.672Z"
+        }
+      ],
+      "editedAt": "2026-07-08T15:54:29.313Z",
+      "parentRouteName": "Hole 18 Cart Path",
+      "routeType": "spectator_crossing",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc9dbe2-c1nk7d",
       "name": "Hole 18 Cart Path",
       "status": "allowed",
       "notes": "",
@@ -1579,16 +1661,18 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3278893,
-          "lng": -105.1061013
+          "lat": 40.32788351558648,
+          "lng": -105.10569176248421,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:54:06.672Z"
         },
         {
-          "lat": 40.3278489,
-          "lng": -105.1058277
-        },
-        {
-          "lat": 40.327856,
-          "lng": -105.1057255
+          "lat": 40.327950400411595,
+          "lng": -105.1056299020743,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:52:51.457Z"
         },
         {
           "lat": 40.328147,
@@ -1662,10 +1746,42 @@
           "lat": 40.3319042,
           "lng": -105.1048774
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:54:25.130Z",
+      "parentRouteName": "Hole 18 Cart Path",
+      "routeType": "path",
+      "editedManually": true
     },
     {
       "id": "route-mrb0su93-rzd2fl",
+      "name": "Spectator crossing — Hole 16 to Hole 1 Connector",
+      "status": "conditional",
+      "notes": "Spectator crossing through a playing area. May be temporarily held while players are hitting. Follow marshal instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.33262155994677,
+          "lng": -105.10489707650521,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:16:05.281Z"
+        },
+        {
+          "lat": 40.33310876185721,
+          "lng": -105.10494251378731,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:16:14.945Z"
+        }
+      ],
+      "editedAt": "2026-07-08T16:16:35.904Z",
+      "parentRouteName": "Hole 16 to Hole 1 Connector",
+      "routeType": "spectator_crossing",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrca5qxl-jxhpce",
       "name": "Hole 16 to Hole 1 Connector",
       "status": "allowed",
       "notes": "",
@@ -1673,18 +1789,21 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3326234,
-          "lng": -105.1048964
-        },
-        {
-          "lat": 40.3331189,
-          "lng": -105.1049515
+          "lat": 40.33310876185721,
+          "lng": -105.10494251378731,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:16:14.945Z"
         },
         {
           "lat": 40.3332819,
           "lng": -105.1049436
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T16:16:31.641Z",
+      "parentRouteName": "Hole 16 to Hole 1 Connector",
+      "routeType": "path",
+      "editedManually": true
     },
     {
       "id": "route-mrb0wlu6-nbru9f",
@@ -1700,41 +1819,80 @@
         },
         {
           "lat": 40.3333152,
-          "lng": -105.1047742
+          "lng": -105.1047742,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:33:09.708Z"
+        }
+      ],
+      "editedAt": "2026-07-08T15:33:24.041Z",
+      "parentRouteName": "Hole 1 / Clubhouse Connector",
+      "routeType": "path",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc8mabt-nmccg3",
+      "name": "Spectator crossing — Hole 1 / Clubhouse Connector",
+      "status": "conditional",
+      "notes": "Spectator crossing through a playing area. May be temporarily held while players are hitting. Follow marshal instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.3333152,
+          "lng": -105.1047742,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:33:09.708Z"
         },
         {
           "lat": 40.3333244,
-          "lng": -105.1046336
-        },
+          "lng": -105.1046336,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:33:18.494Z"
+        }
+      ],
+      "editedAt": "2026-07-08T15:33:24.041Z",
+      "parentRouteName": "Hole 1 / Clubhouse Connector",
+      "routeType": "spectator_crossing",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc8mabt-fe6gms",
+      "name": "Hole 1 / Clubhouse Connector",
+      "status": "allowed",
+      "notes": "",
+      "source": "scouted",
+      "generated": false,
+      "points": [
         {
-          "lat": 40.3333417,
-          "lng": -105.1046611
+          "lat": 40.3333244,
+          "lng": -105.1046336,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:33:18.494Z"
         },
         {
           "lat": 40.3333697,
           "lng": -105.1046192
         },
         {
-          "lat": 40.3334526,
-          "lng": -105.1046359
-        },
-        {
-          "lat": 40.3335056,
-          "lng": -105.104732
-        },
-        {
-          "lat": 40.3335818,
-          "lng": -105.1047428
-        },
-        {
-          "lat": 40.3336095,
-          "lng": -105.1046917
+          "lat": 40.33345215469087,
+          "lng": -105.10460200293639,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:34:37.559Z"
         },
         {
           "lat": 40.3335493,
           "lng": -105.1046583
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:34:46.140Z",
+      "parentRouteName": "Hole 1 / Clubhouse Connector",
+      "routeType": "path",
+      "editedManually": true
     },
     {
       "id": "route-mrb11frg-vuadcv",
@@ -1787,16 +1945,18 @@
           "lng": -105.1048089
         },
         {
-          "lat": 40.3338208,
-          "lng": -105.1048361
+          "lat": 40.333820617161486,
+          "lng": -105.10483847579287,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:38:10.952Z"
         },
         {
-          "lat": 40.3338455,
-          "lng": -105.104804
-        },
-        {
-          "lat": 40.3337787,
-          "lng": -105.1047673
+          "lat": 40.33384099245306,
+          "lng": -105.10479522484509,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:37:28.000Z"
         },
         {
           "lat": 40.3338548,
@@ -1843,10 +2003,6 @@
           "lng": -105.105278
         },
         {
-          "lat": 40.3359144,
-          "lng": -105.1053536
-        },
-        {
           "lat": 40.3359744,
           "lng": -105.1053239
         },
@@ -1865,14 +2021,6 @@
         {
           "lat": 40.3365822,
           "lng": -105.1056078
-        },
-        {
-          "lat": 40.3366216,
-          "lng": -105.1056768
-        },
-        {
-          "lat": 40.3366827,
-          "lng": -105.1057233
         },
         {
           "lat": 40.3369293,
@@ -1922,7 +2070,8 @@
           "lat": 40.3385142,
           "lng": -105.1063168
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:48:22.861Z"
     },
     {
       "id": "route-mrb1krfp-bkweah",
@@ -1933,16 +2082,25 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3385142,
-          "lng": -105.1063168
+          "lat": 40.338364700408604,
+          "lng": -105.10599124110846,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:24:21.227Z"
         },
         {
-          "lat": 40.3385681,
-          "lng": -105.1063292
+          "lat": 40.338484829733105,
+          "lng": -105.10628128327986,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:24:25.393Z"
         },
         {
-          "lat": 40.3386458,
-          "lng": -105.1064099
+          "lat": 40.338625334375195,
+          "lng": -105.1063755156803,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:24:11.363Z"
         },
         {
           "lat": 40.3388643,
@@ -1960,19 +2118,23 @@
           "lat": 40.3391093,
           "lng": -105.1070131
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:24:25.393Z"
     },
     {
       "id": "route-mrb1u04u-ks24oi",
-      "name": "Hole 2 Street Crossing to Tee",
-      "status": "allowed",
-      "notes": "",
+      "name": "Public street crossing — Hole 2 Street Crossing to Tee",
+      "status": "conditional",
+      "notes": "Public street crossing. Use the marked crossing, watch for vehicles, and follow traffic-control or staff instructions.",
       "source": "scouted",
       "generated": false,
       "points": [
         {
-          "lat": 40.3383747,
-          "lng": -105.105989
+          "lat": 40.33836818887273,
+          "lng": -105.10599256458218,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:29:08.844Z"
         },
         {
           "lat": 40.3384438,
@@ -1984,9 +2146,16 @@
         },
         {
           "lat": 40.3386381,
-          "lng": -105.1057894
+          "lng": -105.1057894,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:28:54.266Z"
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:29:17.954Z",
+      "parentRouteName": "Hole 2 Street Crossing to Tee",
+      "routeType": "street_crossing",
+      "editedManually": true
     },
     {
       "id": "route-mrb1vxp1-4gjlzp",
@@ -1997,8 +2166,11 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3386381,
-          "lng": -105.1057894
+          "lat": 40.338629880894615,
+          "lng": -105.10580074319279,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:26:09.401Z"
         },
         {
           "lat": 40.3386803,
@@ -2072,7 +2244,8 @@
           "lat": 40.3413912,
           "lng": -105.1051749
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:26:09.401Z"
     },
     {
       "id": "route-mrb24wh7-5cekwe",
@@ -2238,6 +2411,34 @@
     },
     {
       "id": "route-mrb2hz44-09qbqd",
+      "name": "Public street crossing — Hole 4 Cart Path",
+      "status": "conditional",
+      "notes": "Public street crossing. Use the marked crossing, watch for vehicles, and follow traffic-control or staff instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.339609048527,
+          "lng": -105.10947533456792,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:02:20.973Z"
+        },
+        {
+          "lat": 40.339633657685624,
+          "lng": -105.10959525275402,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:02:29.640Z"
+        }
+      ],
+      "editedAt": "2026-07-08T16:02:44.553Z",
+      "parentRouteName": "Hole 4 Cart Path",
+      "routeType": "street_crossing",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc9nwuk-tq26yd",
       "name": "Hole 4 Cart Path",
       "status": "allowed",
       "notes": "",
@@ -2245,12 +2446,11 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3396087,
-          "lng": -105.1094766
-        },
-        {
-          "lat": 40.3396328,
-          "lng": -105.1095851
+          "lat": 40.339633657685624,
+          "lng": -105.10959525275402,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:02:29.640Z"
         },
         {
           "lat": 40.3396254,
@@ -2388,7 +2588,11 @@
           "lat": 40.3437428,
           "lng": -105.1102854
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T16:02:39.500Z",
+      "parentRouteName": "Hole 4 Cart Path",
+      "routeType": "path",
+      "editedManually": true
     },
     {
       "id": "route-mrb30uyf-z1u5gs",
@@ -2469,29 +2673,49 @@
           "lng": -105.1097205
         },
         {
-          "lat": 40.3481592,
-          "lng": -105.109841
-        },
-        {
-          "lat": 40.3481803,
-          "lng": -105.1099142
-        },
-        {
-          "lat": 40.3482302,
-          "lng": -105.1099792
-        },
-        {
-          "lat": 40.3483436,
-          "lng": -105.1100155
+          "lat": 40.348209641070106,
+          "lng": -105.10982862878484,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:06:25.782Z"
         },
         {
           "lat": 40.3483027,
           "lng": -105.1099468
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T16:13:03.252Z"
     },
     {
       "id": "route-mrb3medf-0aqdun",
+      "name": "Public street crossing — Hole 6 Cart Path",
+      "status": "conditional",
+      "notes": "Public street crossing. Use the marked crossing, watch for vehicles, and follow traffic-control or staff instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.34828806050123,
+          "lng": -105.10992995765096,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:05:29.937Z"
+        },
+        {
+          "lat": 40.34838940981159,
+          "lng": -105.10994213523023,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:05:38.694Z"
+        }
+      ],
+      "editedAt": "2026-07-08T16:05:53.551Z",
+      "parentRouteName": "Hole 6 Cart Path",
+      "routeType": "street_crossing",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc9rzho-jodpst",
       "name": "Hole 6 Cart Path",
       "status": "allowed",
       "notes": "",
@@ -2499,12 +2723,11 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3483027,
-          "lng": -105.1099468
-        },
-        {
-          "lat": 40.3484019,
-          "lng": -105.1099505
+          "lat": 40.34838940981159,
+          "lng": -105.10994213523023,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:05:38.694Z"
         },
         {
           "lat": 40.348431,
@@ -2622,7 +2845,11 @@
           "lat": 40.3485876,
           "lng": -105.1138267
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T16:05:49.548Z",
+      "parentRouteName": "Hole 6 Cart Path",
+      "routeType": "path",
+      "editedManually": true
     },
     {
       "id": "route-mrb48fcz-2zcox1",
@@ -2748,6 +2975,38 @@
     },
     {
       "id": "route-mrb4ji4e-fn9pnz",
+      "name": "Spectator crossing — Hole 8 Rear Crossing to Hole 9 Tee Crossing",
+      "status": "conditional",
+      "notes": "Spectator crossing through a playing area. May be temporarily held while players are hitting. Follow marshal instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.34582218773477,
+          "lng": -105.1164816785793,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:51:07.381Z"
+        },
+        {
+          "lat": 40.345694,
+          "lng": -105.116399
+        },
+        {
+          "lat": 40.345674564846604,
+          "lng": -105.11634998250958,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:51:17.078Z"
+        }
+      ],
+      "editedAt": "2026-07-08T15:51:29.805Z",
+      "parentRouteName": "Hole 8 Rear Crossing to Hole 9 Tee Crossing",
+      "routeType": "spectator_crossing",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc99hvd-cr78r5",
       "name": "Hole 8 Rear Crossing to Hole 9 Tee Crossing",
       "status": "allowed",
       "notes": "Approved spectator connection between the rear of Hole 8 and the Hole 9 tee crossing. The Hole 8 cart path itself is intentionally excluded.",
@@ -2755,16 +3014,11 @@
       "generated": false,
       "points": [
         {
-          "lat": 40.3458251,
-          "lng": -105.1164877
-        },
-        {
-          "lat": 40.345694,
-          "lng": -105.116399
-        },
-        {
-          "lat": 40.3456814,
-          "lng": -105.1163561
+          "lat": 40.345674564846604,
+          "lng": -105.11634998250958,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:51:17.078Z"
         },
         {
           "lat": 40.3457769,
@@ -2772,7 +3026,31 @@
         },
         {
           "lat": 40.3458926,
-          "lng": -105.1159206
+          "lng": -105.1159206,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:49:41.212Z"
+        }
+      ],
+      "editedAt": "2026-07-08T15:51:26.905Z",
+      "parentRouteName": "Hole 8 Rear Crossing to Hole 9 Tee Crossing",
+      "routeType": "path",
+      "editedManually": true
+    },
+    {
+      "id": "route-mrc97hrs-6glzvs",
+      "name": "Spectator crossing — Hole 8 Rear Crossing to Hole 9 Tee Crossing",
+      "status": "conditional",
+      "notes": "Spectator crossing through a playing area. May be temporarily held while players are hitting. Follow marshal instructions.",
+      "source": "scouted",
+      "generated": false,
+      "points": [
+        {
+          "lat": 40.3458926,
+          "lng": -105.1159206,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:49:41.212Z"
         },
         {
           "lat": 40.3459089,
@@ -2780,9 +3058,16 @@
         },
         {
           "lat": 40.345876,
-          "lng": -105.1155642
+          "lng": -105.1155642,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T15:49:12.964Z"
         }
-      ]
+      ],
+      "editedAt": "2026-07-08T15:50:43.177Z",
+      "parentRouteName": "Hole 8 Rear Crossing to Hole 9 Tee Crossing",
+      "routeType": "spectator_crossing",
+      "editedManually": true
     },
     {
       "id": "route-mrb4mc4r-6kifks",
@@ -3782,29 +4067,6 @@
       "routeType": "connector"
     },
     {
-      "id": "connector-02",
-      "name": "Active street crossing between Holes 1 and 2",
-      "status": "conditional",
-      "notes": "Active street crossing. Cross only at the marked crossing and follow tournament signs, traffic controls, and staff instructions.",
-      "source": "generated-from-scouted-points",
-      "generated": true,
-      "points": [
-        {
-          "lat": 40.3385142,
-          "lng": -105.1063168
-        },
-        {
-          "lat": 40.3384399,
-          "lng": -105.1058945
-        },
-        {
-          "lat": 40.3383747,
-          "lng": -105.105989
-        }
-      ],
-      "routeType": "street_crossing"
-    },
-    {
       "id": "connector-03",
       "name": "Holes 5 / 13 Junction Connector",
       "status": "allowed",
@@ -3976,8 +4238,54 @@
         }
       ],
       "routeType": "connector"
+    },
+    {
+      "id": "route-mrca822b-aw12ni",
+      "name": "Bypass to restrooms",
+      "routeType": "path",
+      "status": "allowed",
+      "notes": "",
+      "generated": false,
+      "editedManually": true,
+      "points": [
+        {
+          "lat": 40.33395826653624,
+          "lng": -105.10439008137581,
+          "accuracy": 0,
+          "source": "map",
+          "timestamp": "2026-07-08T16:18:19.379Z"
+        },
+        {
+          "lat": 40.333843977059004,
+          "lng": -105.10477525250025,
+          "accuracy": 0,
+          "source": "edited",
+          "timestamp": "2026-07-08T16:18:52.244Z"
+        }
+      ],
+      "createdAt": "2026-07-08T16:18:19.379Z",
+      "editedAt": "2026-07-08T16:19:02.996Z"
     }
   ],
+  "eventName": "The Blue Championship",
+  "courseName": "TPC Colorado",
+  "sourceExportedAt": "2026-07-07T22:11:42.891Z",
+  "publishedAt": "2026-07-08T16:24:23.601Z",
+  "mapCenter": [
+    40.3384223,
+    -105.1104679
+  ],
+  "defaultZoom": 15,
+  "displayDefaults": {
+    "restrooms": true,
+    "firstaid": true,
+    "concessions": true,
+    "scoreboards": true,
+    "places": true,
+    "paths": true,
+    "holes": false,
+    "junctions": false
+  },
   "anchors": [
     {
       "pointId": "point-mrazo0h8-smspji",
@@ -4473,12 +4781,12 @@
         -105.1061013
       ],
       [
-        40.3278489,
-        -105.1058277
+        40.32788351558648,
+        -105.10569176248421
       ],
       [
-        40.327856,
-        -105.1057255
+        40.327950400411595,
+        -105.1056299020743
       ],
       [
         40.328147,
@@ -4553,8 +4861,8 @@
         -105.1048774
       ],
       [
-        40.3331189,
-        -105.1049515
+        40.33310876185721,
+        -105.10494251378731
       ],
       [
         40.3332819,
@@ -4569,28 +4877,12 @@
         -105.1046336
       ],
       [
-        40.3333417,
-        -105.1046611
-      ],
-      [
         40.3333697,
         -105.1046192
       ],
       [
-        40.3334526,
-        -105.1046359
-      ],
-      [
-        40.3335056,
-        -105.104732
-      ],
-      [
-        40.3335818,
-        -105.1047428
-      ],
-      [
-        40.3336095,
-        -105.1046917
+        40.33345215469087,
+        -105.10460200293639
       ],
       [
         40.3335493,
@@ -4621,16 +4913,12 @@
         -105.1048089
       ],
       [
-        40.3338208,
-        -105.1048361
+        40.333820617161486,
+        -105.10483847579287
       ],
       [
-        40.3338455,
-        -105.104804
-      ],
-      [
-        40.3337787,
-        -105.1047673
+        40.33384099245306,
+        -105.10479522484509
       ],
       [
         40.3339696,
@@ -4673,10 +4961,6 @@
         -105.105278
       ],
       [
-        40.3359144,
-        -105.1053536
-      ],
-      [
         40.3359744,
         -105.1053239
       ],
@@ -4695,14 +4979,6 @@
       [
         40.3365822,
         -105.1056078
-      ],
-      [
-        40.3366216,
-        -105.1056768
-      ],
-      [
-        40.3366827,
-        -105.1057233
       ],
       [
         40.3369293,
@@ -4753,12 +5029,16 @@
         -105.1063168
       ],
       [
-        40.3385681,
-        -105.1063292
+        40.338364700408604,
+        -105.10599124110846
       ],
       [
-        40.3386458,
-        -105.1064099
+        40.338484829733105,
+        -105.10628128327986
+      ],
+      [
+        40.338625334375195,
+        -105.1063755156803
       ],
       [
         40.3388643,
@@ -4775,10 +5055,6 @@
       [
         40.3391093,
         -105.1070131
-      ],
-      [
-        40.3383747,
-        -105.105989
       ],
       [
         40.3384438,
@@ -5001,8 +5277,8 @@
         -105.1094949
       ],
       [
-        40.3396328,
-        -105.1095851
+        40.339633657685624,
+        -105.10959525275402
       ],
       [
         40.3396254,
@@ -5193,28 +5469,16 @@
         -105.1097205
       ],
       [
-        40.3481592,
-        -105.109841
-      ],
-      [
-        40.3481803,
-        -105.1099142
-      ],
-      [
-        40.3482302,
-        -105.1099792
-      ],
-      [
-        40.3483436,
-        -105.1100155
+        40.348209641070106,
+        -105.10982862878484
       ],
       [
         40.3483027,
         -105.1099468
       ],
       [
-        40.3484019,
-        -105.1099505
+        40.34838940981159,
+        -105.10994213523023
       ],
       [
         40.348431,
@@ -5437,8 +5701,8 @@
         -105.116399
       ],
       [
-        40.3456814,
-        -105.1163561
+        40.345674564846604,
+        -105.11634998250958
       ],
       [
         40.3457769,
@@ -6343,6 +6607,10 @@
       [
         40.338434,
         -105.1106635
+      ],
+      [
+        40.33395826653624,
+        -105.10439008137581
       ]
     ],
     "edges": [
@@ -6677,7 +6945,7 @@
       [
         41,
         42,
-        27.0,
+        27,
         "path",
         "allowed",
         "route-mrb028cp-d4sasl"
@@ -6685,26 +6953,26 @@
       [
         42,
         43,
-        23.62,
-        "path",
-        "allowed",
+        34.72,
+        "spectator_crossing",
+        "conditional",
         "route-mrb0ebz4-k52ucx"
       ],
       [
         43,
         44,
-        8.7,
+        9.1,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         44,
         45,
-        36.29,
+        23.4,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         45,
@@ -6712,7 +6980,7 @@
         35.84,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         46,
@@ -6720,7 +6988,7 @@
         57.37,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         47,
@@ -6728,7 +6996,7 @@
         45.01,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         48,
@@ -6736,7 +7004,7 @@
         7.43,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         49,
@@ -6744,7 +7012,7 @@
         4.29,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         50,
@@ -6752,7 +7020,7 @@
         22.81,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         51,
@@ -6760,7 +7028,7 @@
         7.97,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         52,
@@ -6768,7 +7036,7 @@
         38.7,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         53,
@@ -6776,7 +7044,7 @@
         25.94,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         54,
@@ -6784,7 +7052,7 @@
         40.17,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         55,
@@ -6792,7 +7060,7 @@
         11.82,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         56,
@@ -6800,7 +7068,7 @@
         30.31,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         57,
@@ -6808,7 +7076,7 @@
         18.56,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         58,
@@ -6816,7 +7084,7 @@
         46.6,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         59,
@@ -6824,7 +7092,7 @@
         4.27,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         60,
@@ -6832,7 +7100,7 @@
         7.43,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         61,
@@ -6840,23 +7108,23 @@
         25.4,
         "path",
         "allowed",
-        "route-mrb0ebz4-k52ucx"
+        "route-mrc9dbe2-c1nk7d"
       ],
       [
         5,
         63,
-        55.29,
-        "path",
-        "allowed",
+        54.11,
+        "spectator_crossing",
+        "conditional",
         "route-mrb0su93-rzd2fl"
       ],
       [
         63,
         64,
-        18.14,
+        19.25,
         "path",
         "allowed",
-        "route-mrb0su93-rzd2fl"
+        "route-mrca5qxl-jxhpce"
       ],
       [
         64,
@@ -6870,110 +7138,110 @@
         65,
         66,
         11.96,
-        "path",
-        "allowed",
-        "route-mrb0wlu6-nbru9f"
+        "spectator_crossing",
+        "conditional",
+        "route-mrc8mabt-nmccg3"
       ],
       [
         66,
         67,
-        3.02,
+        5.18,
         "path",
         "allowed",
-        "route-mrb0wlu6-nbru9f"
+        "route-mrc8mabt-fe6gms"
       ],
       [
         67,
         68,
-        4.72,
+        9.28,
         "path",
         "allowed",
-        "route-mrb0wlu6-nbru9f"
+        "route-mrc8mabt-fe6gms"
       ],
       [
         68,
         69,
-        9.33,
+        11.81,
         "path",
         "allowed",
-        "route-mrb0wlu6-nbru9f"
+        "route-mrc8mabt-fe6gms"
       ],
       [
         69,
         70,
-        10.05,
-        "path",
-        "allowed",
-        "route-mrb0wlu6-nbru9f"
-      ],
-      [
-        70,
-        71,
-        8.52,
-        "path",
-        "allowed",
-        "route-mrb0wlu6-nbru9f"
-      ],
-      [
-        71,
-        72,
-        5.31,
-        "path",
-        "allowed",
-        "route-mrb0wlu6-nbru9f"
-      ],
-      [
-        72,
-        73,
-        7.27,
-        "path",
-        "allowed",
-        "route-mrb0wlu6-nbru9f"
-      ],
-      [
-        73,
-        74,
         17.19,
         "path",
         "allowed",
         "route-mrb11frg-vuadcv"
       ],
       [
-        74,
-        75,
+        70,
+        71,
         7.09,
         "path",
         "allowed",
         "route-mrb11frg-vuadcv"
       ],
       [
-        75,
-        76,
+        71,
+        72,
         8.23,
         "path",
         "allowed",
         "route-mrb11frg-vuadcv"
       ],
       [
-        76,
-        77,
-        4.0,
-        "path",
-        "allowed",
-        "route-mrb11frg-vuadcv"
-      ],
-      [
-        77,
-        78,
-        21.52,
+        72,
+        73,
+        4,
         "path",
         "allowed",
         "route-mrb11frg-vuadcv"
       ],
       [
         73,
-        79,
+        74,
+        21.52,
+        "path",
+        "allowed",
+        "route-mrb11frg-vuadcv"
+      ],
+      [
+        69,
+        75,
         23.29,
+        "path",
+        "allowed",
+        "route-mrb15el0-vt0v8m"
+      ],
+      [
+        75,
+        76,
+        10.98,
+        "path",
+        "allowed",
+        "route-mrb15el0-vt0v8m"
+      ],
+      [
+        76,
+        77,
+        4.31,
+        "path",
+        "allowed",
+        "route-mrb15el0-vt0v8m"
+      ],
+      [
+        77,
+        78,
+        14.33,
+        "path",
+        "allowed",
+        "route-mrb15el0-vt0v8m"
+      ],
+      [
+        78,
+        79,
+        11.41,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
@@ -6981,7 +7249,7 @@
       [
         79,
         80,
-        10.95,
+        33.43,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
@@ -6989,7 +7257,7 @@
       [
         80,
         81,
-        3.87,
+        19.36,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
@@ -6997,3318 +7265,3230 @@
       [
         81,
         82,
-        8.05,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        81,
-        83,
-        13.9,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        83,
-        84,
-        11.41,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        84,
-        85,
-        33.43,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        85,
-        86,
-        19.36,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        86,
-        87,
         73.74,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        87,
-        88,
+        82,
+        83,
         10.43,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        88,
-        89,
+        83,
+        84,
         22.7,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        89,
-        90,
+        84,
+        85,
         19.7,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        90,
-        91,
+        85,
+        86,
         25.84,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        91,
-        92,
+        86,
+        87,
         7.49,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        92,
-        93,
-        6.44,
+        87,
+        88,
+        7.2,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        93,
-        94,
-        7.13,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        94,
-        95,
+        88,
+        89,
         4.01,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        95,
-        96,
+        89,
+        90,
         21.32,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        96,
-        97,
+        90,
+        91,
         19.25,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        97,
-        98,
+        91,
+        92,
         27.76,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        98,
-        99,
-        7.31,
+        92,
+        93,
+        40.8,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        99,
-        100,
-        7.85,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        100,
-        101,
-        27.64,
-        "path",
-        "allowed",
-        "route-mrb15el0-vt0v8m"
-      ],
-      [
-        101,
-        102,
+        93,
+        94,
         35.18,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        102,
-        103,
+        94,
+        95,
         34.46,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        103,
-        104,
+        95,
+        96,
         19.08,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        104,
-        105,
+        96,
+        97,
         30.36,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        105,
-        106,
+        97,
+        98,
         25.85,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        106,
-        107,
+        98,
+        99,
         30.67,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        107,
-        108,
+        99,
+        100,
         12.91,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        108,
-        109,
+        100,
+        101,
         10.56,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        109,
-        110,
+        101,
+        102,
         3.06,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        110,
-        111,
+        102,
+        103,
         10.63,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        111,
-        112,
+        103,
+        104,
         6.31,
         "path",
         "allowed",
         "route-mrb15el0-vt0v8m"
       ],
       [
-        112,
-        113,
-        6.08,
+        105,
+        106,
+        27.98,
         "path",
         "allowed",
         "route-mrb1krfp-bkweah"
       ],
       [
-        113,
-        114,
-        11.02,
+        106,
+        107,
+        17.55,
         "path",
         "allowed",
         "route-mrb1krfp-bkweah"
       ],
       [
-        114,
-        115,
-        34.34,
+        107,
+        108,
+        38.02,
         "path",
         "allowed",
         "route-mrb1krfp-bkweah"
       ],
       [
-        115,
-        116,
+        108,
+        109,
         6.57,
         "path",
         "allowed",
         "route-mrb1krfp-bkweah"
       ],
       [
-        116,
-        117,
+        109,
+        110,
         26.23,
         "path",
         "allowed",
         "route-mrb1krfp-bkweah"
       ],
       [
-        117,
-        118,
+        110,
+        111,
         6.19,
         "path",
         "allowed",
         "route-mrb1krfp-bkweah"
       ],
       [
-        119,
-        120,
-        11.32,
-        "path",
-        "allowed",
+        105,
+        112,
+        12.23,
+        "street_crossing",
+        "conditional",
         "route-mrb1u04u-ks24oi"
       ],
       [
-        120,
-        121,
+        112,
+        113,
         10.3,
-        "path",
-        "allowed",
+        "street_crossing",
+        "conditional",
         "route-mrb1u04u-ks24oi"
       ],
       [
-        121,
-        122,
+        113,
+        114,
         13.08,
-        "path",
-        "allowed",
+        "street_crossing",
+        "conditional",
         "route-mrb1u04u-ks24oi"
       ],
       [
-        122,
-        123,
+        114,
+        115,
         7.83,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        123,
-        124,
+        115,
+        116,
         15.34,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        124,
-        125,
+        116,
+        117,
         27.83,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        125,
-        126,
+        117,
+        118,
         9.52,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        126,
-        127,
+        118,
+        119,
         59.58,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        127,
-        128,
+        119,
+        120,
         43.36,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        128,
-        129,
+        120,
+        121,
         11.54,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        129,
-        130,
+        121,
+        122,
         3.79,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        130,
-        131,
+        122,
+        123,
         24.5,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        131,
-        132,
+        123,
+        124,
         19.64,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        132,
-        133,
+        124,
+        125,
         2.76,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        133,
-        134,
+        125,
+        126,
         16.51,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        134,
-        135,
+        126,
+        127,
         6.25,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        135,
-        136,
+        127,
+        128,
         3.9,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        136,
-        137,
+        128,
+        129,
         37.04,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        137,
-        138,
+        129,
+        130,
         40.96,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        138,
-        139,
+        130,
+        131,
         18.75,
         "path",
         "allowed",
         "route-mrb1vxp1-4gjlzp"
       ],
       [
-        139,
-        140,
+        131,
+        132,
         11.61,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        140,
-        141,
-        3.0,
+        132,
+        133,
+        3,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        141,
-        142,
+        133,
+        134,
         6.1,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        142,
-        143,
+        134,
+        135,
         13.74,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        143,
-        144,
+        135,
+        136,
         4.02,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        144,
-        145,
+        136,
+        137,
         36.57,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        145,
-        146,
+        137,
+        138,
         8.07,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        146,
-        147,
+        138,
+        139,
         12.38,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        147,
-        148,
+        139,
+        140,
         12.68,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        148,
-        149,
+        140,
+        141,
         25.9,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        149,
-        150,
+        141,
+        142,
         26.79,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        150,
-        151,
+        142,
+        143,
         7.47,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        151,
-        152,
+        143,
+        144,
         8.64,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        152,
-        153,
+        144,
+        145,
         31.11,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        153,
-        154,
+        145,
+        146,
         57.8,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        154,
-        155,
+        146,
+        147,
         20.48,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        155,
-        156,
+        147,
+        148,
         12.43,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        156,
-        157,
+        148,
+        149,
         4.46,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        157,
-        158,
+        149,
+        150,
         3.39,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        158,
-        159,
+        150,
+        151,
         2.81,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        159,
-        160,
+        151,
+        152,
         27.5,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        160,
-        161,
+        152,
+        153,
         38.82,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        161,
-        162,
+        153,
+        154,
         26.63,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        162,
-        163,
+        154,
+        155,
         28.88,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        163,
-        164,
+        155,
+        156,
         7.62,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        164,
-        165,
+        156,
+        157,
         19.39,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        165,
-        166,
+        157,
+        158,
         10.99,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        166,
-        167,
-        4.0,
+        158,
+        159,
+        4,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        167,
-        168,
+        159,
+        160,
         3.54,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        168,
-        169,
+        160,
+        161,
         16.37,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        169,
-        170,
+        161,
+        162,
         3.36,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        170,
-        171,
+        162,
+        163,
         23.96,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        171,
-        172,
+        163,
+        164,
         18.03,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        172,
-        173,
+        164,
+        165,
         3.46,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        173,
-        174,
+        165,
+        166,
         15.48,
         "path",
         "allowed",
         "route-mrb24wh7-5cekwe"
       ],
       [
-        174,
-        175,
-        8.4,
-        "path",
-        "allowed",
+        166,
+        167,
+        9.23,
+        "street_crossing",
+        "conditional",
         "route-mrb2hz44-09qbqd"
       ],
       [
-        175,
-        176,
-        11.73,
+        167,
+        168,
+        10.88,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
-        176,
-        177,
+        168,
+        169,
         7.96,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        169,
+        170,
+        8.19,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        170,
+        171,
+        8.91,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        171,
+        172,
+        4.36,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        172,
+        173,
+        14.22,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        173,
+        174,
+        9.4,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        174,
+        175,
+        6.54,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        175,
+        176,
+        9.05,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
+      ],
+      [
+        176,
+        177,
+        16,
+        "path",
+        "allowed",
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         177,
         178,
-        8.19,
+        20.09,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         178,
         179,
-        8.91,
+        38.41,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         179,
         180,
-        4.36,
+        8.17,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         180,
         181,
-        14.22,
+        25.23,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         181,
         182,
-        9.4,
+        44.87,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         182,
         183,
-        6.54,
+        4.12,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         183,
         184,
-        9.05,
+        3.64,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         184,
         185,
-        16.0,
+        2.71,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         185,
         186,
-        20.09,
+        10.59,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         186,
         187,
-        38.41,
+        13.34,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         187,
         188,
-        8.17,
+        18.92,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         188,
         189,
-        25.23,
+        9.89,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         189,
         190,
-        44.87,
+        44.71,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         190,
         191,
-        4.12,
+        78.45,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         191,
         192,
-        3.64,
+        7.62,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         192,
         193,
-        2.71,
+        9.51,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         193,
         194,
-        10.59,
+        5.22,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         194,
         195,
-        13.34,
+        14.48,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         195,
         196,
-        18.92,
+        18.82,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         196,
         197,
-        9.89,
+        43.07,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         197,
         198,
-        44.71,
+        20.89,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         198,
         199,
-        78.45,
+        18.35,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         199,
         200,
-        7.62,
+        4.89,
         "path",
         "allowed",
-        "route-mrb2hz44-09qbqd"
+        "route-mrc9nwuk-tq26yd"
       ],
       [
         200,
         201,
-        9.51,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        201,
-        202,
-        5.22,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        202,
-        203,
-        14.48,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        203,
-        204,
-        18.82,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        204,
-        205,
-        43.07,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        205,
-        206,
-        20.89,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        206,
-        207,
-        18.35,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        207,
-        208,
-        4.89,
-        "path",
-        "allowed",
-        "route-mrb2hz44-09qbqd"
-      ],
-      [
-        208,
-        209,
         6.9,
         "path",
         "allowed",
         "route-mrb30uyf-z1u5gs"
       ],
       [
-        209,
-        210,
+        201,
+        202,
         29.36,
         "path",
         "allowed",
         "route-mrb30uyf-z1u5gs"
       ],
       [
-        210,
-        211,
+        202,
+        203,
         154.23,
         "path",
         "allowed",
         "route-mrb30uyf-z1u5gs"
       ],
       [
-        212,
-        213,
+        204,
+        205,
         32.25,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        213,
-        214,
+        205,
+        206,
         10.92,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        214,
-        215,
+        206,
+        207,
         4.66,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        215,
-        216,
+        207,
+        208,
         8.69,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        216,
-        217,
+        208,
+        209,
         49.99,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        217,
-        218,
+        209,
+        210,
         174.61,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        218,
-        219,
+        210,
+        211,
         13.05,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        219,
-        220,
+        211,
+        212,
         7.82,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        220,
-        221,
+        212,
+        213,
         7.35,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        221,
-        222,
+        213,
+        214,
         9.21,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        222,
-        223,
-        10.94,
+        214,
+        215,
+        9.31,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        223,
-        224,
-        6.63,
+        215,
+        216,
+        14.4,
         "path",
         "allowed",
         "route-mrb3dohz-jq3koo"
       ],
       [
-        224,
-        225,
-        7.82,
-        "path",
-        "allowed",
-        "route-mrb3dohz-jq3koo"
-      ],
-      [
-        225,
-        226,
-        12.98,
-        "path",
-        "allowed",
-        "route-mrb3dohz-jq3koo"
-      ],
-      [
-        226,
-        227,
-        7.39,
-        "path",
-        "allowed",
-        "route-mrb3dohz-jq3koo"
-      ],
-      [
-        227,
-        228,
-        11.03,
-        "path",
-        "allowed",
+        216,
+        217,
+        9.65,
+        "street_crossing",
+        "conditional",
         "route-mrb3medf-0aqdun"
       ],
       [
-        228,
-        229,
-        3.62,
+        217,
+        218,
+        5.18,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
-        229,
-        230,
+        218,
+        219,
         3.3,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        219,
+        220,
+        12.28,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        220,
+        221,
+        7.82,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        221,
+        222,
+        15.64,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        222,
+        223,
+        39.17,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        223,
+        224,
+        10.61,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        224,
+        225,
+        29.85,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        225,
+        226,
+        12.4,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        226,
+        227,
+        3.75,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        227,
+        228,
+        19.39,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        228,
+        229,
+        32.49,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
+      ],
+      [
+        229,
+        230,
+        30.8,
+        "path",
+        "allowed",
+        "route-mrc9rzho-jodpst"
       ],
       [
         230,
         231,
-        12.28,
+        11.47,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         231,
         232,
-        7.82,
+        7.32,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         232,
         233,
-        15.64,
+        2.71,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         233,
         234,
-        39.17,
+        36.86,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         234,
         235,
-        10.61,
+        25.22,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         235,
         236,
-        29.85,
+        16.24,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         236,
         237,
-        12.4,
+        26.65,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         237,
         238,
-        3.75,
+        51.34,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         238,
         239,
-        19.39,
+        7,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         239,
         240,
-        32.49,
+        14.02,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         240,
         241,
-        30.8,
+        13.28,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         241,
         242,
-        11.47,
+        8.43,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         242,
         243,
-        7.32,
+        11.19,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         243,
         244,
-        2.71,
+        4.32,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         244,
         245,
-        36.86,
+        33.12,
         "path",
         "allowed",
-        "route-mrb3medf-0aqdun"
+        "route-mrc9rzho-jodpst"
       ],
       [
         245,
         246,
-        25.22,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        246,
-        247,
-        16.24,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        247,
-        248,
-        26.65,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        248,
-        249,
-        51.34,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        249,
-        250,
-        7.0,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        250,
-        251,
-        14.02,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        251,
-        252,
-        13.28,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        252,
-        253,
-        8.43,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        253,
-        254,
-        11.19,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        254,
-        255,
-        4.32,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        255,
-        256,
-        33.12,
-        "path",
-        "allowed",
-        "route-mrb3medf-0aqdun"
-      ],
-      [
-        256,
-        257,
         18.76,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        257,
-        258,
+        246,
+        247,
         10.63,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        258,
-        259,
+        247,
+        248,
         29.4,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        259,
-        260,
+        248,
+        249,
         26.16,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        260,
-        261,
+        249,
+        250,
         16.44,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        261,
-        262,
+        250,
+        251,
         11.13,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        262,
-        263,
+        251,
+        252,
         7.63,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        263,
-        264,
+        252,
+        253,
         4.3,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        264,
-        265,
+        253,
+        254,
         14.97,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        265,
-        266,
+        254,
+        255,
         7.58,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        266,
-        267,
+        255,
+        256,
         7.31,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        267,
-        268,
+        256,
+        257,
         13.35,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        268,
-        269,
+        257,
+        258,
         9.88,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        269,
-        270,
+        258,
+        259,
         6.96,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        270,
-        271,
+        259,
+        260,
         17.61,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        271,
-        272,
+        260,
+        261,
         7.31,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        272,
-        273,
+        261,
+        262,
         5.6,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        273,
-        274,
+        262,
+        263,
         16.28,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        274,
-        275,
+        263,
+        264,
         16.87,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        275,
-        276,
+        264,
+        265,
         18.9,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        276,
-        277,
+        265,
+        266,
         48.73,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        277,
-        278,
+        266,
+        267,
         44.11,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        278,
-        279,
+        267,
+        268,
         18.06,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        279,
-        280,
+        268,
+        269,
         30.08,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        280,
-        281,
+        269,
+        270,
         14.87,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        281,
-        282,
+        270,
+        271,
         5.16,
         "path",
         "allowed",
         "route-mrb48fcz-2zcox1"
       ],
       [
-        282,
-        283,
+        271,
+        272,
         16.4,
-        "path",
-        "allowed",
+        "spectator_crossing",
+        "conditional",
         "route-mrb4ji4e-fn9pnz"
       ],
       [
-        283,
-        284,
-        3.9,
-        "path",
-        "allowed",
+        272,
+        273,
+        4.68,
+        "spectator_crossing",
+        "conditional",
         "route-mrb4ji4e-fn9pnz"
       ],
       [
-        284,
-        285,
-        15.73,
+        273,
+        274,
+        15.89,
         "path",
         "allowed",
-        "route-mrb4ji4e-fn9pnz"
+        "route-mrc99hvd-cr78r5"
       ],
       [
-        285,
-        286,
+        274,
+        275,
         28.38,
         "path",
         "allowed",
-        "route-mrb4ji4e-fn9pnz"
+        "route-mrc99hvd-cr78r5"
       ],
       [
-        286,
-        287,
+        275,
+        276,
         11.06,
-        "path",
-        "allowed",
-        "route-mrb4ji4e-fn9pnz"
+        "spectator_crossing",
+        "conditional",
+        "route-mrc97hrs-6glzvs"
       ],
       [
-        287,
-        288,
+        276,
+        277,
         19.64,
-        "path",
-        "allowed",
-        "route-mrb4ji4e-fn9pnz"
+        "spectator_crossing",
+        "conditional",
+        "route-mrc97hrs-6glzvs"
       ],
       [
-        288,
-        289,
+        277,
+        278,
         7.68,
         "path",
         "allowed",
         "route-mrb4mc4r-6kifks"
       ],
       [
-        289,
-        290,
+        278,
+        279,
         19.58,
         "path",
         "allowed",
         "route-mrb4mc4r-6kifks"
       ],
       [
-        290,
-        291,
+        279,
+        280,
         33.54,
         "path",
         "allowed",
         "route-mrb4mc4r-6kifks"
       ],
       [
-        288,
-        292,
+        277,
+        281,
         27.44,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        292,
-        293,
+        281,
+        282,
         9.95,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        293,
-        294,
+        282,
+        283,
         10.56,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        294,
-        295,
+        283,
+        284,
         17.27,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        295,
-        296,
+        284,
+        285,
         8.02,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        296,
-        297,
+        285,
+        286,
         3.94,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        297,
-        298,
+        286,
+        287,
         7.09,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        298,
-        299,
+        287,
+        288,
         18.13,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        299,
-        300,
+        288,
+        289,
         11.13,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        300,
-        301,
+        289,
+        290,
         6.39,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        301,
-        302,
+        290,
+        291,
         36.99,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        302,
-        303,
+        291,
+        292,
         25.69,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        303,
-        304,
+        292,
+        293,
         29.72,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        304,
-        305,
+        293,
+        294,
         17.73,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        305,
-        306,
+        294,
+        295,
         23.43,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        306,
-        307,
+        295,
+        296,
         11.23,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        307,
-        308,
+        296,
+        297,
         15.37,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        308,
-        309,
+        297,
+        298,
         11.01,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        309,
-        310,
+        298,
+        299,
         10.15,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        310,
-        311,
+        299,
+        300,
         11.29,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        311,
-        312,
+        300,
+        301,
         10.66,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        312,
-        313,
+        301,
+        302,
         15.12,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        313,
-        314,
+        302,
+        303,
         54.73,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        314,
-        315,
+        303,
+        304,
         29.27,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        315,
-        316,
+        304,
+        305,
         24.89,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        316,
-        317,
+        305,
+        306,
         12.02,
         "path",
         "allowed",
         "route-mrb4r2rk-vyk2ts"
       ],
       [
-        318,
-        319,
+        307,
+        308,
         6.61,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        319,
-        320,
+        308,
+        309,
         23.24,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        320,
-        321,
+        309,
+        310,
         30.25,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        321,
-        322,
+        310,
+        311,
         15.77,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        322,
-        323,
+        311,
+        312,
         13.04,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        323,
-        324,
+        312,
+        313,
         35.61,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        324,
-        325,
+        313,
+        314,
         30.76,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        325,
-        326,
-        16.0,
+        314,
+        315,
+        16,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        326,
-        327,
+        315,
+        316,
         11.22,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        327,
-        328,
+        316,
+        317,
         17.14,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        328,
-        329,
+        317,
+        318,
         10.99,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        329,
-        330,
+        318,
+        319,
         5.08,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        330,
-        331,
+        319,
+        320,
         16.98,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        331,
-        332,
+        320,
+        321,
         12.17,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        332,
-        333,
+        321,
+        322,
         6.6,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        333,
-        334,
+        322,
+        323,
         44.35,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        334,
-        335,
+        323,
+        324,
         17.86,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        335,
-        336,
+        324,
+        325,
         25.13,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        336,
-        337,
+        325,
+        326,
         19.07,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        337,
-        338,
+        326,
+        327,
         11.04,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        338,
-        339,
+        327,
+        328,
         16.76,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        339,
-        340,
+        328,
+        329,
         7.96,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        340,
-        341,
+        329,
+        330,
         11.14,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        341,
-        342,
+        330,
+        331,
         9.5,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        342,
-        343,
+        331,
+        332,
         13.4,
         "path",
         "allowed",
         "route-mrb52kps-4wtvzu"
       ],
       [
-        344,
-        345,
+        333,
+        334,
         9.79,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        345,
-        346,
+        334,
+        335,
         25.08,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        346,
-        347,
-        7.0,
+        335,
+        336,
+        7,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        347,
-        348,
+        336,
+        337,
         7.75,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        348,
-        349,
+        337,
+        338,
         10.34,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        349,
-        350,
+        338,
+        339,
         4.11,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        350,
-        351,
+        339,
+        340,
         38.73,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        351,
-        352,
+        340,
+        341,
         11.11,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        352,
-        353,
+        341,
+        342,
         29.31,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        353,
-        354,
+        342,
+        343,
         37.1,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        354,
-        355,
+        343,
+        344,
         7.08,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        355,
-        356,
+        344,
+        345,
         4.5,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        356,
-        357,
+        345,
+        346,
         35.38,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        357,
-        358,
+        346,
+        347,
         12.2,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        358,
-        359,
+        347,
+        348,
         10.7,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        359,
-        360,
+        348,
+        349,
         3.66,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        360,
-        361,
+        349,
+        350,
         16.26,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        361,
-        362,
+        350,
+        351,
         28.58,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        362,
-        363,
+        351,
+        352,
         43.44,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        363,
-        364,
+        352,
+        353,
         22.85,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        364,
-        365,
+        353,
+        354,
         41.89,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        365,
-        366,
+        354,
+        355,
         11.03,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        366,
-        367,
+        355,
+        356,
         7.14,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        367,
-        368,
+        356,
+        357,
         14.07,
         "path",
         "allowed",
         "route-mrb5bsbz-a7ksx6"
       ],
       [
-        369,
-        370,
+        358,
+        359,
         17.61,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        370,
-        371,
+        359,
+        360,
         38.17,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        371,
-        372,
+        360,
+        361,
         19.37,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        372,
-        373,
+        361,
+        362,
         25.96,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        373,
-        374,
+        362,
+        363,
         15.3,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        374,
-        375,
+        363,
+        364,
         12.81,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        375,
-        376,
+        364,
+        365,
         18.3,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        376,
-        377,
+        365,
+        366,
         60.72,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        377,
-        378,
+        366,
+        367,
         61.88,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        378,
-        379,
+        367,
+        368,
         7.84,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        379,
-        380,
+        368,
+        369,
         3.9,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        380,
-        381,
+        369,
+        370,
         20.08,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        381,
-        382,
+        370,
+        371,
         11.41,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        382,
-        383,
+        371,
+        372,
         20.19,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        383,
-        384,
+        372,
+        373,
         10.98,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        384,
-        385,
+        373,
+        374,
         9.87,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        385,
-        386,
+        374,
+        375,
         27.82,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        386,
-        387,
+        375,
+        376,
         22.69,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        387,
-        388,
+        376,
+        377,
         26.98,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        388,
-        389,
+        377,
+        378,
         9.95,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        389,
-        390,
+        378,
+        379,
         3.14,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        390,
-        391,
+        379,
+        380,
         3.52,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        391,
-        392,
+        380,
+        381,
         15.21,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        392,
-        393,
+        381,
+        382,
         4.17,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        393,
-        394,
+        382,
+        383,
         23.2,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        394,
-        395,
+        383,
+        384,
         25.76,
         "path",
         "allowed",
         "route-mrb5kl1s-az39hm"
       ],
       [
-        396,
-        397,
+        385,
+        386,
         6.04,
         "path",
         "allowed",
         "route-mrb5w5f1-wttwia"
       ],
       [
-        397,
-        398,
+        386,
+        387,
         8.97,
         "path",
         "allowed",
         "route-mrb5w5f1-wttwia"
       ],
       [
-        211,
-        398,
+        203,
+        387,
         27.24,
         "path",
         "allowed",
         "route-mrb5w5f1-wttwia"
       ],
       [
-        399,
-        400,
+        388,
+        389,
         6.8,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        400,
-        401,
+        389,
+        390,
         7.44,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        401,
-        402,
+        390,
+        391,
         4.87,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        402,
-        403,
+        391,
+        392,
         4.6,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        403,
-        404,
+        392,
+        393,
         7.22,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        404,
-        405,
+        393,
+        394,
         20.37,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        405,
-        406,
+        394,
+        395,
         22.66,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        406,
-        407,
+        395,
+        396,
         14.27,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        407,
-        408,
+        396,
+        397,
         10.84,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        408,
-        409,
+        397,
+        398,
         7.57,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        409,
-        410,
+        398,
+        399,
         19.49,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        410,
-        411,
+        399,
+        400,
         15.44,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        411,
-        412,
+        400,
+        401,
         7.27,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        412,
-        413,
+        401,
+        402,
         7.81,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        413,
-        414,
+        402,
+        403,
         45.05,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        414,
-        415,
+        403,
+        404,
         26.33,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        415,
-        416,
+        404,
+        405,
         34.04,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        416,
-        417,
+        405,
+        406,
         8.38,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        417,
-        418,
+        406,
+        407,
         8.05,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        418,
-        419,
+        407,
+        408,
         26.61,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        419,
-        420,
+        408,
+        409,
         13.53,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        420,
-        421,
+        409,
+        410,
         26.54,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        421,
-        422,
+        410,
+        411,
         7.83,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        422,
-        423,
+        411,
+        412,
         14.67,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        423,
-        424,
+        412,
+        413,
         26.61,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        424,
-        425,
+        413,
+        414,
         17.87,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        425,
-        426,
+        414,
+        415,
         11.6,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        426,
-        427,
+        415,
+        416,
         25.86,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        427,
-        428,
+        416,
+        417,
         48.49,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        428,
-        429,
+        417,
+        418,
         9.89,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        429,
-        430,
+        418,
+        419,
         23.53,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        430,
-        431,
+        419,
+        420,
         28.2,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        431,
-        432,
+        420,
+        421,
         11.6,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        432,
-        433,
+        421,
+        422,
         9.02,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        433,
-        434,
+        422,
+        423,
         14.61,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        434,
-        435,
+        423,
+        424,
         17.96,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        435,
-        436,
+        424,
+        425,
         25.7,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        436,
-        437,
+        425,
+        426,
         17.46,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        437,
-        438,
+        426,
+        427,
         25.11,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        438,
-        439,
+        427,
+        428,
         4.58,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        439,
-        440,
+        428,
+        429,
         10.53,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        440,
-        441,
+        429,
+        430,
         25.15,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        441,
-        442,
+        430,
+        431,
         45.31,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        442,
-        443,
+        431,
+        432,
         21.36,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        443,
-        444,
+        432,
+        433,
         15.54,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        444,
-        445,
+        433,
+        434,
         15.63,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        445,
-        446,
+        434,
+        435,
         41.08,
         "path",
         "allowed",
         "route-mrb62p1b-r0aig3"
       ],
       [
-        447,
-        448,
+        436,
+        437,
         3.5,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        448,
-        449,
+        437,
+        438,
         12.05,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        449,
-        450,
+        438,
+        439,
         5.44,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        450,
-        451,
+        439,
+        440,
         3.03,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        451,
-        452,
+        440,
+        441,
         5.71,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        452,
-        453,
+        441,
+        442,
         9.41,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        453,
-        454,
+        442,
+        443,
         8.82,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        454,
-        455,
+        443,
+        444,
         17.52,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        455,
-        456,
+        444,
+        445,
         42.98,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        456,
-        457,
+        445,
+        446,
         38.08,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        457,
-        458,
+        446,
+        447,
         24.62,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        458,
-        459,
+        447,
+        448,
         15.48,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        459,
-        460,
+        448,
+        449,
         22.46,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        460,
-        461,
+        449,
+        450,
         18.81,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        461,
-        462,
+        450,
+        451,
         21.34,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        462,
-        463,
+        451,
+        452,
         12.25,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        463,
-        464,
+        452,
+        453,
         6.85,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        464,
-        465,
+        453,
+        454,
         11.13,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        465,
-        466,
+        454,
+        455,
         22.95,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        466,
-        467,
+        455,
+        456,
         12.2,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        467,
-        468,
+        456,
+        457,
         34.04,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        468,
-        469,
+        457,
+        458,
         11.21,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        469,
-        470,
+        458,
+        459,
         20.97,
         "path",
         "allowed",
         "route-mrb6jsew-7q0w1o"
       ],
       [
-        470,
-        471,
+        459,
+        460,
         30.51,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        471,
-        472,
+        460,
+        461,
         9.04,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        472,
-        473,
+        461,
+        462,
         8.96,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        473,
-        474,
+        462,
+        463,
         87.46,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        474,
-        475,
+        463,
+        464,
         32.98,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        475,
-        476,
+        464,
+        465,
         7.55,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        476,
-        477,
+        465,
+        466,
         21.69,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        477,
-        478,
+        466,
+        467,
         27.34,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        478,
-        479,
+        467,
+        468,
         60.21,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        479,
-        480,
+        468,
+        469,
         3.54,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        480,
-        481,
+        469,
+        470,
         7.44,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        481,
-        482,
+        470,
+        471,
         17.98,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        482,
-        483,
+        471,
+        472,
         54.93,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        483,
-        484,
+        472,
+        473,
         7.76,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        484,
-        485,
+        473,
+        474,
         9.63,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        485,
-        486,
+        474,
+        475,
         19.76,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        486,
-        487,
+        475,
+        476,
         34.18,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        487,
-        488,
+        476,
+        477,
         25.92,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        488,
-        489,
+        477,
+        478,
         10.95,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        489,
-        490,
+        478,
+        479,
         14.43,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        490,
-        491,
+        479,
+        480,
         6.67,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        491,
-        492,
+        480,
+        481,
         3.37,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        492,
-        493,
+        481,
+        482,
         9.3,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        493,
-        494,
+        482,
+        483,
         6.53,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        494,
-        495,
+        483,
+        484,
         4.03,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        495,
-        496,
+        484,
+        485,
         23.06,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        496,
-        497,
+        485,
+        486,
         4.46,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        497,
-        498,
+        486,
+        487,
         7.55,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        498,
-        499,
+        487,
+        488,
         17.98,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        499,
-        500,
+        488,
+        489,
         11.93,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        500,
-        501,
+        489,
+        490,
         33.86,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        501,
-        502,
+        490,
+        491,
         14.82,
         "path",
         "allowed",
         "route-mrb6rsxv-omvy69"
       ],
       [
-        502,
-        503,
+        491,
+        492,
         14.63,
         "path",
         "allowed",
@@ -10316,7 +10496,7 @@
       ],
       [
         64,
-        503,
+        492,
         23.46,
         "path",
         "allowed",
@@ -10324,7 +10504,7 @@
       ],
       [
         62,
-        504,
+        493,
         8.47,
         "connector",
         "allowed",
@@ -10332,135 +10512,143 @@
       ],
       [
         2,
-        504,
+        493,
         17.49,
         "connector",
         "allowed",
         "connector-01"
       ],
       [
-        112,
-        120,
-        36.93,
-        "street_crossing",
-        "conditional",
-        "connector-02"
-      ],
-      [
-        211,
-        212,
+        203,
+        204,
         13.07,
         "connector",
         "allowed",
         "connector-03"
       ],
       [
-        317,
-        505,
+        306,
+        494,
         4.18,
         "connector",
         "allowed",
         "connector-04"
       ],
       [
-        505,
-        506,
+        494,
+        495,
         19.59,
         "connector",
         "allowed",
         "connector-04"
       ],
       [
-        506,
-        507,
+        495,
+        496,
         16.32,
         "connector",
         "allowed",
         "connector-04"
       ],
       [
-        318,
-        507,
+        307,
+        496,
         26.08,
         "connector",
         "allowed",
         "connector-04"
       ],
       [
-        343,
-        508,
+        332,
+        497,
         3.1,
         "street_crossing",
         "conditional",
         "connector-05"
       ],
       [
-        344,
-        508,
+        333,
+        497,
         17.39,
         "street_crossing",
         "conditional",
         "connector-05"
       ],
       [
-        368,
-        369,
+        357,
+        358,
         13.23,
         "connector",
         "allowed",
         "connector-06"
       ],
       [
-        395,
-        509,
+        384,
+        498,
         10.11,
         "connector",
         "allowed",
         "connector-07"
       ],
       [
-        399,
-        509,
+        388,
+        498,
         4.67,
         "connector",
         "allowed",
         "connector-07"
       ],
       [
-        446,
-        510,
+        435,
+        499,
         50.48,
         "street_crossing",
         "conditional",
         "connector-08"
       ],
       [
-        447,
-        510,
+        436,
+        499,
         16.83,
         "street_crossing",
         "conditional",
         "connector-08"
       ],
       [
-        139,
-        142,
+        77,
+        500,
+        36.73,
+        "path",
+        "allowed",
+        "route-mrca822b-aw12ni"
+      ],
+      [
+        104,
+        106,
+        4.44,
+        "connector",
+        "allowed",
+        "auto-endpoint-join"
+      ],
+      [
+        131,
+        134,
         8.05,
         "connector",
         "allowed",
         "auto-endpoint-join"
       ],
       [
-        277,
-        291,
+        266,
+        280,
         5.89,
         "connector",
         "allowed",
         "auto-endpoint-join"
       ],
       [
-        395,
-        396,
+        384,
+        385,
         4.31,
         "connector",
         "allowed",
@@ -10495,5 +10683,6 @@
     "method": "piecewise affine rubber-sheet using confirmed GPS tee/green anchors",
     "disclaimer": "Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation.",
     "opaqueImage": "official-course-georeferenced-opaque.webp"
-  }
+  },
+  "networkRebuiltAt": "2026-07-08T16:24:23.601Z"
 }
