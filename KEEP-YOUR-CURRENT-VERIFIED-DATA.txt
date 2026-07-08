@@ -1,0 +1,2 @@
+This package intentionally excludes verified-data.json.
+Keep the current reviewed verified-data.json already published in GitHub.

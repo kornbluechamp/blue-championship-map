@@ -10,7 +10,7 @@
 6. Commit with: `Publish Version 4.4 crossing editor`
 7. Wait for GitHub Pages deployment.
 8. Open the editor at:
-   `https://kornbluechamp.github.io/blue-championship-map/review.html?v=440`
+   `https://kornbluechamp.github.io/blue-championship-map/review.html?v=450`
 
 ## Future map-data updates
 

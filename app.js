@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const base=baseLayers();
   const officialConfig=verified.officialOverlay||null;
   const officialBounds=officialConfig?.bounds||null;
-  const officialOverlay=officialConfig?L.imageOverlay(`${officialConfig.image}?v=440`,officialBounds,{opacity:.6,alt:'Official illustrated course overlay'}):null;
-  const officialOpaque=officialConfig?L.imageOverlay(`${officialConfig.opaqueImage||officialConfig.image}?v=440`,officialBounds,{opacity:1,alt:'Official illustrated course map'}):null;
-  let mapStyle='street',overlayOn=false;
+  const officialOverlay=officialConfig?L.imageOverlay(`${officialConfig.image}?v=450`,officialBounds,{opacity:.6,alt:'Official illustrated course overlay'}):null;
+  const officialOpaque=officialConfig?L.imageOverlay(`${officialConfig.opaqueImage||officialConfig.image}?v=450`,officialBounds,{opacity:1,alt:'Official illustrated course map'}):null;
+  let mapStyle='street',overlayOn=Boolean(officialConfig);
   const opacityWrap=document.getElementById('overlayOpacityWrap');
   const opacitySlider=document.getElementById('overlayOpacity');
   const overlayToggle=document.getElementById('officialOverlayToggle');
@@ -35,8 +35,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
     removeOfficialLayers();
     if(mapStyle==='official'){
       setTileBase(null);
-      overlayToggle.checked=false;
-      overlayOn=false;
       compareControls.classList.add('hidden');
       opacityWrap.classList.add('hidden');
       if(officialOpaque)map.addLayer(officialOpaque);
@@ -54,13 +52,36 @@ document.addEventListener('DOMContentLoaded',async()=>{
     document.querySelectorAll('.map-style-button').forEach(b=>b.classList.toggle('active',b.dataset.mapStyle===mapStyle));
   }
   document.querySelectorAll('.map-style-button').forEach(b=>b.onclick=()=>{mapStyle=b.dataset.mapStyle;applyMapAppearance()});
+  overlayToggle.checked=overlayOn;
   overlayToggle.onchange=()=>{overlayOn=overlayToggle.checked;applyMapAppearance()};
   opacitySlider.oninput=()=>officialOverlay?.setOpacity(Number(opacitySlider.value)/100);
   if(!officialConfig){
+    overlayOn=false;
+    overlayToggle.checked=false;
     document.querySelector('[data-map-style="official"]').disabled=true;
     compareControls.classList.add('hidden');
   }
   applyMapAppearance();
+
+  const mobileLayout=window.matchMedia('(max-width: 700px)');
+  function setResponsivePanels(){
+    const mobile=mobileLayout.matches;
+    const more=document.getElementById('moreDestinations');
+    const filters=document.getElementById('filterDetails');
+    const legend=document.getElementById('legendDetails');
+    if(more)more.open=!mobile;
+    if(filters)filters.open=!mobile;
+    if(legend)legend.open=false;
+    setTimeout(()=>map.invalidateSize(),80);
+  }
+  setResponsivePanels();
+  mobileLayout.addEventListener?.('change',setResponsivePanels);
+  function collapseMobileDestinationPanel(){
+    if(mobileLayout.matches){
+      const more=document.getElementById('moreDestinations');
+      if(more)more.open=false;
+    }
+  }
 
   const dataGroup=L.featureGroup().addTo(map);
   const routeGroup=L.featureGroup().addTo(map);
@@ -105,7 +126,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   document.getElementById('navigateMap').appendChild(compass);
   map.on('bearingchange',e=>{compass.style.transform=`rotate(${e.bearing}deg)`});
   map.on('dragstart',()=>{if(lastPosition){followMode='free';map.setBearing(0);updateFollowButton()}});
-  function updateFollowButton(){followButton.textContent=followMode==='north'?'Follow: North up':followMode==='heading'?'Follow: Heading up':'Follow: Off'}
+  function updateFollowButton(){followButton.textContent=followMode==='north'?'North up':followMode==='heading'?'Heading up':'Explore'}
   updateFollowButton();
 
   function friendlyLocationError(err){
@@ -144,7 +165,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
       map.setBearing(0);
       map.setView([p.lat,p.lng],Math.max(map.zoom,17));
     }
-    locateButton.textContent='Center on me';
+    locateButton.textContent='◎ Center';
     if(!activeDirections)setStatus('Location found',`Estimated accuracy: ${Math.round(p.accuracy)} meters. Tap a destination above for directions.`);
     if(pendingAction){const action=pendingAction;pendingAction=null;setTimeout(action,100)}
   }
@@ -303,13 +324,17 @@ document.addEventListener('DOMContentLoaded',async()=>{
   function categoryCandidates(category){
     return(verified.points||[]).filter(p=>category==='restroom'?(p.type==='restroom'||p.type==='accessible_restroom'):p.type===category);
   }
-  document.querySelectorAll('[data-category]').forEach(btn=>btn.onclick=()=>routeToCandidates(categoryCandidates(btn.dataset.category),btn.textContent.replace(/^[R+C]\s*/,'')));
+  document.querySelectorAll('[data-category]').forEach(btn=>btn.onclick=()=>{
+    collapseMobileDestinationPanel();
+    routeToCandidates(categoryCandidates(btn.dataset.category),btn.dataset.title||btn.textContent.trim());
+  });
 
   const holes=[...new Set((verified.points||[]).filter(p=>p.holeNumber).map(p=>p.holeNumber))].sort((a,b)=>a-b);
   const holeSelect=document.getElementById('holeSelect');
   holes.forEach(h=>{const o=document.createElement('option');o.value=h;o.textContent=`Hole ${h}`;holeSelect.appendChild(o)});
   document.getElementById('routeHole').onclick=()=>{
     const h=Number(holeSelect.value);if(!h)return setStatus('Choose a hole','Select a hole number first.');
+    collapseMobileDestinationPanel();
     routeToCandidates((verified.points||[]).filter(p=>p.holeNumber===h),`Hole ${h}`);
   };
 
@@ -318,6 +343,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   placePoints.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;placeSelect.appendChild(o)});
   document.getElementById('routePlace').onclick=()=>{
     const p=placePoints.find(x=>x.id===placeSelect.value);if(!p)return setStatus('Choose a destination','Select a destination first.');
+    collapseMobileDestinationPanel();
     routeToCandidates([p],p.name);
   };
 

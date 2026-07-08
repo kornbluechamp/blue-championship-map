@@ -112,3 +112,214 @@ code{background:#edf2f5;padding:2px 5px;border-radius:4px}
 .open-area-guidance{background:#eaf6ef;border:1px solid #9fcbb5;border-radius:9px;padding:10px;margin:10px 0;line-height:1.4}
 @media(max-width:720px){.section-boundary-grid{grid-template-columns:1fr}}
 .route-edit-handle.section-boundary{background:#e07a00}
+
+
+/* Version 4.5 mobile-first public map */
+.warning-short{display:none}
+.map-stage{display:grid;grid-template-areas:"settings" "map" "location";gap:8px}
+#navigateMap{grid-area:map}
+.map-settings{grid-area:settings}
+.location-controls{grid-area:location}
+.destination-more summary,.map-details summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.destination-more summary{margin-top:10px}
+.map-details{background:#fff;border:1px solid var(--line);border-radius:11px;margin-top:8px;overflow:hidden}
+.map-details>summary{padding:10px 12px;list-style-position:inside}
+.map-details[open]>summary{border-bottom:1px solid var(--line);background:#f4f8fb}
+.map-details .filter-panel{margin:0;border:0;border-radius:0;box-shadow:none}
+.legend-details .path-key{padding:10px 12px;margin:0}
+.overlay-toggle-chip{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.public-map-page .status-card{box-shadow:0 2px 10px rgba(15,40,60,.08)}
+
+@media(max-width:700px){
+  .public-map-page .app-header{
+    position:relative;
+    min-height:46px;
+    padding:7px 10px;
+  }
+  .public-map-page .app-header h1{font-size:1rem;line-height:1.1}
+  .public-map-page .app-header p{display:none}
+  .public-map-page .header-button{padding:5px 9px;font-size:1.05rem}
+  .public-map-page .warning{padding:5px 9px;font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .warning-long{display:none}.warning-short{display:inline}
+  .public-map-page .view-tabs{
+    position:relative;
+    top:auto;
+    justify-content:stretch;
+    gap:4px;
+    padding:5px 6px;
+    overflow:visible;
+  }
+  .public-map-page .view-tab{
+    flex:1;
+    min-width:0;
+    padding:7px 4px;
+    border-radius:7px;
+    font-size:.74rem;
+  }
+  .public-map-page main{padding:6px}
+  #navigateView.active{display:flex;flex-direction:column}
+
+  .destination-panel{
+    order:1;
+    padding:7px;
+    margin-bottom:6px;
+    border-radius:10px;
+  }
+  .destination-heading{display:flex;align-items:baseline;gap:7px;margin-bottom:6px}
+  .destination-heading h2{font-size:.92rem;margin:0}
+  .destination-heading p{font-size:.68rem;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .destination-buttons{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:5px;
+  }
+  .destination-button{
+    min-height:39px;
+    padding:4px 3px;
+    border-width:1px;
+    border-radius:8px;
+    gap:4px;
+    font-size:.7rem;
+    line-height:1.05;
+    flex-direction:column;
+  }
+  .destination-button span{
+    width:21px;height:21px;font-size:.72rem;
+  }
+  .destination-more{margin-top:5px}
+  .destination-more summary{
+    margin:0;
+    padding:5px 7px;
+    border-radius:7px;
+    background:#edf4f8;
+    font-size:.72rem;
+  }
+  .destination-more[open] summary{margin-bottom:6px}
+  .destination-selectors{grid-template-columns:1fr;gap:7px;margin-top:0}
+  .destination-selectors>label{font-size:.72rem}
+  .inline-control{margin-top:3px;gap:5px}
+  .inline-control select{padding:7px;font-size:.75rem}
+  .inline-control button{padding:7px 9px;font-size:.75rem}
+
+  .map-stage{
+    order:2;
+    display:block;
+    position:relative;
+    margin-bottom:6px;
+  }
+  .public-map-page #navigateMap{
+    height:54dvh;
+    min-height:365px;
+    max-height:560px;
+    border-radius:10px;
+  }
+  .map-settings{
+    position:absolute;
+    z-index:40;
+    top:7px;
+    right:7px;
+    width:min(268px,calc(100% - 64px));
+    padding:0;
+    margin:0;
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    pointer-events:none;
+  }
+  .setting-row,.compare-controls{
+    pointer-events:auto;
+    justify-content:flex-end;
+  }
+  .setting-row{gap:5px}
+  .map-view-label{display:none}
+  .segmented{
+    margin-left:auto;
+    border-radius:8px;
+    background:rgba(255,255,255,.94);
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+  }
+  .segmented button{
+    padding:6px 8px;
+    font-size:.68rem;
+  }
+  .compare-controls{
+    margin-top:5px;
+    gap:5px;
+  }
+  .overlay-toggle-chip{
+    margin-left:auto;
+    border:1px solid #9fb1bf;
+    border-radius:999px;
+    padding:5px 8px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+    font-size:.68rem;
+    font-weight:800;
+  }
+  .overlay-toggle-chip input{margin:0}
+  .overlay-opacity{display:none!important}
+
+  .location-controls{
+    position:absolute;
+    z-index:40;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%);
+    display:flex;
+    flex-wrap:nowrap;
+    gap:5px;
+    width:max-content;
+    max-width:calc(100% - 18px);
+    margin:0;
+    padding:5px;
+    border:1px solid rgba(150,165,176,.85);
+    border-radius:12px;
+    background:rgba(255,255,255,.94);
+    box-shadow:0 3px 12px rgba(0,0,0,.22);
+  }
+  .location-controls .button{
+    padding:7px 9px;
+    border-radius:8px;
+    font-size:.68rem;
+    white-space:nowrap;
+  }
+  .bearing-indicator{
+    left:7px;top:7px;width:34px;height:34px;
+  }
+  .bearing-indicator span{font-size:13px;line-height:11px}
+  .bearing-indicator small{font-size:8px}
+
+  .public-map-page .status-card{
+    order:3;
+    padding:8px 10px;
+    margin:0;
+    border-radius:9px;
+  }
+  .public-map-page .status-card h2{font-size:.88rem;margin:0 0 2px}
+  .public-map-page .status-card p{font-size:.72rem;line-height:1.25;margin:0}
+
+  #filterDetails{order:4}
+  #legendDetails{order:5}
+  .map-details{margin-top:6px;border-radius:9px}
+  .map-details>summary{padding:8px 10px;font-size:.76rem}
+  .filter-panel{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px 8px;
+    padding:8px 10px!important;
+  }
+  .filter-panel label{font-size:.71rem;white-space:normal}
+  .path-key{font-size:.68rem;line-height:1.4}
+  .path-key span{width:20px;height:4px;margin-left:4px}
+
+  .public-map-page .image-note{font-size:.78rem}
+  .public-map-page .image-zoom{max-height:78dvh}
+}
+
+@media(max-width:390px){
+  .destination-heading p{display:none}
+  .public-map-page #navigateMap{height:52dvh;min-height:340px}
+  .segmented button{padding:6px 6px;font-size:.64rem}
+  .map-settings{width:min(245px,calc(100% - 55px))}
+  .location-controls .button{padding:7px 7px;font-size:.64rem}
+  .filter-panel{grid-template-columns:1fr}
+}

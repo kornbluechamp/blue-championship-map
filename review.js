@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const config=data.officialOverlay;
     const officialButton=document.querySelector('[data-review-map-style="official"]');
     if(config?.bounds&&config?.opaqueImage){
-      officialLayer=L.imageOverlay(`${config.opaqueImage}?v=440`,config.bounds,{opacity:1,alt:'Official course map'});
+      officialLayer=L.imageOverlay(`${config.opaqueImage}?v=450`,config.bounds,{opacity:1,alt:'Official course map'});
       if(officialButton)officialButton.disabled=false;
     }else if(officialButton){
       officialButton.disabled=true;

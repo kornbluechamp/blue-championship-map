@@ -5,92 +5,133 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b5684">
   <title>TPC Colorado Course Guide</title>
-  <link rel="manifest" href="manifest.json?v=440">
-  <link rel="stylesheet" href="simple-map.css?v=440">
-  <link rel="stylesheet" href="styles.css?v=440">
+  <link rel="manifest" href="manifest.json?v=450">
+  <link rel="stylesheet" href="simple-map.css?v=450">
+  <link rel="stylesheet" href="styles.css?v=450">
 </head>
-<body>
+<body class="public-map-page">
 <header class="app-header">
   <div>
-    <h1>Course Directions</h1>
+    <h1>TPC Colorado Course Guide</h1>
     <p>Unofficial volunteer navigation aid</p>
   </div>
   <button id="menuButton" class="header-button" aria-label="Open tools">☰</button>
 </header>
-<div class="warning">Follow tournament signs, ropes, accessibility guidance, security, and staff instructions whenever they differ from this map.</div>
+
+<div class="warning">
+  <span class="warning-long">Follow tournament signs, ropes, accessibility guidance, security, and staff instructions whenever they differ from this map.</span>
+  <span class="warning-short">Follow signs, ropes, and staff instructions.</span>
+</div>
+
 <nav class="view-tabs" aria-label="Map views">
-  <button class="view-tab active" data-view="navigate">Live Map &amp; Directions</button>
-  <button class="view-tab" data-view="overview">Official Map (Reference)</button>
-  <button class="view-tab" data-view="clubhouse">Clubhouse / Fan Zone (Reference)</button>
+  <button class="view-tab active" data-view="navigate">Live Map</button>
+  <button class="view-tab" data-view="overview">Official Map</button>
+  <button class="view-tab" data-view="clubhouse">Fan Zone</button>
 </nav>
 
 <main>
   <section id="navigateView" class="view active">
     <section class="destination-panel" aria-label="Choose a destination">
       <div class="destination-heading">
-        <h2>Where do you want to go?</h2>
-        <p>Tap a destination below. The app will use your phone location and show the best available spectator-path route.</p>
+        <h2>Get directions</h2>
+        <p>Choose a destination. Your phone location is requested only when directions begin.</p>
       </div>
+
       <div class="destination-buttons">
-        <button class="destination-button" data-category="restroom"><span>R</span>Nearest restroom</button>
-        <button class="destination-button" data-category="firstaid"><span>+</span>First aid</button>
-        <button class="destination-button" data-category="concession"><span>C</span>Concessions</button>
+        <button class="destination-button" data-category="restroom" data-title="Nearest restroom">
+          <span>R</span><b>Restroom</b>
+        </button>
+        <button class="destination-button" data-category="firstaid" data-title="First aid">
+          <span>+</span><b>First aid</b>
+        </button>
+        <button class="destination-button" data-category="concession" data-title="Concessions">
+          <span>C</span><b>Concessions</b>
+        </button>
       </div>
-      <div class="destination-selectors">
-        <label>Route to a hole
-          <span class="inline-control"><select id="holeSelect" aria-label="Choose a hole"><option value="">Choose hole…</option></select><button id="routeHole">Get directions</button></span>
-        </label>
-        <label>Route to another place
-          <span class="inline-control"><select id="placeSelect" aria-label="Choose another destination"><option value="">Choose destination…</option></select><button id="routePlace">Get directions</button></span>
-        </label>
-      </div>
-    </section>
 
-    <section class="map-settings" aria-label="Map settings">
-      <div class="setting-row">
-        <strong>Map view</strong>
-        <div class="segmented" role="group" aria-label="Choose map view">
-          <button class="map-style-button active" data-map-style="street">Street</button>
-          <button class="map-style-button" data-map-style="satellite">Satellite</button>
-          <button class="map-style-button" data-map-style="official">Official</button>
+      <details id="moreDestinations" class="destination-more" open>
+        <summary>More destinations</summary>
+        <div class="destination-selectors">
+          <label>Route to a hole
+            <span class="inline-control">
+              <select id="holeSelect" aria-label="Choose a hole"><option value="">Choose hole…</option></select>
+              <button id="routeHole">Go</button>
+            </span>
+          </label>
+          <label>Route to another place
+            <span class="inline-control">
+              <select id="placeSelect" aria-label="Choose another destination"><option value="">Choose destination…</option></select>
+              <button id="routePlace">Go</button>
+            </span>
+          </label>
         </div>
-      </div>
-      <div id="compareControls" class="compare-controls">
-        <label><input id="officialOverlayToggle" type="checkbox"> Compare with official-map overlay</label>
-        <label id="overlayOpacityWrap" class="overlay-opacity hidden">More street
-          <input id="overlayOpacity" type="range" min="15" max="100" value="60" aria-label="Official overlay opacity">
-          More official
-        </label>
-      </div>
-      <div class="location-controls">
-        <button id="locateMe" class="button primary">Show my location</button>
-        <button id="followMode" class="button">Follow: North up</button>
-        <button id="clearRoute" class="button">Clear directions</button>
-      </div>
+      </details>
     </section>
 
-    <section id="filterPanel" class="filter-panel" aria-label="Map filters">
-      <strong>Show on map</strong>
-      <label><input type="checkbox" data-filter="restrooms" checked> Restrooms</label>
-      <label><input type="checkbox" data-filter="firstaid" checked> First aid</label>
-      <label><input type="checkbox" data-filter="concessions" checked> Concessions</label>
-      <label><input type="checkbox" data-filter="scoreboards" checked> Scoreboards</label>
-      <label><input type="checkbox" data-filter="places" checked> Public places &amp; hospitality</label>
-      <label><input type="checkbox" data-filter="paths" checked> Spectator paths</label>
-      <label><input type="checkbox" data-filter="holes"> Hole references</label>
-      <label><input type="checkbox" data-filter="junctions"> Junctions &amp; crossings</label>
-    </section>
-    <div class="path-key"><span class="key-blue"></span> Spectator path <span class="key-orange"></span> Spectator crossing; may pause during play <span class="key-red"></span> Public street crossing; extra caution</div>
+    <div class="map-stage">
+      <div id="navigateMap" class="geo-map"></div>
 
-    <div id="navigateMap" class="geo-map"></div>
+      <section class="map-settings" aria-label="Map settings">
+        <div class="setting-row">
+          <strong class="map-view-label">Map</strong>
+          <div class="segmented" role="group" aria-label="Choose map view">
+            <button class="map-style-button active" data-map-style="street">Street</button>
+            <button class="map-style-button" data-map-style="satellite">Satellite</button>
+            <button class="map-style-button" data-map-style="official">Official</button>
+          </div>
+        </div>
+
+        <div id="compareControls" class="compare-controls">
+          <label class="overlay-toggle-chip">
+            <input id="officialOverlayToggle" type="checkbox" checked>
+            Official overlay
+          </label>
+          <label id="overlayOpacityWrap" class="overlay-opacity">
+            <span>Street</span>
+            <input id="overlayOpacity" type="range" min="15" max="100" value="52" aria-label="Official overlay opacity">
+            <span>Official</span>
+          </label>
+        </div>
+      </section>
+
+      <div class="location-controls" aria-label="Location and navigation controls">
+        <button id="locateMe" class="button primary">◎ My location</button>
+        <button id="followMode" class="button">North up</button>
+        <button id="clearRoute" class="button">Clear</button>
+      </div>
+    </div>
+
     <section id="navigateStatus" class="status-card">
-      <h2>Loading published course data</h2>
-      <p>The shared map will load automatically.</p>
+      <h2>Loading course map</h2>
+      <p>Published locations and paths will load automatically.</p>
     </section>
+
+    <details id="filterDetails" class="map-details" open>
+      <summary>Show or hide map items</summary>
+      <section id="filterPanel" class="filter-panel" aria-label="Map filters">
+        <label><input type="checkbox" data-filter="restrooms" checked> Restrooms</label>
+        <label><input type="checkbox" data-filter="firstaid" checked> First aid</label>
+        <label><input type="checkbox" data-filter="concessions" checked> Concessions</label>
+        <label><input type="checkbox" data-filter="scoreboards" checked> Scoreboards</label>
+        <label><input type="checkbox" data-filter="places" checked> Public places &amp; hospitality</label>
+        <label><input type="checkbox" data-filter="paths" checked> Spectator paths</label>
+        <label><input type="checkbox" data-filter="holes"> Hole references</label>
+        <label><input type="checkbox" data-filter="junctions"> Junctions &amp; crossings</label>
+      </section>
+    </details>
+
+    <details id="legendDetails" class="map-details legend-details">
+      <summary>Path color key</summary>
+      <div class="path-key">
+        <span class="key-blue"></span> Spectator path
+        <span class="key-orange"></span> Spectator crossing; may pause during play
+        <span class="key-red"></span> Public street crossing; extra caution
+      </div>
+    </details>
   </section>
 
   <section id="overviewView" class="view">
-    <div class="image-note"><strong>Official tournament map — reference only.</strong> This is the original PDF-style course drawing supplied by the tournament. Use it for general orientation. It is not live GPS navigation and is not necessarily north-up. Return to <strong>Live Map &amp; Directions</strong> for your location and walking routes.</div>
+    <div class="image-note"><strong>Official tournament map — reference only.</strong> This is the original PDF-style course drawing supplied by the tournament. Use it for general orientation. It is not live GPS navigation and is not necessarily north-up. Return to <strong>Live Map</strong> for your location and walking routes.</div>
     <div class="image-zoom"><img src="official-course-overview.jpg" alt="Official Blue Championship spectator course map"></div>
   </section>
 
@@ -107,13 +148,13 @@
   <button id="shareApp" class="tool-link">Share this public map</button>
   <hr>
   <h3>Data tools</h3>
-  <a class="tool-link" href="scout.html?v=440">Scout &amp; Trace</a>
-  <a class="tool-link" href="review.html?v=440">Edit destinations and path geometry</a>
+  <a class="tool-link" href="scout.html?v=450">Scout &amp; Trace</a>
+  <a class="tool-link" href="review.html?v=450">Edit destinations and path geometry</a>
   <p class="small">Spectators do not need to import files. Published data loads automatically.</p>
 </aside>
 
-<script src="simple-map.js?v=440"></script>
-<script src="shared.js?v=440"></script>
-<script src="app.js?v=440"></script>
+<script src="simple-map.js?v=450"></script>
+<script src="shared.js?v=450"></script>
+<script src="app.js?v=450"></script>
 </body>
 </html>
