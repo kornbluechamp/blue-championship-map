@@ -4,76 +4,111 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b5684">
-  <title>Review and Publish Scouting Data</title>
-  <link rel="stylesheet" href="simple-map.css?v=420">
-  <link rel="stylesheet" href="styles.css?v=420">
+  <title>Edit and Publish the Course Map</title>
+  <link rel="stylesheet" href="simple-map.css?v=440">
+  <link rel="stylesheet" href="styles.css?v=440">
 </head>
 <body>
 <header class="app-header">
   <div>
-    <h1>Review and Publish Data</h1>
-    <p>Correct names, categories, locations, and routes before public release</p>
+    <h1>Edit and Publish the Course Map</h1>
+    <p>Add destinations, move markers, and reshape spectator paths</p>
   </div>
-  <a href="index.html" class="header-button" style="text-decoration:none">Map</a>
+  <a href="index.html?v=440" class="header-button" style="text-decoration:none">Map</a>
 </header>
 
 <div class="warning">
-  Imported phone data is private to this browser until you export <strong>verified-data.json</strong> and upload it to the root of the GitHub repository.
+  Changes made here remain private to this browser until you export <strong>verified-data.json</strong>
+  and replace that file in the root of the GitHub repository.
 </div>
 
 <div class="page-wrap">
+  <section class="panel editor-intro">
+    <h2>Choose what you need to change</h2>
+    <div class="editor-mode-grid">
+      <button id="addPoint" class="editor-mode-card">
+        <strong>＋ Add a destination</strong>
+        <span>Place Heroes Watch, hospitality, viewing, merchandise, or another location.</span>
+      </button>
+      <button id="drawRoute" class="editor-mode-card">
+        <strong>＋ Draw a missing path</strong>
+        <span>Tap a series of points on Street or Satellite to create a new path.</span>
+      </button>
+      <button id="toggleDrag" class="editor-mode-card">
+        <strong>↔ Move destination markers</strong>
+        <span>Turn dragging on, then drag a marker to its correct entrance or approach point.</span>
+      </button>
+    </div>
+
+    <div class="route-picker">
+      <label for="routeSelect"><strong>Edit an existing path or crossing</strong></label>
+      <div class="route-picker-row">
+        <select id="routeSelect">
+          <option value="">Choose a route…</option>
+        </select>
+        <button id="editSelectedRoute" class="button primary">Open route editor</button>
+      </div>
+      <p class="small">
+        You can also tap a path line directly on the map. The route editor provides draggable shape
+        points, tap-to-move controls, point insertion, endpoint extension, snapping, and automatic
+        routing-network rebuilding.
+      </p>
+    </div>
+  </section>
+
   <div class="top-actions">
-    <label class="button primary">Import / replace JSON
+    <button id="loadPublished" class="button primary">Reload current public map</button>
+    <label class="button">Import / replace JSON
       <input id="fileInput" type="file" accept="application/json,.json" hidden>
     </label>
     <label class="button">Merge another JSON
       <input id="mergeInput" type="file" accept="application/json,.json" hidden>
     </label>
-    <button id="loadPublished">Load published data</button>
     <button id="loadLocal">Load this device</button>
     <button id="fitAll">Fit all data</button>
-    <button id="addPoint" class="button primary">Add a location by tapping map</button>
-    <button id="toggleDrag">Enable point dragging</button>
-    <button id="exportReview">Export reviewed backup</button>
-    <button id="exportPublic" class="button good">Export for public map</button>
   </div>
 
   <div class="review-summary">
     <span class="summary-chip" id="summaryPoints">0 points</span>
     <span class="summary-chip" id="summaryRoutes">0 routes</span>
     <span class="summary-chip" id="summaryDistance">0 feet traced</span>
-    <span class="summary-chip" id="summaryEdited">Not yet published</span>
+    <span class="summary-chip" id="summaryNetwork">Routing not loaded</span>
+    <span class="summary-chip" id="summaryEdited">No unpublished export</span>
+  </div>
+
+  <div class="review-map-note">
+    <strong>Editing background</strong>
+    <div class="segmented review-map-style" role="group" aria-label="Choose editing background">
+      <button class="review-map-style-button active" data-review-map-style="street">Street</button>
+      <button class="review-map-style-button" data-review-map-style="satellite">Satellite</button>
+      <button class="review-map-style-button" data-review-map-style="official" disabled>Official</button>
+    </div>
+    <span>Use Street or Satellite for precise path geometry. Use Official to place items shown on the tournament drawing.</span>
   </div>
 
   <div id="reviewMap" class="geo-map"></div>
 
   <section id="reviewDetails" class="review-details">
-    <h2>Review workflow</h2>
-    <p>
-      Load the published data or import a JSON file. Click any point or route to edit its name,
-      type/status, nearest area, and notes. Enable point dragging to correct a marker location.
-      Use <strong>Add a location by tapping map</strong> for new hospitality, viewing, merchandise, or other destinations you can identify on Street or Satellite. New and moved destination points automatically connect to the nearest existing spectator-path node. Editing route geometry or access may still require a network rebuild.
-    </p>
+    <h2>Loading the current public map…</h2>
+    <p>The editor will load <code>verified-data.json</code> automatically.</p>
   </section>
 
-  <section class="panel add-location-help">
-    <h2>Adding a location after leaving the course</h2>
-    <p>Load the published data, choose <strong>Add a location by tapping map</strong>, complete the location details, and tap the public entrance or approach point on Street or Satellite. For VIP or hospitality areas, identify whether credentials are required in the notes. Export a new <code>verified-data.json</code> when finished.</p>
-  </section>
-
-  <section class="panel">
-    <h2>Publishing step</h2>
+  <section class="panel publish-panel">
+    <h2>Save and publish</h2>
     <p>
-      The public export downloads a file named <code>verified-data.json</code>. Upload that file into
-      the <strong>root</strong> of the GitHub repository and replace the existing file. After GitHub
-      Pages deploys, all spectators and volunteers using the main link will see the published points
-      and path lines automatically.
+      The public export automatically rebuilds the routing network from the edited path geometry and
+      reconnects every destination to its nearest path node.
     </p>
+    <div class="button-row">
+      <button id="rebuildNetwork" class="button">Rebuild routing now</button>
+      <button id="exportReview" class="button">Export editable backup</button>
+      <button id="exportPublic" class="button good">Export verified-data.json</button>
+    </div>
   </section>
 </div>
 
-<script src="simple-map.js?v=420"></script>
-<script src="shared.js?v=420"></script>
-<script src="review.js?v=420"></script>
+<script src="simple-map.js?v=440"></script>
+<script src="shared.js?v=440"></script>
+<script src="review.js?v=440"></script>
 </body>
 </html>

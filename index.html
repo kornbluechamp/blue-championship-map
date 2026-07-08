@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b5684">
   <title>TPC Colorado Course Guide</title>
-  <link rel="manifest" href="manifest.json?v=420">
-  <link rel="stylesheet" href="simple-map.css?v=420">
-  <link rel="stylesheet" href="styles.css?v=420">
+  <link rel="manifest" href="manifest.json?v=440">
+  <link rel="stylesheet" href="simple-map.css?v=440">
+  <link rel="stylesheet" href="styles.css?v=440">
 </head>
 <body>
 <header class="app-header">
@@ -73,13 +73,14 @@
       <strong>Show on map</strong>
       <label><input type="checkbox" data-filter="restrooms" checked> Restrooms</label>
       <label><input type="checkbox" data-filter="firstaid" checked> First aid</label>
-      <label><input type="checkbox" data-filter="food" checked> Food &amp; water</label>
+      <label><input type="checkbox" data-filter="concessions" checked> Concessions</label>
+      <label><input type="checkbox" data-filter="scoreboards" checked> Scoreboards</label>
       <label><input type="checkbox" data-filter="places" checked> Public places &amp; hospitality</label>
       <label><input type="checkbox" data-filter="paths" checked> Spectator paths</label>
       <label><input type="checkbox" data-filter="holes"> Hole references</label>
       <label><input type="checkbox" data-filter="junctions"> Junctions &amp; crossings</label>
     </section>
-    <div class="path-key"><span class="key-blue"></span> Spectator path <span class="key-orange"></span> Active street crossing <span class="key-red"></span> Restricted</div>
+    <div class="path-key"><span class="key-blue"></span> Spectator path <span class="key-orange"></span> Spectator crossing; may pause during play <span class="key-red"></span> Public street crossing; extra caution</div>
 
     <div id="navigateMap" class="geo-map"></div>
     <section id="navigateStatus" class="status-card">
@@ -106,13 +107,13 @@
   <button id="shareApp" class="tool-link">Share this public map</button>
   <hr>
   <h3>Data tools</h3>
-  <a class="tool-link" href="scout.html?v=420">Scout &amp; Trace</a>
-  <a class="tool-link" href="review.html?v=420">Review, add, and publish locations</a>
+  <a class="tool-link" href="scout.html?v=440">Scout &amp; Trace</a>
+  <a class="tool-link" href="review.html?v=440">Edit destinations and path geometry</a>
   <p class="small">Spectators do not need to import files. Published data loads automatically.</p>
 </aside>
 
-<script src="simple-map.js?v=420"></script>
-<script src="shared.js?v=420"></script>
-<script src="app.js?v=420"></script>
+<script src="simple-map.js?v=440"></script>
+<script src="shared.js?v=440"></script>
+<script src="app.js?v=440"></script>
 </body>
 </html>

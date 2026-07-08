@@ -59,3 +59,56 @@ code{background:#edf2f5;padding:2px 5px;border-radius:4px}
 .add-location-help{background:#eef8f2}
 @media(max-width:700px){.destination-buttons{grid-template-columns:1fr}.destination-selectors{grid-template-columns:1fr}.destination-button{justify-content:flex-start;padding-left:18px}.setting-row{align-items:flex-start}.segmented{width:100%}.segmented button{flex:1}.compare-controls{align-items:flex-start}.filter-panel{display:grid;grid-template-columns:1fr 1fr}.filter-panel strong{grid-column:1/-1}}
 @media(max-width:420px){.filter-panel{grid-template-columns:1fr}.inline-control{flex-direction:column}.inline-control button{width:100%}}
+
+
+/* Version 4.3 route and destination editor */
+.editor-intro h2{margin-top:0}
+.editor-mode-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.editor-mode-card{border:2px solid #aebdca;border-radius:12px;background:#f8fbfd;padding:13px;text-align:left;color:var(--ink)}
+.editor-mode-card strong{display:block;color:var(--navy);margin-bottom:4px}
+.editor-mode-card span{display:block;font-size:.82rem;line-height:1.35;color:#53616d}
+.editor-mode-card.active-mode{background:#e4f1f8;border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,86,132,.12)}
+.route-picker{margin-top:13px;padding-top:12px;border-top:1px solid var(--line)}
+.route-picker-row{display:flex;gap:8px;margin-top:6px}
+.route-picker-row select{flex:1;min-width:0;padding:10px;border:1px solid #aebdca;border-radius:9px;background:#fff}
+.review-map-note{background:#eaf4fa;border:1px solid #b5cfdf;border-radius:10px;padding:9px 11px;margin:8px 0;font-size:.84rem}
+.summary-warning{background:#fff1c9;border-color:#d5b35e}
+.edit-hint{background:#eef6fa;border:1px solid #bdd2df;border-radius:9px;padding:9px}
+.selection-message{background:#fff3cf;border:1px solid #d9bb69;border-radius:9px;padding:9px;font-weight:700}
+.street-crossing-note{background:#fff0dc;border:1px solid #dfa665;border-radius:9px;padding:9px;color:#7b4300}
+.compact-steps{padding-left:22px;line-height:1.5}
+.route-edit-handle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#7736a8;border:3px solid #fff;color:#fff;font-weight:900;box-shadow:0 2px 9px rgba(0,0,0,.4);font-size:13px}
+.route-edit-handle.endpoint{background:#164e8c}
+.route-edit-handle.selected{background:#db2d2d;outline:4px solid rgba(219,45,45,.25)}
+.route-edit-handle.draft-handle{background:#7736a8;font-size:10px}
+.route-editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.route-selection-box{border:1px solid var(--line);border-radius:9px;background:#f8fafb;padding:10px;min-height:70px}
+.route-edit-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
+.route-editor-help{background:#eaf6ef;border:1px solid #9fcbb5;border-radius:9px;padding:10px;margin:10px 0;line-height:1.4}
+.route-shape-button{background:#7736a8!important;color:#fff!important}
+.publish-panel{background:#eef8f2}
+@media(max-width:760px){
+  .editor-mode-grid{grid-template-columns:1fr}
+  .route-picker-row{flex-direction:column}
+  .route-editor-grid{grid-template-columns:1fr}
+  .route-edit-actions{grid-template-columns:1fr}
+}
+
+/* Version 4.4 crossing-section editor and scoreboards */
+.marker-scoreboard{background:#6a4b1f}
+.review-map-note{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.review-map-style{display:inline-flex}
+.review-map-style-button{border:1px solid #9fb0bd;background:#fff;padding:8px 11px;font-weight:800}
+.review-map-style-button:first-child{border-radius:8px 0 0 8px}
+.review-map-style-button:last-child{border-radius:0 8px 8px 0}
+.review-map-style-button.active{background:#0b5684;color:#fff;border-color:#0b5684}
+.review-map-style-button:disabled{opacity:.45}
+.spectator-crossing-note{background:#fff2df;border:1px solid #e0a35c;border-radius:9px;padding:9px;color:#824700}
+.street-crossing-note{background:#fde8e8;border:1px solid #dc8c8c;border-radius:9px;padding:9px;color:#8b1e1e}
+.section-type-editor{background:#f7f2fb;border:1px solid #c8abd9;border-radius:11px;padding:12px;margin:12px 0}
+.section-type-editor h3{margin:0 0 6px;color:#5d287e}
+.section-boundary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;margin:9px 0}
+.crossing-apply{background:#6d338e!important;color:#fff!important}
+.open-area-guidance{background:#eaf6ef;border:1px solid #9fcbb5;border-radius:9px;padding:10px;margin:10px 0;line-height:1.4}
+@media(max-width:720px){.section-boundary-grid{grid-template-columns:1fr}}
+.route-edit-handle.section-boundary{background:#e07a00}
