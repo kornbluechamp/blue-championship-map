@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const base=baseLayers();
   const officialConfig=verified.officialOverlay||null;
   const officialBounds=officialConfig?.bounds||null;
-  const officialOverlay=officialConfig?L.imageOverlay(`${officialConfig.image}?v=450`,officialBounds,{opacity:.6,alt:'Official illustrated course overlay'}):null;
-  const officialOpaque=officialConfig?L.imageOverlay(`${officialConfig.opaqueImage||officialConfig.image}?v=450`,officialBounds,{opacity:1,alt:'Official illustrated course map'}):null;
+  const officialOverlay=officialConfig?L.imageOverlay(`${officialConfig.image}?v=460`,officialBounds,{opacity:.6,alt:'Official illustrated course overlay'}):null;
+  const officialOpaque=officialConfig?L.imageOverlay(`${officialConfig.opaqueImage||officialConfig.image}?v=460`,officialBounds,{opacity:1,alt:'Official illustrated course map'}):null;
   let mapStyle='street',overlayOn=Boolean(officialConfig);
   const opacityWrap=document.getElementById('overlayOpacityWrap');
   const opacitySlider=document.getElementById('overlayOpacity');
@@ -378,4 +378,39 @@ document.addEventListener('DOMContentLoaded',async()=>{
   }else{
     setStatus('No published course data','The shared verified-data.json file is empty or could not be loaded.');
   }
+
+  const helpButton=document.getElementById('helpButton');
+  const helpDialog=document.getElementById('helpDialog');
+  const helpBackdrop=document.getElementById('helpBackdrop');
+  const closeHelpButton=document.getElementById('closeHelp');
+  const helpDoneButton=document.getElementById('helpDone');
+  let helpLastFocus=null;
+
+  function openHelp(){
+    helpLastFocus=document.activeElement;
+    helpDialog.classList.remove('hidden');
+    helpBackdrop.classList.remove('hidden');
+    helpBackdrop.setAttribute('aria-hidden','false');
+    helpButton.setAttribute('aria-expanded','true');
+    document.body.classList.add('help-open');
+    setTimeout(()=>helpDialog.focus(),0);
+  }
+
+  function closeHelp(){
+    helpDialog.classList.add('hidden');
+    helpBackdrop.classList.add('hidden');
+    helpBackdrop.setAttribute('aria-hidden','true');
+    helpButton.setAttribute('aria-expanded','false');
+    document.body.classList.remove('help-open');
+    if(helpLastFocus?.focus)helpLastFocus.focus();
+  }
+
+  helpButton?.addEventListener('click',openHelp);
+  closeHelpButton?.addEventListener('click',closeHelp);
+  helpDoneButton?.addEventListener('click',closeHelp);
+  helpBackdrop?.addEventListener('click',closeHelp);
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&!helpDialog.classList.contains('hidden'))closeHelp();
+  });
+
 });

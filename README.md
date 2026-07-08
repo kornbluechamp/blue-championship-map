@@ -95,7 +95,7 @@ Version 4.4 adds the final editing controls needed to maintain the published cou
 
 Open:
 
-`https://kornbluechamp.github.io/blue-championship-map/review.html?v=450`
+`https://kornbluechamp.github.io/blue-championship-map/review.html?v=460`
 
 The editor can:
 
@@ -123,4 +123,4 @@ After editing:
 2. Select **Export verified-data.json**.
 3. Upload `verified-data.json` to the root of the GitHub repository and replace the existing file.
 4. Wait for GitHub Pages deployment.
-5. Open the public map with `?v=450` while testing.
+5. Open the public map with `?v=460` while testing.

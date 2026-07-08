@@ -323,3 +323,157 @@ code{background:#edf2f5;padding:2px 5px;border-radius:4px}
   .location-controls .button{padding:7px 7px;font-size:.64rem}
   .filter-panel{grid-template-columns:1fr}
 }
+
+
+/* Version 4.6: compact help / FAQ bottom sheet */
+.map-help-button{
+  position:absolute;
+  z-index:42;
+  left:10px;
+  bottom:24px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  border:1px solid #9fb1bf;
+  border-radius:999px;
+  padding:8px 11px;
+  background:rgba(255,255,255,.96);
+  color:var(--navy);
+  box-shadow:0 3px 12px rgba(0,0,0,.22);
+  font-weight:900;
+  cursor:pointer;
+}
+.map-help-button span[aria-hidden="true"]{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  font-size:.82rem;
+}
+.help-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(9,28,40,.52);
+  backdrop-filter:blur(2px);
+}
+.help-dialog{
+  position:fixed;
+  z-index:1001;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:min(620px,calc(100% - 28px));
+  max-height:min(82vh,760px);
+  display:flex;
+  flex-direction:column;
+  border:1px solid #aebdca;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 18px 55px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+.help-dialog-handle{display:none}
+.help-dialog-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:18px 18px 13px;
+  background:#eef6fa;
+  border-bottom:1px solid var(--line);
+}
+.help-dialog-header h2{margin:0;color:var(--navy);font-size:1.16rem}
+.help-dialog-header p{margin:3px 0 0;color:#53616d;font-size:.82rem}
+.help-close-button{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  border:1px solid #aebdca;
+  border-radius:50%;
+  background:#fff;
+  color:var(--navy);
+  font-size:1.45rem;
+  line-height:1;
+  cursor:pointer;
+}
+.help-dialog-body{
+  padding:10px 14px;
+  overflow:auto;
+  overscroll-behavior:contain;
+}
+.help-dialog-body details{
+  border-bottom:1px solid #e2e9ee;
+  padding:2px 0;
+}
+.help-dialog-body details:last-child{border-bottom:0}
+.help-dialog-body summary{
+  cursor:pointer;
+  padding:12px 4px;
+  color:var(--navy);
+  font-weight:900;
+  line-height:1.25;
+}
+.help-dialog-body p{
+  margin:0 4px 13px;
+  color:#334653;
+  font-size:.9rem;
+  line-height:1.45;
+}
+.help-done-button{
+  margin:10px 14px 14px;
+  min-height:43px;
+}
+body.help-open{overflow:hidden}
+
+@media(max-width:700px){
+  .map-help-button{
+    left:7px;
+    bottom:24px;
+    padding:7px 9px;
+    font-size:.68rem;
+  }
+  .map-help-button span[aria-hidden="true"]{
+    width:19px;
+    height:19px;
+    font-size:.74rem;
+  }
+  .help-dialog{
+    left:0;
+    right:0;
+    top:auto;
+    bottom:0;
+    transform:none;
+    width:100%;
+    max-height:82dvh;
+    border-radius:20px 20px 0 0;
+    border-left:0;
+    border-right:0;
+    border-bottom:0;
+  }
+  .help-dialog-handle{
+    display:block;
+    width:42px;
+    height:5px;
+    margin:8px auto 0;
+    border-radius:999px;
+    background:#a9b8c2;
+  }
+  .help-dialog-header{padding:10px 14px 9px}
+  .help-dialog-header h2{font-size:1rem}
+  .help-dialog-header p{font-size:.72rem}
+  .help-close-button{width:34px;height:34px;font-size:1.25rem}
+  .help-dialog-body{padding:4px 12px 6px}
+  .help-dialog-body summary{padding:11px 3px;font-size:.85rem}
+  .help-dialog-body p{font-size:.78rem;line-height:1.4;margin-bottom:11px}
+  .help-done-button{margin:8px 12px calc(10px + env(safe-area-inset-bottom));min-height:41px}
+}
+
+@media(max-width:390px){
+  .help-button-label{display:none}
+  .map-help-button{padding:7px}
+}

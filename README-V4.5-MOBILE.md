@@ -22,4 +22,4 @@ so the newer public data already in GitHub remains unchanged.
 
 Test with:
 
-`https://kornbluechamp.github.io/blue-championship-map/?v=450`
+`https://kornbluechamp.github.io/blue-championship-map/?v=460`

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b5684">
   <title>TPC Colorado Course Guide</title>
-  <link rel="manifest" href="manifest.json?v=450">
-  <link rel="stylesheet" href="simple-map.css?v=450">
-  <link rel="stylesheet" href="styles.css?v=450">
+  <link rel="manifest" href="manifest.json?v=460">
+  <link rel="stylesheet" href="simple-map.css?v=460">
+  <link rel="stylesheet" href="styles.css?v=460">
 </head>
 <body class="public-map-page">
 <header class="app-header">
@@ -94,6 +94,11 @@
         </div>
       </section>
 
+      <button id="helpButton" class="map-help-button" type="button"
+              aria-haspopup="dialog" aria-controls="helpDialog" aria-expanded="false">
+        <span aria-hidden="true">?</span><span class="help-button-label"> Help</span>
+      </button>
+
       <div class="location-controls" aria-label="Location and navigation controls">
         <button id="locateMe" class="button primary">◎ My location</button>
         <button id="followMode" class="button">North up</button>
@@ -141,6 +146,75 @@
   </section>
 </main>
 
+
+<div id="helpBackdrop" class="help-backdrop hidden" aria-hidden="true"></div>
+
+<section id="helpDialog" class="help-dialog hidden" role="dialog" aria-modal="true"
+         aria-labelledby="helpTitle" tabindex="-1">
+  <div class="help-dialog-handle" aria-hidden="true"></div>
+
+  <div class="help-dialog-header">
+    <div>
+      <h2 id="helpTitle">How to use the course guide</h2>
+      <p>Quick answers for directions and map symbols</p>
+    </div>
+    <button id="closeHelp" class="help-close-button" type="button" aria-label="Close help">×</button>
+  </div>
+
+  <div class="help-dialog-body">
+    <details open>
+      <summary>How do I get directions?</summary>
+      <p>
+        Choose <strong>Restroom</strong>, <strong>First aid</strong>, <strong>Concessions</strong>,
+        a hole, or another destination. Allow location access when your phone asks.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why does the site need my location?</summary>
+      <p>
+        Your location is used on your phone to identify your starting point and show a walking route.
+        The public guide does not require an account.
+      </p>
+    </details>
+
+    <details>
+      <summary>What do the path colors mean?</summary>
+      <p>
+        <strong>Blue</strong> is a normal spectator path.
+        <strong>Orange</strong> is a playing-area crossing that may pause while golfers are hitting.
+        <strong>Red</strong> is a public street crossing where extra caution is needed.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why does the route sometimes end near a destination?</summary>
+      <p>
+        Some restrooms, concessions, scoreboards, and hospitality areas are in open spectator areas.
+        Walk from the mapped path to the marked destination while following ropes, signs, and staff guidance.
+      </p>
+    </details>
+
+    <details>
+      <summary>What if the course setup differs from the map?</summary>
+      <p>
+        Always follow tournament signs, ropes, security, accessibility guidance, marshals, and staff
+        instructions. They take priority over this unofficial guide.
+      </p>
+    </details>
+
+    <details>
+      <summary>What is the Official Map option?</summary>
+      <p>
+        It is the tournament's illustrated course map for reference. Use <strong>Live Map</strong>
+        for your phone location and walking directions.
+      </p>
+    </details>
+  </div>
+
+  <button id="helpDone" class="button primary help-done-button" type="button">Got it</button>
+</section>
+
 <aside id="toolsPanel" class="side-panel hidden">
   <button id="closeTools" class="panel-close">Close</button>
   <h2>Map tools</h2>
@@ -148,13 +222,13 @@
   <button id="shareApp" class="tool-link">Share this public map</button>
   <hr>
   <h3>Data tools</h3>
-  <a class="tool-link" href="scout.html?v=450">Scout &amp; Trace</a>
-  <a class="tool-link" href="review.html?v=450">Edit destinations and path geometry</a>
+  <a class="tool-link" href="scout.html?v=460">Scout &amp; Trace</a>
+  <a class="tool-link" href="review.html?v=460">Edit destinations and path geometry</a>
   <p class="small">Spectators do not need to import files. Published data loads automatically.</p>
 </aside>
 
-<script src="simple-map.js?v=450"></script>
-<script src="shared.js?v=450"></script>
-<script src="app.js?v=450"></script>
+<script src="simple-map.js?v=460"></script>
+<script src="shared.js?v=460"></script>
+<script src="app.js?v=460"></script>
 </body>
 </html>
