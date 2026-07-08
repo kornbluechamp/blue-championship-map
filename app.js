@@ -5,7 +5,41 @@ document.addEventListener('DOMContentLoaded',async()=>{
   }catch(err){console.error(err)}
 
   const map=L.map('navigateMap').setView(verified.mapCenter||[40.3384,-105.1099],verified.defaultZoom||15);
-  const base=baseLayers();base.osm.addTo(map);L.control.layers({'Street map':base.osm,'Satellite':base.imagery},{}).addTo(map);
+  const base=baseLayers();
+  base.osm.addTo(map);
+  const officialConfig=verified.officialOverlay||null;
+  const officialLayer=officialConfig?L.imageOverlay(
+    `${officialConfig.image}?v=410`,
+    officialConfig.bounds,
+    {opacity:officialConfig.defaultOpacity??.65,alt:'GPS-aligned official illustrated course map'}
+  ):null;
+  const mapStyle=document.getElementById('mapStyle');
+  const opacityWrap=document.getElementById('overlayOpacityWrap');
+  const opacitySlider=document.getElementById('overlayOpacity');
+
+  function applyMapStyle(style){
+    if(officialLayer)map.removeLayer(officialLayer);
+    opacityWrap.classList.add('hidden');
+    if(style==='satellite'){map.addLayer(base.imagery)}
+    else if(style==='official'){
+      if(map.baseLayer)map.removeLayer(map.baseLayer);
+      if(officialLayer){officialLayer.setOpacity(1);map.addLayer(officialLayer)}
+    }
+    else if(style==='street-overlay'){
+      map.addLayer(base.osm);
+      if(officialLayer){officialLayer.setOpacity(Number(opacitySlider.value)/100);map.addLayer(officialLayer);opacityWrap.classList.remove('hidden')}
+    }
+    else if(style==='satellite-overlay'){
+      map.addLayer(base.imagery);
+      if(officialLayer){officialLayer.setOpacity(Number(opacitySlider.value)/100);map.addLayer(officialLayer);opacityWrap.classList.remove('hidden')}
+    }
+    else map.addLayer(base.osm);
+  }
+  mapStyle.onchange=()=>applyMapStyle(mapStyle.value);
+  opacitySlider.oninput=()=>officialLayer?.setOpacity(Number(opacitySlider.value)/100);
+  if(!officialLayer){
+    [...mapStyle.options].filter(o=>o.value.includes('official')||o.value.includes('overlay')).forEach(o=>o.disabled=true);
+  }
   const dataGroup=L.featureGroup().addTo(map),routeGroup=L.featureGroup().addTo(map),locationGroup=L.featureGroup().addTo(map);
   const status=document.getElementById('navigateStatus'),locateButton=document.getElementById('locateMe'),followButton=document.getElementById('followMode');
   const filters={...verified.displayDefaults};
@@ -138,6 +172,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const panel=document.getElementById('toolsPanel');document.getElementById('menuButton').onclick=()=>panel.classList.remove('hidden');document.getElementById('closeTools').onclick=()=>panel.classList.add('hidden');
   document.getElementById('shareApp').onclick=async()=>{try{navigator.share?await navigator.share({title:document.title,url:location.href}):await navigator.clipboard.writeText(location.href)}catch(_){}};
 
-  if(verified.points.length||verified.routes.length)setStatus('Published course map ready',`${verified.points.length} mapped locations and ${verified.routes.length} path segments load automatically for every visitor. Hole references are hidden by default; use Filters to show them.`);
+  if(verified.points.length||verified.routes.length)setStatus('Published course map ready',`${verified.points.length} mapped locations and ${verified.routes.length} path segments load automatically for every visitor. Use Map background for Street, Satellite, the aligned Official course map, or an adjustable overlay. Hole references are hidden by default; use Filters to show them.`);
   else setStatus('No published course data','The shared verified-data.json file is empty or could not be loaded.');
 });

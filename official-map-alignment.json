@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "course": "TPC Colorado",
+  "image": "official-course-overview.jpg",
+  "imageWidth": 2400,
+  "imageHeight": 1462,
+  "createdAt": "2026-07-08T01:53:02.694Z",
+  "anchors": [
+    {
+      "pointId": "point-mrb1i2b7-7b549m",
+      "holeNumber": 1,
+      "role": "green",
+      "name": "Hole 1 Green",
+      "label": "Hole 1 Green",
+      "lat": 40.3384711,
+      "lng": -105.1065262,
+      "imageX": 1462.6666259765625,
+      "imageY": 860.7738189697266
+    },
+    {
+      "pointId": "point-mrb21rb8-xik05s",
+      "holeNumber": 2,
+      "role": "green",
+      "name": "Hole 2 Green",
+      "label": "Hole 2 Green",
+      "lat": 40.340496,
+      "lng": -105.1055458,
+      "imageX": 1620.2857666015625,
+      "imageY": 917.4404754638672
+    },
+    {
+      "pointId": "point-mrb2f5tq-741k0n",
+      "holeNumber": 3,
+      "role": "green",
+      "name": "Hole 3 Green",
+      "label": "Hole 3 Green",
+      "lat": 40.3400548,
+      "lng": -105.1088496,
+      "imageX": 1587.2381591796875,
+      "imageY": 772.0119018554688
+    },
+    {
+      "pointId": "point-mrb2zsgn-5jgg5h",
+      "holeNumber": 4,
+      "role": "green",
+      "name": "Hole 4 Green",
+      "label": "Hole 4 Green",
+      "lat": 40.3434329,
+      "lng": -105.1102703,
+      "imageX": 1823.0558763586957,
+      "imageY": 641.1987436915578
+    },
+    {
+      "pointId": "point-mrb3k1j9-5s1iby",
+      "holeNumber": 5,
+      "role": "green",
+      "name": "Hole 5 Green",
+      "label": "Hole 5 Green",
+      "lat": 40.3479615,
+      "lng": -105.1097372,
+      "imageX": 2117.217391304348,
+      "imageY": 729.9937797506899
+    },
+    {
+      "pointId": "point-mrb46zz0-b572ju",
+      "holeNumber": 6,
+      "role": "green",
+      "name": "Hole 6 Green",
+      "label": "Hole 6 Green",
+      "lat": 40.3485458,
+      "lng": -105.1136962,
+      "imageX": 2188.819972826087,
+      "imageY": 494.1179984513414
+    },
+    {
+      "pointId": "point-mrb4hie0-79jhvh",
+      "holeNumber": 7,
+      "role": "green",
+      "name": "Hole 7 Green",
+      "label": "Hole 7 Green",
+      "lat": 40.3458816,
+      "lng": -105.116416,
+      "imageX": 2006.211277173913,
+      "imageY": 303.65837475795405
+    },
+    {
+      "pointId": "point-mrb4msjv-3hgpml",
+      "holeNumber": 9,
+      "role": "tee",
+      "name": "Hole 9 Tee",
+      "label": "Hole 9 Tee",
+      "lat": 40.3460463,
+      "lng": -105.1155318,
+      "imageX": 1999.9006029211957,
+      "imageY": 351.2608593639391
+    },
+    {
+      "pointId": "point-mrb53oze-4zftgb",
+      "holeNumber": 10,
+      "role": "tee",
+      "name": "Hole 10 Tee",
+      "label": "Hole 10 Tee",
+      "lat": 40.3423009,
+      "lng": -105.11678,
+      "imageX": 1773.0187245244565,
+      "imageY": 268.03105114929633
+    },
+    {
+      "pointId": "point-mrb59m7z-k9l4f4",
+      "holeNumber": 10,
+      "role": "green",
+      "name": "Hole 10 Green",
+      "label": "Hole 10 Green",
+      "lat": 40.3397328,
+      "lng": -105.1163404,
+      "imageX": 1560.0496773097825,
+      "imageY": 284.4285593772258
+    },
+    {
+      "pointId": "point-mrb5jw1g-4ho2by",
+      "holeNumber": 11,
+      "role": "green",
+      "name": "Hole 11 Green",
+      "label": "Hole 11 Green",
+      "lat": 40.3420357,
+      "lng": -105.1136894,
+      "imageX": 1713.838527513587,
+      "imageY": 502.81364506531156
+    },
+    {
+      "pointId": "point-mrb5thqy-o9cxoe",
+      "holeNumber": 12,
+      "role": "green",
+      "name": "Hole 12 Green",
+      "label": "Hole 12 Green",
+      "lat": 40.3457633,
+      "lng": -105.1115863,
+      "imageX": 1959.6521739130435,
+      "imageY": 604.7266908912302
+    },
+    {
+      "pointId": "point-mrb6hciv-hoxlk9",
+      "holeNumber": 13,
+      "role": "green",
+      "name": "Hole 13 Green",
+      "label": "Hole 13 Green",
+      "lat": 40.3392582,
+      "lng": -105.11174,
+      "imageX": 1537.8882472826087,
+      "imageY": 616.204951427445
+    },
+    {
+      "pointId": "point-mrb6piut-dtd3fc",
+      "holeNumber": 14,
+      "role": "green",
+      "name": "Hole 14 Green",
+      "label": "Hole 14 Green",
+      "lat": 40.3391269,
+      "lng": -105.1077948,
+      "imageX": 1498.5341372282608,
+      "imageY": 811.0869382736486
+    },
+    {
+      "pointId": "point-mrb736qz-4mwnsn",
+      "holeNumber": 15,
+      "role": "green",
+      "name": "Hole 15 Green",
+      "label": "Hole 15 Green",
+      "lat": 40.3338079,
+      "lng": -105.1054498,
+      "imageX": 1147.2795091711957,
+      "imageY": 927.5589701747087
+    },
+    {
+      "pointId": "point-mrazzz56-vptv9p",
+      "holeNumber": 16,
+      "role": "green",
+      "name": "Hole 16 Green",
+      "label": "Hole 16 Green",
+      "lat": 40.3323344,
+      "lng": -105.1060058,
+      "imageX": 1071.1552734375,
+      "imageY": 899.1366395633262
+    },
+    {
+      "pointId": "point-mrazo0h8-smspji",
+      "holeNumber": 18,
+      "role": "green",
+      "name": "Hole 18 Green",
+      "label": "Hole 18 Green",
+      "lat": 40.33219,
+      "lng": -105.1049534,
+      "imageX": 1027.4782820991848,
+      "imageY": 950.2173637082423
+    },
+    {
+      "pointId": "point-mrb0ez3e-g3otvn",
+      "holeNumber": 18,
+      "role": "tee",
+      "name": "Hole 18 Tee",
+      "label": "Hole 18 Tee",
+      "lat": 40.3278505,
+      "lng": -105.105801,
+      "imageX": 723.6770125679348,
+      "imageY": 918.9130167912926
+    },
+    {
+      "pointId": "point-mrb0dduk-pi3jfn",
+      "holeNumber": 17,
+      "role": "green",
+      "name": "Hole 17 Green",
+      "label": "Hole 17 Green",
+      "lat": 40.3279161,
+      "lng": -105.1063813,
+      "imageX": 766.459621263587,
+      "imageY": 896.8509101799798
+    },
+    {
+      "pointId": "point-mrb01j0v-p5ys7c",
+      "holeNumber": 17,
+      "role": "tee",
+      "name": "Hole 17 Tee",
+      "label": "Hole 17 Tee",
+      "lat": 40.3322602,
+      "lng": -105.1062186,
+      "imageX": 1045.614894701087,
+      "imageY": 895.1117904105143
+    },
+    {
+      "pointId": "point-mrb4hx2h-2ts5me",
+      "holeNumber": 8,
+      "role": "tee",
+      "name": "Hole 8 Tee",
+      "label": "Hole 8 Tee",
+      "lat": 40.3458128,
+      "lng": -105.1165803,
+      "imageX": 1983.3541100543478,
+      "imageY": 320.6521619469971
+    }
+  ]
+}

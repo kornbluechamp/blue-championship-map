@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "official-course-overview.jpg",
+  "method": "piecewise affine rubber-sheet using confirmed GPS tee/green anchors",
+  "anchorCount": 21,
+  "width": 1600,
+  "height": 2164,
+  "bounds": {
+    "south": 40.32587470634827,
+    "west": -105.12092583291178,
+    "north": 40.35035060211823,
+    "east": -105.09717800513117
+  },
+  "confirmedAt": "2026-07-08T01:53:02.694Z",
+  "disclaimer": "Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation."
+}

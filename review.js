@@ -1,5 +1,6 @@
 
 document.addEventListener('DOMContentLoaded',()=>{
+  const OFFICIAL_OVERLAY={image:'official-course-georeferenced.webp',bounds:[[40.32587470634827,-105.12092583291178],[40.35035060211823,-105.09717800513117]],defaultOpacity:.65,anchorCount:21,alignedAt:'2026-07-08T01:53:02.694Z',method:'piecewise affine rubber-sheet using confirmed GPS tee/green anchors',disclaimer:'Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation.'};
   let data=emptyDataset(),drag=false,selected=null;
   const map=L.map('reviewMap').setView([40.3328434,-105.1031801],15);
   const layers=baseLayers();
