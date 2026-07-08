@@ -1,13 +1,14 @@
 
 document.addEventListener('DOMContentLoaded',()=>{
   const OFFICIAL_OVERLAY={image:'official-course-georeferenced.webp',bounds:[[40.32587470634827,-105.12092583291178],[40.35035060211823,-105.09717800513117]],defaultOpacity:.65,anchorCount:21,alignedAt:'2026-07-08T01:53:02.694Z',method:'piecewise affine rubber-sheet using confirmed GPS tee/green anchors',disclaimer:'Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation.'};
-  let data=emptyDataset(),drag=false,selected=null;
+  let data=emptyDataset(),drag=false,selected=null,addMode=false,draftLatLng=null;
   const map=L.map('reviewMap').setView([40.3328434,-105.1031801],15);
   const layers=baseLayers();
   layers.osm.addTo(map);
   L.control.layers({'Street map':layers.osm,'Satellite':layers.imagery},null,{position:'topright'}).addTo(map);
 
   const group=L.featureGroup().addTo(map);
+  const draftGroup=L.featureGroup().addTo(map);
   const details=document.getElementById('reviewDetails');
 
   const pointTypes=[
@@ -34,6 +35,44 @@ document.addEventListener('DOMContentLoaded',()=>{
     return options.map(([value,label])=>
       `<option value="${escapeHtml(value)}" ${value===current?'selected':''}>${escapeHtml(label)}</option>`
     ).join('');
+  }
+
+  function pointMetadata(type){
+    return{
+      iconType:(type==='restroom'||type==='accessible_restroom')?'restroom':type,
+      accessible:type==='accessible_restroom',
+      group:type==='hole'?'holes':(['junction','crossing'].includes(type)?'junctions':(['volunteer','restriction'].includes(type)?'staff':(['hospitality','proshop','clubhouse','gate','expo','viewing'].includes(type)?'places':'amenities'))),
+      defaultVisible:!['hole','junction','crossing','volunteer','restriction'].includes(type)
+    };
+  }
+
+  function nearestNetworkAttachment(ll){
+    let best=-1,bestD=Infinity;
+    (data.network?.nodes||[]).forEach((n,i)=>{const d=haversine(ll,{lat:n[0],lng:n[1]});if(d<bestD){bestD=d;best=i}});
+    return{networkNode:best>=0?best:null,networkAccessMeters:Number.isFinite(bestD)?bestD:null};
+  }
+
+  function attachPointToNetwork(p){Object.assign(p,nearestNetworkAttachment(p));return p;}
+
+  function cancelAddMode(){addMode=false;draftLatLng=null;draftGroup.clearLayers();document.getElementById('addPoint').textContent='Add a location by tapping map';}
+
+  function startAddPoint(){
+    addMode=true;draftLatLng=null;draftGroup.clearLayers();document.getElementById('addPoint').textContent='Cancel adding location';
+    details.innerHTML=`
+      <h2>Add a new destination</h2>
+      <p><strong>Step 1:</strong> Complete the fields. <strong>Step 2:</strong> tap the public entrance or approach point on the map. <strong>Step 3:</strong> save.</p>
+      <div class="field"><label>Name</label><input id="newName" placeholder="Example: Heroes Watch public entrance"></div>
+      <div class="field"><label>Type</label><select id="newType">${optionHtml(pointTypes,'hospitality')}</select></div>
+      <div class="field"><label>Nearest hole / area</label><input id="newNearest" placeholder="Example: Hole 18 green"></div>
+      <div class="field"><label>Directions, access, or restrictions</label><textarea id="newNotes" placeholder="Example: Credentialed hospitality. Public entrance faces the main spectator path."></textarea></div>
+      <p id="newCoordinates" class="small">No map location selected yet.</p>
+      <div class="button-row"><button id="saveNewPoint" class="button good" disabled>Save new location</button><button id="cancelNewPoint" class="button">Cancel</button></div>`;
+    document.getElementById('cancelNewPoint').onclick=()=>{cancelAddMode();details.innerHTML='<h2>Add cancelled</h2><p>No location was added.</p>'};
+    document.getElementById('saveNewPoint').onclick=()=>{
+      const name=document.getElementById('newName').value.trim();if(!name)return alert('Enter a location name.');if(!draftLatLng)return alert('Tap the map to place the location.');
+      const type=document.getElementById('newType').value,p={id:uid('point'),type,name,nearest:document.getElementById('newNearest').value.trim(),notes:document.getElementById('newNotes').value.trim(),lat:draftLatLng.lat,lng:draftLatLng.lng,accuracy:0,source:'map',createdAt:new Date().toISOString(),addedManually:true,...pointMetadata(type)};
+      attachPointToNetwork(p);data.points.push(p);saveDataset(data);cancelAddMode();render();show('point',p);map.setView([p.lat,p.lng],Math.max(map.zoom,17));
+    };
   }
 
   function normalizeImported(d){
@@ -71,7 +110,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         p.lat=ll.lat;
         p.lng=ll.lng;
         p.editedAt=new Date().toISOString();
-        data.networkNeedsRebuild=true;
+        attachPointToNetwork(p);
         saveDataset(data);
         show('point',p);
       },
@@ -126,10 +165,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         item.type=document.getElementById('editType').value;
         item.nearest=document.getElementById('editNearest').value.trim();
         item.notes=document.getElementById('editNotes').value.trim();
-        item.iconType=(item.type==='restroom'||item.type==='accessible_restroom')?'restroom':item.type;
-        item.accessible=item.type==='accessible_restroom';
-        item.group=item.type==='hole'?'holes':(item.type==='junction'||item.type==='crossing')?'junctions':(item.type==='volunteer'||item.type==='restriction')?'staff':(item.type==='hospitality'||item.type==='proshop'||item.type==='clubhouse'||item.type==='gate'||item.type==='expo'||item.type==='viewing')?'places':'amenities';
-        item.defaultVisible=!['hole','junction','crossing','volunteer','restriction'].includes(item.type);
+        Object.assign(item,pointMetadata(item.type));
+        attachPointToNetwork(item);
         item.editedAt=new Date().toISOString();
         saveReview();
         show('point',item);
@@ -140,6 +177,14 @@ document.addEventListener('DOMContentLoaded',()=>{
         <div class="field">
           <label>Route name</label>
           <input id="editRouteName" value="${escapeHtml(item.name||'')}">
+        </div>
+        <div class="field">
+          <label>Route display</label>
+          <select id="editRouteType">
+            <option value="path" ${!item.routeType||item.routeType==='path'?'selected':''}>Normal spectator path</option>
+            <option value="street_crossing" ${item.routeType==='street_crossing'?'selected':''}>Active street crossing</option>
+            <option value="connector" ${item.routeType==='connector'?'selected':''}>Short connector between scouted endpoints</option>
+          </select>
         </div>
         <div class="field">
           <label>Route status</label>
@@ -172,7 +217,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
       document.getElementById('saveSelected').onclick=()=>{
         item.name=document.getElementById('editRouteName').value.trim()||item.name;
+        const oldStatus=item.status;item.routeType=document.getElementById('editRouteType').value;
         item.status=document.getElementById('editRouteStatus').value;
+        if(oldStatus!==item.status)data.networkNeedsRebuild=true;
         item.notes=document.getElementById('editRouteNotes').value.trim();
         item.editedAt=new Date().toISOString();
         saveReview();
@@ -181,21 +228,21 @@ document.addEventListener('DOMContentLoaded',()=>{
 
       document.getElementById('cleanRoute').onclick=()=>{
         const limit=Number(document.getElementById('accuracyLimit').value||25);
-        item.points=(item.points||[]).filter(p=>(p.accuracy||0)<=limit);
+        item.points=(item.points||[]).filter(p=>(p.accuracy||0)<=limit);data.networkNeedsRebuild=true;
         item.editedAt=new Date().toISOString();
         saveReview();
         show('route',item);
       };
 
       document.getElementById('trimStart').onclick=()=>{
-        if(item.points?.length)item.points.shift();
+        if(item.points?.length)item.points.shift();data.networkNeedsRebuild=true;
         item.editedAt=new Date().toISOString();
         saveReview();
         show('route',item);
       };
 
       document.getElementById('trimEnd').onclick=()=>{
-        if(item.points?.length)item.points.pop();
+        if(item.points?.length)item.points.pop();data.networkNeedsRebuild=true;
         item.editedAt=new Date().toISOString();
         saveReview();
         show('route',item);
@@ -205,7 +252,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('deleteSelected').onclick=()=>{
       if(!confirm(`Delete this ${type}?`))return;
       if(type==='point')data.points=data.points.filter(p=>p.id!==item.id);
-      else data.routes=data.routes.filter(r=>r.id!==item.id);
+      else{data.routes=data.routes.filter(r=>r.id!==item.id);data.networkNeedsRebuild=true;}
       selected=null;
       saveReview();
       details.innerHTML='<h2>Deleted</h2><p>The reviewed dataset has been updated.</p>';
@@ -268,6 +315,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     e.target.textContent=drag?'Disable point dragging':'Enable point dragging';
     render();
   };
+
+  document.getElementById('addPoint').onclick=()=>{if(addMode){cancelAddMode();details.innerHTML='<h2>Add cancelled</h2><p>No location was added.</p>'}else startAddPoint()};
+  map.on('click',e=>{
+    if(!addMode)return;draftLatLng=e.latlng;draftGroup.clearLayers();draftGroup.addLayer(L.marker([draftLatLng.lat,draftLatLng.lng],{icon:pointIcon('hospitality')}));
+    const line=document.getElementById('newCoordinates'),save=document.getElementById('saveNewPoint');if(line)line.textContent=`Selected coordinates: ${draftLatLng.lat.toFixed(7)}, ${draftLatLng.lng.toFixed(7)}. Tap elsewhere to move it.`;if(save)save.disabled=false;
+  });
 
   document.getElementById('exportReview').onclick=()=>{
     downloadJson(

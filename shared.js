@@ -39,8 +39,10 @@ function addDatasetToMap(map,data,group,options={}){
   });
   (data.routes||[]).forEach(r=>{
     if(!r.points?.length||(options.routeFilter&&!options.routeFilter(r)))return;
-    let style=r.status==='restricted'?{color:'#b3261e',dashArray:'8 6',weight:5}:r.status==='conditional'?{color:'#d07b00',dashArray:'10 5',weight:5}:{color:r.generated?'#3187a8':'#1769aa',weight:r.generated?4:5,dashArray:r.generated?'5 4':null};
-    const line=L.polyline(r.points.map(p=>[p.lat,p.lng]),style).bindPopup(`<strong>${escapeHtml(r.name)}</strong><br>${escapeHtml(r.status||'allowed')}${r.generated?'<br><small>Connected from nearby scouted references</small>':''}${r.notes?`<br>${escapeHtml(r.notes)}`:''}<br><small>${feet(routeDistance(r.points))} ft</small>`);
+    const streetCrossing=r.routeType==='street_crossing';
+    let style=streetCrossing?{color:'#d96b00',weight:7}:r.status==='restricted'?{color:'#b3261e',dashArray:'8 6',weight:5}:r.status==='conditional'?{color:'#d07b00',dashArray:'10 5',weight:5}:{color:'#1769aa',weight:5};
+    const routeLabel=streetCrossing?'Active street crossing':r.status==='restricted'?'Restricted route':r.status==='conditional'?'Conditional route':'Spectator path';
+    const line=L.polyline(r.points.map(p=>[p.lat,p.lng]),style).bindPopup(`<strong>${escapeHtml(r.name)}</strong><br>${escapeHtml(routeLabel)}${r.generated&&!streetCrossing?'<br><small>Short connected gap between scouted path endpoints</small>':''}${r.notes?`<br>${escapeHtml(r.notes)}`:''}<br><small>${feet(routeDistance(r.points))} ft</small>`);
     line._dataId=r.id;line._dataType='route';group.addLayer(line);routeLayers.push(line);if(options.onSelect)line.on('click',()=>options.onSelect('route',r));
   });
   return{pointMarkers,routeLayers};

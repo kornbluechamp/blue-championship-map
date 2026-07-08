@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0b5684">
   <title>Review and Publish Scouting Data</title>
-  <link rel="stylesheet" href="simple-map.css?v=410">
-  <link rel="stylesheet" href="styles.css?v=410">
+  <link rel="stylesheet" href="simple-map.css?v=420">
+  <link rel="stylesheet" href="styles.css?v=420">
 </head>
 <body>
 <header class="app-header">
@@ -32,6 +32,7 @@
     <button id="loadPublished">Load published data</button>
     <button id="loadLocal">Load this device</button>
     <button id="fitAll">Fit all data</button>
+    <button id="addPoint" class="button primary">Add a location by tapping map</button>
     <button id="toggleDrag">Enable point dragging</button>
     <button id="exportReview">Export reviewed backup</button>
     <button id="exportPublic" class="button good">Export for public map</button>
@@ -51,8 +52,13 @@
     <p>
       Load the published data or import a JSON file. Click any point or route to edit its name,
       type/status, nearest area, and notes. Enable point dragging to correct a marker location.
-      Name and category changes can be republished directly. Moving points, deleting paths, or changing route access requires the routing network to be rebuilt.
+      Use <strong>Add a location by tapping map</strong> for new hospitality, viewing, merchandise, or other destinations you can identify on Street or Satellite. New and moved destination points automatically connect to the nearest existing spectator-path node. Editing route geometry or access may still require a network rebuild.
     </p>
+  </section>
+
+  <section class="panel add-location-help">
+    <h2>Adding a location after leaving the course</h2>
+    <p>Load the published data, choose <strong>Add a location by tapping map</strong>, complete the location details, and tap the public entrance or approach point on Street or Satellite. For VIP or hospitality areas, identify whether credentials are required in the notes. Export a new <code>verified-data.json</code> when finished.</p>
   </section>
 
   <section class="panel">
@@ -66,8 +72,8 @@
   </section>
 </div>
 
-<script src="simple-map.js?v=410"></script>
-<script src="shared.js?v=410"></script>
-<script src="review.js?v=410"></script>
+<script src="simple-map.js?v=420"></script>
+<script src="shared.js?v=420"></script>
+<script src="review.js?v=420"></script>
 </body>
 </html>

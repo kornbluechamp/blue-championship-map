@@ -1,5 +1,5 @@
 {
-  "version": "4.1",
+  "version": 6,
   "eventName": "The Blue Championship",
   "courseName": "TPC Colorado",
   "sourceExportedAt": "2026-07-07T22:11:42.891Z",
@@ -10,12 +10,13 @@
   ],
   "defaultZoom": 15,
   "displayDefaults": {
-    "amenities": true,
+    "restrooms": true,
+    "firstaid": true,
+    "food": true,
     "places": true,
     "paths": true,
     "holes": false,
-    "junctions": false,
-    "staff": false
+    "junctions": false
   },
   "points": [
     {
@@ -3776,13 +3777,14 @@
           "lat": 40.3320594,
           "lng": -105.104775
         }
-      ]
+      ],
+      "routeType": "connector"
     },
     {
       "id": "connector-02",
-      "name": "Hole 1 / Hole 2 Crossing Connector",
-      "status": "allowed",
-      "notes": "Connects the Hole 1/15 crossing to the Hole 2 street crossing using recorded crossing points.",
+      "name": "Active street crossing between Holes 1 and 2",
+      "status": "conditional",
+      "notes": "Active street crossing. Cross only at the marked crossing and follow tournament signs, traffic controls, and staff instructions.",
       "source": "generated-from-scouted-points",
       "generated": true,
       "points": [
@@ -3798,7 +3800,8 @@
           "lat": 40.3383747,
           "lng": -105.105989
         }
-      ]
+      ],
+      "routeType": "street_crossing"
     },
     {
       "id": "connector-03",
@@ -3816,7 +3819,8 @@
           "lat": 40.3455573,
           "lng": -105.1104081
         }
-      ]
+      ],
+      "routeType": "connector"
     },
     {
       "id": "connector-04",
@@ -3850,13 +3854,14 @@
           "lat": 40.3424783,
           "lng": -105.116845
         }
-      ]
+      ],
+      "routeType": "connector"
     },
     {
       "id": "connector-05",
-      "name": "Hole 10 / Hole 11 Connector",
-      "status": "allowed",
-      "notes": "Closes the recorded gap at the Hole 10/11 street crossing.",
+      "name": "Active street crossing between Holes 10 and 11",
+      "status": "conditional",
+      "notes": "Active street crossing. Cross only at the marked crossing and follow tournament signs, traffic controls, and staff instructions.",
       "source": "generated-from-scouted-points",
       "generated": true,
       "points": [
@@ -3872,7 +3877,8 @@
           "lat": 40.3392119,
           "lng": -105.1158264
         }
-      ]
+      ],
+      "routeType": "street_crossing"
     },
     {
       "id": "connector-06",
@@ -3894,7 +3900,8 @@
           "lat": 40.3423112,
           "lng": -105.1136275
         }
-      ]
+      ],
+      "routeType": "connector"
     },
     {
       "id": "connector-07",
@@ -3920,13 +3927,14 @@
           "lat": 40.3454155,
           "lng": -105.1108885
         }
-      ]
+      ],
+      "routeType": "connector"
     },
     {
       "id": "connector-08",
-      "name": "Hole 13 / Hole 14 Connector",
-      "status": "allowed",
-      "notes": "Connects the Hole 13/14 crossing to the Hole 14 tee path.",
+      "name": "Active street crossing between Holes 13 and 14",
+      "status": "conditional",
+      "notes": "Active street crossing. Cross only at the marked crossing and follow tournament signs, traffic controls, and staff instructions.",
       "source": "generated-from-scouted-points",
       "generated": true,
       "points": [
@@ -3946,7 +3954,8 @@
           "lat": 40.3385163,
           "lng": -105.1108302
         }
-      ]
+      ],
+      "routeType": "street_crossing"
     },
     {
       "id": "connector-10",
@@ -3964,7 +3973,8 @@
           "lat": 40.3464015,
           "lng": -105.1153802
         }
-      ]
+      ],
+      "routeType": "connector"
     }
   ],
   "anchors": [
@@ -16699,6 +16709,7 @@
     "anchorCount": 21,
     "alignedAt": "2026-07-08T01:53:02.694Z",
     "method": "piecewise affine rubber-sheet using confirmed GPS tee/green anchors",
-    "disclaimer": "Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation."
+    "disclaimer": "Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation.",
+    "opaqueImage": "official-course-georeferenced-opaque.webp"
   }
 }
