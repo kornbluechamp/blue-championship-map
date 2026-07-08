@@ -1,9 +1,9 @@
 {
-  "version": 5,
+  "version": "4.1",
   "eventName": "The Blue Championship",
   "courseName": "TPC Colorado",
   "sourceExportedAt": "2026-07-07T22:11:42.891Z",
-  "publishedAt": "2026-07-08T00:56:10.779058+00:00",
+  "publishedAt": "2026-07-08T02:10:00.000Z",
   "mapCenter": [
     40.3384223,
     -105.1104679
@@ -16682,5 +16682,23 @@
     "The Hole 8 cart path was intentionally not added because it was identified as unavailable to spectators.",
     "Short high-confidence gaps were connected using scouted endpoints and recorded junction/destination points.",
     "Generated connector paths should be treated as approximate and tournament signs and staff always control."
-  ]
+  ],
+  "officialOverlay": {
+    "image": "official-course-georeferenced.webp",
+    "bounds": [
+      [
+        40.32587470634827,
+        -105.12092583291178
+      ],
+      [
+        40.35035060211823,
+        -105.09717800513117
+      ]
+    ],
+    "defaultOpacity": 0.65,
+    "anchorCount": 21,
+    "alignedAt": "2026-07-08T01:53:02.694Z",
+    "method": "piecewise affine rubber-sheet using confirmed GPS tee/green anchors",
+    "disclaimer": "Official illustrated overlay is approximate and visually simplified. GPS points and the spectator path network control navigation."
+  }
 }
